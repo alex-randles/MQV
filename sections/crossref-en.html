@@ -418,6 +418,8 @@ mqv:Agent   a owl:Class;
          <dd>
             <a href="#wasDerivedFrom" title="http://ontology.example.org/mqv#wasDerivedFrom">mqv:wasDerivedFrom</a>
             <sup class="type-op" title="object property">op</sup>
+            <a href="#wasDerivedFrom" title="http://ontology.example.org/mqv#wasDerivedFrom">mqv:isMeasurementOf</a>
+            <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
@@ -618,7 +620,7 @@ mqv:Agent   a owl:Class;
       <p>
          <strong>IRI:</strong> http://ontology.example.org/mqv#assessedMapping</p>
       <div class="comment">
-         <span class="markdown">The mapping document being assessed by the mapping quality assessment process.</span>
+         <span class="markdown">The mapping document being currently assessed by the mapping quality assessment process.</span>
       </div>
       <dl>
          <dt>Example</dt>
@@ -1226,7 +1228,7 @@ WHERE
       <p>
          <strong>IRI:</strong> http://ontology.example.org/mqv#performedOn</p>
       <div class="comment">
-         <span class="markdown">The mapping document which the mapping quality assessment is being performed on.</span>
+         <span class="markdown">The original mapping document which the quality assessment process was performed on.</span>
       </div>
       <dl>
          <dt>Example</dt>
