@@ -151,8 +151,8 @@
 
 ###  http://ontology.example.org/mqv#hasQualityMeasurement
 :hasQualityMeasurement rdf:type owl:ObjectProperty ;
-                       rdfs:domain :MappingDocument ;
-                       rdfs:range :QualityMeasurement ;
+                       rdfs:domain :MappingDocument, :QualityRequirement ;
+                       rdfs:range :QualityMeasurement, dqv:Category, dqv:Dimension, dqv:Metric ;
                        rdfs:comment "A measurement calculated  by a quality metric on a mapping document. " ;
                        rdfs:label "mqv:hasQualityMeasurement" ;
                        <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
