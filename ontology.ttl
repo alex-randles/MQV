@@ -54,7 +54,7 @@
 :assessedMapping rdf:type owl:ObjectProperty ;
                  rdfs:domain :MappingAssessment ;
                  rdfs:range :MappingDocument ;
-                 rdfs:comment "The mapping document being assessed by the mapping quality assessment process." ;
+                 rdfs:comment "The mapping document currently assessed by the mapping quality assessment process." ;
                  rdfs:label "mqv:assessedMapping" ;
                  <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
@@ -113,8 +113,8 @@
 
 ###  http://ontology.example.org/mqv#hasConfidenceScore
 :hasConfidenceScore rdf:type owl:ObjectProperty ;
-                    rdfs:domain :MappingRefinement ;
-                    rdfs:range :ConfidenceScore ;
+                    rdfs:domain :Confidence ;
+                    rdfs:range xsd:decimal ;
                     rdfs:comment "The confidence score of a mapping refinement." ;
                     rdfs:label "mqv:hasConfidenceScore" ;
                     <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
@@ -122,11 +122,7 @@
 
 :mappingRefinement
 	a mqv:MappingRefinement;
-	mqv:hasConfidenceScore :confidenceScore;
-.
-
-:confidenceScore
-	a mqv:ConfidenceScore;
+	mqv:hasConfidenceScore "0.8"^^xsd:double;
 .""" .
 
 
@@ -152,7 +148,7 @@
 ###  http://ontology.example.org/mqv#hasQualityMeasurement
 :hasQualityMeasurement rdf:type owl:ObjectProperty ;
                        rdfs:domain :MappingDocument, :QualityRequirement ;
-                       rdfs:range :QualityMeasurement, dqv:Category, dqv:Dimension, dqv:Metric ;
+                       rdfs:range dqv:QualityMeasurement, dqv:Category, dqv:Dimension, dqv:Metric ;
                        rdfs:comment "A measurement calculated  by a quality metric on a mapping document. " ;
                        rdfs:label "mqv:hasQualityMeasurement" ;
                        <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
@@ -164,7 +160,7 @@
 .
 
 :qualityMeasurement
-	a mqv:QualityMeasurement;
+	a dqv:QualityMeasurement;
 .""" .
 
 
@@ -334,7 +330,7 @@ WHERE
 :performedOn rdf:type owl:ObjectProperty ;
              rdfs:domain :MappingAssessment ;
              rdfs:range :MappingDocument ;
-             rdfs:comment "The mapping document which the mapping quality assessment is being performed on." ;
+             rdfs:comment "The original mapping document which the quality assessment process was performed on." ;
              rdfs:label "mqv:performedOn" ;
              <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
@@ -370,7 +366,7 @@ WHERE
 
 ###  http://ontology.example.org/mqv#wasDerivedFrom
 :wasDerivedFrom rdf:type owl:ObjectProperty ;
-                rdfs:domain :QualityMeasurement ;
+                rdfs:domain dqv:QualityMeasurement;
                 rdfs:range :MappingAssessment ;
                 rdfs:comment "The quality measurement calculated by the mapping quality assessment process." ;
                 rdfs:label "mqv:wasDerivedFrom" ;
@@ -378,7 +374,7 @@ WHERE
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :qualityMeasurement
-	a mqv:QualityMeasurement;
+	a dqv:QualityMeasurement;
 	mqv:wasDerivedFrom :mappingAssessment;
 .
 
@@ -439,25 +435,22 @@ WHERE
 #################################################################
 
 ###  http://ontology.example.org/mqv#Agent
-:Agent rdf:type owl:Class .
-
-
-###  http://ontology.example.org/mqv#ConfidenceScore
-:ConfidenceScore rdf:type owl:Class ;
-                 rdfs:subClassOf <http://www.w3.org/ns/dqv#QualityMeasurement> ;
-                 rdfs:comment "A confidence score rates how successful the framework predicts a refinement will be, at removing a quality violation." ;
-                 rdfs:label "mqv:ConfidenceScore" ;
-                 <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+:Agent rdf:type owl:Class ;
+                  rdfs:label "mqv:Agent" ;
+                  rdfs:comment "An agent  involved in the creation, assessment or refinement of a mapping document."^^;
+                  rdfs:subClassOf prov:Entity;
+                  skos:example \"@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
-:confidenceScore1
-	a mqv:ConfidenceScore ;
+:mappingEngineer
+	a mqv:Agent ;
 .
 
-:mappingQualityRefinement
-    a  mqv:MappingRefinement;
-    mqv:hasConfidenceScore :confidenceScore1;
-.""" .
+:mappingDocument
+	a mqv:MappingDocument;
+	mqv:createdBy :mappingEngineer
+. """ .
+
 
 
 ###  http://ontology.example.org/mqv#MappingAssessment
@@ -470,12 +463,12 @@ WHERE
 
 :mappingQualityAssessement
 	a mqv:MappingAssessment ;
-
+	mqv:perfomedBy :mappingEngineer;
 .
 
-:mappingQualityRefinement
-    a  mqv:MappingRefinement;
-    mqv:hasConfidenceScore :confidenceScore1; """ .
+:mappingEngineer
+    a  mqv:Agent;
+""" .
 
 
 ###  http://ontology.example.org/mqv#MappingDocument
@@ -574,39 +567,6 @@ WHERE
 	a mqv:MappingValidationReport ;
 	mqv:hasViolation :mappingViolation ;
 .""" .
-
-
-###  http://ontology.example.org/mqv#QualityMeasurement
-:QualityMeasurement rdf:type owl:Class ;
-                    rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
-                    rdfs:comment "A quality measurement calculated during mapping quality assessment." ;
-                    rdfs:label "mqv:QualityMeasurement" ;
-                    <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
-@prefix mqv: <http://ontology.example.org/mqv#>.;
-
-:qualityMeasurement
-	a mqv:QualityMeasurement ;
-	mqv:wasDerivedFrom :mappingQualityAssessment
-.
-
-:mappingQualityAssessment a mqv:MappingAssessment.\";
-.
-
-mqv:Agent   a owl:Class;
-                  rdfs:label \"mqv:Agent\" ;
-                  rdfs:comment \"An agent  involved in the creation, assessment or refinement of a mapping document.\"^^xsd:string;
-                  rdfs:subClassOf prov:Entity;
-                  skos:example \"@prefix :     <http://example.com/>.;
-@prefix mqv: <http://ontology.example.org/mqv#>.;
-
-:mappingEngineer
-	a mqv:Agent ;
-.
-
-:mappingDocument
-	a mqv:MappingDocument;
-	mqv:createdBy :mappingEngineer
-. """ .
 
 
 ###  http://ontology.example.org/mqv#QualityMetricType

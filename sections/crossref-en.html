@@ -4,9 +4,6 @@ This section provides details for each class and property defined by Mapping Qua
    <h3 id="classes-headline" class="list">Classes</h3>
    <ul class="hlist">
       <li>
-         <a href="#ConfidenceScore" title="http://ontology.example.org/mqv#ConfidenceScore">mqv:ConfidenceScore</a>
-      </li>
-      <li>
          <a href="#MappingAssessment"
             title="http://ontology.example.org/mqv#MappingAssessment">mqv:MappingAssessment</a>
       </li>
@@ -28,10 +25,6 @@ This section provides details for each class and property defined by Mapping Qua
          <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">mqv:MappingViolation</a>
       </li>
       <li>
-         <a href="#QualityMeasurement"
-            title="http://ontology.example.org/mqv#QualityMeasurement">mqv:QualityMeasurement</a>
-      </li>
-      <li>
          <a href="#QualityMetricType"
             title="http://ontology.example.org/mqv#QualityMetricType">mqv:QualityMetricType</a>
       </li>
@@ -43,46 +36,6 @@ This section provides details for each class and property defined by Mapping Qua
          <a href="#RefinementQuery" title="http://ontology.example.org/mqv#RefinementQuery">mqv:RefinementQuery</a>
       </li>
    </ul>
-   <div class="entity" id="ConfidenceScore">
-      <h3>mqv:ConfidenceScore<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#ConfidenceScore</p>
-      <div class="comment">
-         <span class="markdown">A confidence score rates how successful the framework predicts a refinement will be, at removing a quality violation.</span>
-      </div>
-      <dl>
-         <dt>Example</dt>
-         <dd>
-            <pre>@prefix :     &lt;http://example.com/&gt;.;
-@prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
-
-:confidenceScore1
-	a mqv:ConfidenceScore ;
-.
-
-:mappingQualityRefinement
-    a  mqv:MappingRefinement;
-    mqv:hasConfidenceScore :confidenceScore1;
-.</pre>
-         </dd>
-      </dl>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <span class="dotted" title="ttp://www.w3.org/ns/dqv#QualityMeasurement"><a href="http://www.w3.org/ns/dqv#QualityMeasurement">dqv:QualityMeasurement</a></span>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#hasConfidenceScore"
-               title="http://ontology.example.org/mqv#hasConfidenceScore">mqv:hasConfidenceScore</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-      </dl>
-   </div>
    <div class="entity" id="MappingAssessment">
       <h3>mqv:MappingAssessment<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -106,7 +59,7 @@ This section provides details for each class and property defined by Mapping Qua
 
 :mappingQualityRefinement
     a  mqv:MappingRefinement;
-    mqv:hasConfidenceScore :confidenceScore1; </pre>
+    mqv:hasConfidenceScore "0.8"^^xsd:decimal; </pre>
          </dd>
       </dl>
       <dl class="description">
@@ -759,11 +712,8 @@ mqv:Agent   a owl:Class;
 
 :mappingRefinement
 	a mqv:MappingRefinement;
-	mqv:hasConfidenceScore :confidenceScore;
+	mqv:hasConfidenceScore "0.8"^^xsd:double;
 .
-
-:confidenceScore
-	a mqv:ConfidenceScore;
 .</pre>
          </dd>
       </dl>
@@ -777,7 +727,7 @@ mqv:Agent   a owl:Class;
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#ConfidenceScore" title="http://ontology.example.org/mqv#ConfidenceScore">mqv:ConfidenceScore</a>
+               <span class="dotted" title="http://www.w3.org/ns/dqv#QualityMeasurement"><a href="http://www.w3.org/ns/dqv#QualityMeasurement">dqv:QualityMeasurement</a></span>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
