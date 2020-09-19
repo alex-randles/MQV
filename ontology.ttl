@@ -79,7 +79,7 @@
                       ] ;
            rdfs:comment "The agent or mapping quality refinement process who produced the mapping document." ;
            rdfs:label "mqv:createdBy" ;
-           <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+           <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;	a mqv:MappingAssessment ;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingDocument
