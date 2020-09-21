@@ -9,7 +9,27 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid10",
+  "@id" : "_:genid12",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://ontology.example.org/mqv#MappingRefinement"
+    }, {
+      "@id" : "http://ontology.example.org/mqv#RefinementQuery"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid15",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://ontology.example.org/mqv#RefinementQuery"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid18",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
@@ -23,9 +43,9 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "http://ontology.example.org/mqv#MappingRefinement"
+      "@id" : "http://ontology.example.org/mqv#MappingDocument"
     }, {
-      "@id" : "http://ontology.example.org/mqv#RefinementQuery"
+      "@id" : "http://ontology.example.org/mqv#QualityRequirement"
     } ]
   } ]
 }, {
@@ -33,14 +53,21 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
-      "@id" : "http://ontology.example.org/mqv#RefinementQuery"
+      "@id" : "http://www.w3.org/ns/dqv#Category"
     }, {
-      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+      "@id" : "http://www.w3.org/ns/dqv#Dimension"
+    }, {
+      "@id" : "http://www.w3.org/ns/dqv#Metric"
+    }, {
+      "@id" : "http://www.w3.org/ns/dqv#QualityMeasurement"
     } ]
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://purl.1122org/ontology/bibo/status" : [ {
+    "@value" : "Draft"
+  } ],
   "http://purl.org/dc/terms/abstract" : [ {
     "@value" : "The Mapping Quality Vocabulary (MQV) provides a set of classes, properties, and restrictions that can be used to represent and interchange provenance and metadata information relating to the quality assessment, quality refinement and quality validation of mapping definitions used to generate Linked data datasets. It can also be specialized to create new classes and properties to model provenance and metadata information for domain specific mapping languages"
   } ],
@@ -50,9 +77,6 @@
   "http://purl.org/dc/terms/title" : [ {
     "@value" : "Mapping Quality Vocabulary"
   } ],
-  "http://purl.org/ontology/bibo/status" : [ {
-    "@value" : "Draft"
-  } ],
   "http://purl.org/vocab/vann/preferredNamespacePrefix" : [ {
     "@value" : "mqv"
   } ],
@@ -61,22 +85,22 @@
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#Agent",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
-}, {
-  "@id" : "http://ontology.example.org/mqv#ConfidenceScore",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A confidence score rates how successful the framework predicts a refinement will be, at removing a quality violation."
+    "@value" : "An agent  involved in the creation, assessment or refinement of a mapping document."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "mqv:ConfidenceScore"
+    "@value" : "mqv:Agent"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/dqv#QualityMeasurement"
+    "@id" : "http://www.w3.org/ns/prov#Entity"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:confidenceScore1\n\ta mqv:ConfidenceScore ;\n.\n\n:mappingQualityRefinement\n    a  mqv:MappingRefinement;\n    mqv:hasConfidenceScore :confidenceScore1;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingEngineer\n\ta mqv:Agent ;\n.\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:createdBy :mappingEngineer\n. "
   } ]
+}, {
+  "@id" : "http://ontology.example.org/mqv#Confidence",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
   "@id" : "http://ontology.example.org/mqv#MappingAssessment",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
@@ -90,7 +114,7 @@
     "@id" : "http://www.w3.org/ns/prov#Activity"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingQualityAssessement\n\ta mqv:MappingAssessment ;\n\n.\n\n:mappingQualityRefinement\n    a  mqv:MappingRefinement;\n    mqv:hasConfidenceScore :confidenceScore1; "
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingQualityAssessement\n\ta mqv:MappingAssessment ;\n\tmqv:perfomedBy :mappingEngineer;\n.\n\n:mappingEngineer\n    a  mqv:Agent;\n"
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#MappingDocument",
@@ -156,7 +180,7 @@
   "@id" : "http://ontology.example.org/mqv#MappingViolation",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A mapping violation is a quality issue present within a mapping"
+    "@value" : "A mapping violation is a quality issue present within a mapping."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "mqv:MappingViolation"
@@ -168,25 +192,10 @@
     "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n\n:mappingViolation\n\ta mqv:MappingViolation;\n.\n\n:mappingValidationReport\n\ta mqv:MappingValidationReport ;\n\tmqv:hasViolation :mappingViolation ;\n."
   } ]
 }, {
-  "@id" : "http://ontology.example.org/mqv#QualityMeasurement",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A quality measurement calculated during mapping quality assessment."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "mqv:QualityMeasurement"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Entity"
-  } ],
-  "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:qualityMeasurement\n\ta mqv:QualityMeasurement ;\n\tmqv:wasDerivedFrom :mappingQualityAssessment\n.\n\n:mappingQualityAssessment a mqv:MappingAssessment.\";\n.\n\nmqv:Agent   a owl:Class;\n                  rdfs:label \"mqv:Agent\" ;\n                  rdfs:comment \"An agent  involved in the creation, assessment or refinement of a mapping document.\"^^xsd:string;\n                  rdfs:subClassOf prov:Entity;\n                  skos:example \"@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingEngineer\n\ta mqv:Agent ;\n.\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:createdBy :mappingEngineer\n. "
-  } ]
-}, {
   "@id" : "http://ontology.example.org/mqv#QualityMetricType",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The type of quality metric. Our implementation focuses on three types, these are mapping, data and vocabulary."
+    "@value" : "Quality metrics may be grouped into type's, such as mapping, data and vocabulary."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "mqv:QualityMetricType"
@@ -236,7 +245,7 @@
   "@id" : "http://ontology.example.org/mqv#assessedMapping",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The mapping document being assessed by the mapping quality assessment process."
+    "@value" : "The quality assessment of the mapping document created by the refinement process."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://ontology.example.org/mqv#MappingAssessment"
@@ -266,13 +275,13 @@
     "@id" : "_:genid1"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:createdBy :mappingEngineer;\n.\n\n:mappingEngineer\n\ta mqv:Agent;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\ta mqv:MappingAssessment ;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:createdBy :mappingEngineer;\n.\n\n:mappingEngineer\n\ta mqv:Agent;\n."
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#executes",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The quality metric being executed by the mapping quality assessment process. "
+    "@value" : "The quality metric being executed by the mapping quality assessment process."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://ontology.example.org/mqv#MappingAssessment"
@@ -284,11 +293,11 @@
     "@id" : "http://www.w3.org/ns/dqv#Metric"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:hasQualityRequirement :qualityRequirement;\n.\n\n:qualityRequirement\n\ta mqv:QualityRequirement;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:executes :qualityMetric;\n.\n\n:qualityMetric\n\ta mqv:QualityMetric;\n."
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#hasConfidenceScore",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "The confidence score of a mapping refinement."
   } ],
@@ -299,10 +308,10 @@
     "@value" : "mqv:hasConfidenceScore"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://ontology.example.org/mqv#ConfidenceScore"
+    "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingRefinement\n\ta mqv:MappingRefinement;\n\tmqv:hasConfidenceScore :confidenceScore;\n.\n\n:confidenceScore\n\ta mqv:ConfidenceScore;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingRefinement\n\ta mqv:MappingRefinement;\n\tmqv:hasConfidenceScore \"0.8\"^^xsd:double;\n."
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#hasMetricType",
@@ -326,19 +335,19 @@
   "@id" : "http://ontology.example.org/mqv#hasQualityMeasurement",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A measurement calculated  by a quality metric on a mapping document. "
+    "@value" : "A measurement calculated  by a quality metric on a mapping document."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ontology.example.org/mqv#MappingDocument"
+    "@id" : "_:genid4"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "mqv:hasQualityMeasurement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://ontology.example.org/mqv#QualityMeasurement"
+    "@id" : "_:genid7"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:hasQualityMeasurement :qualityMeasurement;\n.\n\n:qualityMeasurement\n\ta mqv:QualityMeasurement;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:hasQualityMeasurement :qualityMeasurement;\n.\n\n:qualityMeasurement\n\ta dqv:QualityMeasurement;\n."
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#hasQualityRequirement",
@@ -362,7 +371,7 @@
   "@id" : "http://ontology.example.org/mqv#hasRefinement",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The refinement used for refining a quality violation detcted by a particular quality metric. "
+    "@value" : "The refinement used for refining a quality violation detcted by a particular quality metric."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://www.w3.org/ns/dqv#Metric"
@@ -371,7 +380,7 @@
     "@value" : "mqv:hasRefinement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid4"
+    "@id" : "_:genid12"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
     "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:qualityMetric\n\ta dqv:Metric;\n\tmqv:hasRefinement :mappingRefinement;\n.\n\n:mappingRefinement\n\ta mqv:MappingRefinement;\n."
@@ -389,10 +398,10 @@
     "@value" : "mqv:hasRefinementQuery"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid7"
+    "@id" : "_:genid15"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "\nPREFIX rr: <http://www.w3.org/ns/r2rml#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX foaf: <http://xmlns.com/foaf/0.1/>\nDELETE{?om rr:datatype ?datatype}\nINSERT{?om rr:datatype xsd:string }\nWHERE\n{\n?sub rr:predicateObjectMap ?pom.\n?pom rr:predicate foaf:name.\n?pom rr:objectMap ?om.\n?om rr:datatype ?datatype.\n}"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:refinement1 a mqv:Refinement;\n\tmqv:hasRefinementQuery '''\n\t\tPREFIX rr: <http://www.w3.org/ns/r2rml#>\n\t\tPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\t\tPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\t\tDELETE{?om rr:datatype ?datatype}\n\t\tINSERT{?om rr:datatype xsd:string }\n\t\tWHERE\n\t\t{\n\t\t?sub rr:predicateObjectMap ?pom.\n\t\t?pom rr:predicate foaf:name.\n\t\t?pom rr:objectMap ?om.\n\t\t?om rr:datatype ?datatype.\n\t\t}'''\n"
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#hasValidationReport",
@@ -509,7 +518,7 @@
   "@id" : "http://ontology.example.org/mqv#performedOn",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The mapping document which the mapping quality assessment is being performed on."
+    "@value" : "The original mapping document which the quality assessment process was performed on."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://ontology.example.org/mqv#MappingAssessment"
@@ -548,7 +557,7 @@
     "@value" : "The quality measurement calculated by the mapping quality assessment process."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ontology.example.org/mqv#QualityMeasurement"
+    "@id" : "http://www.w3.org/ns/dqv#QualityMeasurement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "mqv:wasDerivedFrom"
@@ -557,7 +566,7 @@
     "@id" : "http://ontology.example.org/mqv#MappingAssessment"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:qualityMeasurement\n\ta mqv:QualityMeasurement;\n\tmqv:wasDerivedFrom :mappingAssessment;\n.\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:qualityMeasurement\n\ta dqv:QualityMeasurement;\n\tmqv:wasDerivedFrom :mappingAssessment;\n.\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n."
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#wasRefinedBy",
@@ -572,11 +581,14 @@
     "@value" : "mqv:wasRefinedBy"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "_:genid10"
+    "@id" : "_:genid18"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
     "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:wasRefinedBy :mappingRefinement;\n.\n\n:mappingRefinement\n\ta mqv:MappingRefinement;\n."
   } ]
+}, {
+  "@id" : "http://purl.1122org/ontology/bibo/status",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://purl.org/dc/terms/abstract",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
@@ -585,9 +597,6 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://purl.org/dc/terms/title",
-  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
-}, {
-  "@id" : "http://purl.org/ontology/bibo/status",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://purl.org/vocab/vann/preferredNamespacePrefix",
@@ -601,6 +610,12 @@
 }, {
   "@id" : "http://www.w3.org/2004/02/skos/core#example",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/ns/dqv#Category",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.w3.org/ns/dqv#Dimension",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
   "@id" : "http://www.w3.org/ns/dqv#Metric",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]

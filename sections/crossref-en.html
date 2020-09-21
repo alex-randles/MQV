@@ -4,6 +4,9 @@ This section provides details for each class and property defined by Mapping Qua
    <h3 id="classes-headline" class="list">Classes</h3>
    <ul class="hlist">
       <li>
+         <a href="#Agent" title="http://ontology.example.org/mqv#Agent">mqv:Agent</a>
+      </li>
+      <li>
          <a href="#MappingAssessment"
             title="http://ontology.example.org/mqv#MappingAssessment">mqv:MappingAssessment</a>
       </li>
@@ -36,6 +39,45 @@ This section provides details for each class and property defined by Mapping Qua
          <a href="#RefinementQuery" title="http://ontology.example.org/mqv#RefinementQuery">mqv:RefinementQuery</a>
       </li>
    </ul>
+   <div class="entity" id="Agent">
+      <h3>mqv:Agent<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://ontology.example.org/mqv#Agent</p>
+      <div class="comment">
+         <span class="markdown">An agent  involved in the creation, assessment or refinement of a mapping document.</span>
+      </div>
+      <dl>
+         <dt>Example</dt>
+         <dd>
+            <pre>@prefix :     &lt;http://example.com/&gt;.;
+@prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
+
+:mappingEngineer
+	a mqv:Agent ;
+.
+
+:mappingDocument
+	a mqv:MappingDocument;
+	mqv:createdBy :mappingEngineer
+. </pre>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted" title="http://www.w3.org/ns/prov#Entity"><a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a></span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#performedBy" title="http://ontology.example.org/mqv#performedBy">mqv:performedBy</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="MappingAssessment">
       <h3>mqv:MappingAssessment<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -54,12 +96,12 @@ This section provides details for each class and property defined by Mapping Qua
 
 :mappingQualityAssessement
 	a mqv:MappingAssessment ;
-
+	mqv:perfomedBy :mappingEngineer;
 .
 
-:mappingQualityRefinement
-    a  mqv:MappingRefinement;
-    mqv:hasConfidenceScore "0.8"^^xsd:decimal; </pre>
+:mappingEngineer
+    a  mqv:Agent;
+</pre>
          </dd>
       </dl>
       <dl class="description">
@@ -124,8 +166,6 @@ This section provides details for each class and property defined by Mapping Qua
          <dt>is in domain of</dt>
          <dd>
             <a href="#createdBy" title="http://ontology.example.org/mqv#createdBy">mqv:createdBy</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#hasQualityMeasurement"
-               title="http://ontology.example.org/mqv#hasQualityMeasurement">mqv:hasQualityMeasurement</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#mappingPurpose" title="http://ontology.example.org/mqv#mappingPurpose">mqv:mappingPurpose</a>
             <sup class="type-dp" title="data property">dp</sup>, <a href="#mappingSource" title="http://ontology.example.org/mqv#mappingSource">mqv:mappingSource</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#toolsUsed" title="http://ontology.example.org/mqv#toolsUsed">mqv:toolsUsed</a>
@@ -183,7 +223,7 @@ This section provides details for each class and property defined by Mapping Qua
          <dd>
             <a href="#hasConfidenceScore"
                title="http://ontology.example.org/mqv#hasConfidenceScore">mqv:hasConfidenceScore</a>
-            <sup class="type-op" title="object property">op</sup>
+            <sup class="type-dp" title="data property">dp</sup>
          </dd>
       </dl>
    </div>
@@ -282,7 +322,7 @@ This section provides details for each class and property defined by Mapping Qua
       <p>
          <strong>IRI:</strong> http://ontology.example.org/mqv#MappingViolation</p>
       <div class="comment">
-         <span class="markdown">A mapping violation is a quality issue present within a mapping</span>
+         <span class="markdown">A mapping violation is a quality issue present within a mapping.</span>
       </div>
       <dl>
          <dt>Example</dt>
@@ -320,68 +360,6 @@ This section provides details for each class and property defined by Mapping Qua
          </dd>
       </dl>
    </div>
-   <div class="entity" id="QualityMeasurement">
-      <h3>mqv:QualityMeasurement<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#QualityMeasurement</p>
-      <div class="comment">
-         <span class="markdown">A quality measurement calculated during mapping quality assessment.</span>
-      </div>
-      <dl>
-         <dt>Example</dt>
-         <dd>
-            <pre>@prefix :     &lt;http://example.com/&gt;.;
-@prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
-
-:qualityMeasurement
-	a mqv:QualityMeasurement ;
-	mqv:wasDerivedFrom :mappingQualityAssessment
-.
-
-:mappingQualityAssessment a mqv:MappingAssessment.";
-.
-
-mqv:Agent   a owl:Class;
-                  rdfs:label "mqv:Agent" ;
-                  rdfs:comment "An agent  involved in the creation, assessment or refinement of a mapping document."^^xsd:string;
-                  rdfs:subClassOf prov:Entity;
-                  skos:example "@prefix :     &lt;http://example.com/&gt;.;
-@prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
-
-:mappingEngineer
-	a mqv:Agent ;
-.
-
-:mappingDocument
-	a mqv:MappingDocument;
-	mqv:createdBy :mappingEngineer
-. </pre>
-         </dd>
-      </dl>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <span class="dotted" title="http://www.w3.org/ns/prov#Entity"><a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a></span>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>is in domain of</dt>
-         <dd>
-            <a href="#wasDerivedFrom" title="http://ontology.example.org/mqv#wasDerivedFrom">mqv:wasDerivedFrom</a>
-            <sup class="type-op" title="object property">op</sup>
-            <a href="#wasDerivedFrom" title="http://ontology.example.org/mqv#wasDerivedFrom">mqv:isMeasurementOf</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#hasQualityMeasurement"
-               title="http://ontology.example.org/mqv#hasQualityMeasurement">mqv:hasQualityMeasurement</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-      </dl>
-   </div>
    <div class="entity" id="QualityMetricType">
       <h3>mqv:QualityMetricType<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -390,7 +368,7 @@ mqv:Agent   a owl:Class;
       <p>
          <strong>IRI:</strong> http://ontology.example.org/mqv#QualityMetricType</p>
       <div class="comment">
-         <span class="markdown">The type of quality metric. Our implementation focuses on three types, these are mapping, data and vocabulary.</span>
+         <span class="markdown">Quality metrics may be grouped into type's, such as mapping, data and vocabulary.</span>
       </div>
       <dl>
          <dt>Example</dt>
@@ -515,10 +493,6 @@ mqv:Agent   a owl:Class;
          <a href="#executes" title="http://ontology.example.org/mqv#executes">mqv:executes</a>
       </li>
       <li>
-         <a href="#hasConfidenceScore"
-            title="http://ontology.example.org/mqv#hasConfidenceScore">mqv:hasConfidenceScore</a>
-      </li>
-      <li>
          <a href="#hasMetricType" title="http://ontology.example.org/mqv#hasMetricType">mqv:hasMetricType</a>
       </li>
       <li>
@@ -573,7 +547,7 @@ mqv:Agent   a owl:Class;
       <p>
          <strong>IRI:</strong> http://ontology.example.org/mqv#assessedMapping</p>
       <div class="comment">
-         <span class="markdown">The mapping document being currently assessed by the mapping quality assessment process.</span>
+         <span class="markdown">The quality assessment of the mapping document created by the refinement process.</span>
       </div>
       <dl>
          <dt>Example</dt>
@@ -620,7 +594,7 @@ mqv:Agent   a owl:Class;
       <dl>
          <dt>Example</dt>
          <dd>
-            <pre>@prefix :     &lt;http://example.com/&gt;.;
+            <pre>@prefix :     &lt;http://example.com/&gt;.;	a mqv:MappingAssessment ;
 @prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
 
 :mappingDocument
@@ -642,7 +616,7 @@ mqv:Agent   a owl:Class;
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://ontology.example.org/mqv#Agent"><a href="http://ontology.example.org/mqv#Agent">mqv:Agent</a></span>
+               <a href="#Agent" title="http://ontology.example.org/mqv#Agent">mqv:Agent</a>
                <sup class="type-c" title="class">c</sup> 
                <span class="logic">or</span> 
                <a href="#MappingRefinement"
@@ -660,7 +634,7 @@ mqv:Agent   a owl:Class;
       <p>
          <strong>IRI:</strong> http://ontology.example.org/mqv#executes</p>
       <div class="comment">
-         <span class="markdown">The quality metric being executed by the mapping quality assessment process. </span>
+         <span class="markdown">The quality metric being executed by the mapping quality assessment process.</span>
       </div>
       <dl>
          <dt>Example</dt>
@@ -670,11 +644,11 @@ mqv:Agent   a owl:Class;
 
 :mappingAssessment
 	a mqv:MappingAssessment;
-	mqv:hasQualityRequirement :qualityRequirement;
+	mqv:executes :qualityMetric;
 .
 
-:qualityRequirement
-	a mqv:QualityRequirement;
+:qualityMetric
+	a mqv:QualityMetric;
 .</pre>
          </dd>
       </dl>
@@ -689,45 +663,6 @@ mqv:Agent   a owl:Class;
             <dt>has range</dt>
             <dd>
                <span class="dotted" title="http://www.w3.org/ns/dqv#Metric"><a href="http://www.w3.org/ns/dqv#Metric">dqv:Metric</a></span>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="hasConfidenceScore">
-      <h3>mqv:hasConfidenceScore<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#hasConfidenceScore</p>
-      <div class="comment">
-         <span class="markdown">The confidence score of a mapping refinement.</span>
-      </div>
-      <dl>
-         <dt>Example</dt>
-         <dd>
-            <pre>@prefix :     &lt;http://example.com/&gt;.;
-@prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
-
-:mappingRefinement
-	a mqv:MappingRefinement;
-	mqv:hasConfidenceScore "0.8"^^xsd:double;
-.
-.</pre>
-         </dd>
-      </dl>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#MappingRefinement"
-                  title="http://ontology.example.org/mqv#MappingRefinement">mqv:MappingRefinement</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#double"><a href="http://www.w3.org/2001/XMLSchema#double">xsd:double</a></span>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -783,7 +718,7 @@ mqv:Agent   a owl:Class;
       <p>
          <strong>IRI:</strong> http://ontology.example.org/mqv#hasQualityMeasurement</p>
       <div class="comment">
-         <span class="markdown">A measurement calculated  by a quality metric on a mapping document. </span>
+         <span class="markdown">A measurement calculated  by a quality metric on a mapping document.</span>
       </div>
       <dl>
          <dt>Example</dt>
@@ -797,7 +732,7 @@ mqv:Agent   a owl:Class;
 .
 
 :qualityMeasurement
-	a mqv:QualityMeasurement;
+	a dqv:QualityMeasurement;
 .</pre>
          </dd>
       </dl>
@@ -805,24 +740,25 @@ mqv:Agent   a owl:Class;
          <dl>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://ontology.example.org/mqv#MappingDocument"><a href="http://ontology.example.org/mqv#MappingDocument">mqv:MappingDocument</a></span>
+               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">mqv:MappingDocument</a>
                <sup class="type-c" title="class">c</sup> 
                <span class="logic">or</span> 
-               <a href="#QualityRequirement" title="http://ontology.example.org/mqv#QualityRequirement">mqv:QualityRequirement</a>
+               <a href="#QualityRequirement"
+                  title="http://ontology.example.org/mqv#QualityRequirement">mqv:QualityRequirement</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#QualityMeasurement" title="http://ontology.example.org/mqv#QualityMeasurement">mqv:QualityMeasurement</a>
-               <sup class="type-c" title="class">c</sup>
-               <span class="logic">or</span> 
                <span class="dotted" title="http://www.w3.org/ns/dqv#Category"><a href="http://www.w3.org/ns/dqv#Category">dqv:Category</a></span>
-               <sup class="type-c" title="class">c</sup>
+               <sup class="type-c" title="class">c</sup> 
                <span class="logic">or</span> 
                <span class="dotted" title="http://www.w3.org/ns/dqv#Dimension"><a href="http://www.w3.org/ns/dqv#Dimension">dqv:Dimension</a></span>
-               <sup class="type-c" title="class">c</sup>
+               <sup class="type-c" title="class">c</sup> 
                <span class="logic">or</span> 
                <span class="dotted" title="http://www.w3.org/ns/dqv#Metric"><a href="http://www.w3.org/ns/dqv#Metric">dqv:Metric</a></span>
+               <sup class="type-c" title="class">c</sup> 
+               <span class="logic">or</span> 
+               <span class="dotted" title="http://www.w3.org/ns/dqv#QualityMeasurement"><a href="http://www.w3.org/ns/dqv#QualityMeasurement">dqv:QualityMeasurement</a></span>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -879,7 +815,7 @@ mqv:Agent   a owl:Class;
       <p>
          <strong>IRI:</strong> http://ontology.example.org/mqv#hasRefinement</p>
       <div class="comment">
-         <span class="markdown">The refinement used for refining a quality violation detcted by a particular quality metric. </span>
+         <span class="markdown">The refinement used for refining a quality violation detcted by a particular quality metric.</span>
       </div>
       <dl>
          <dt>Example</dt>
@@ -929,19 +865,24 @@ mqv:Agent   a owl:Class;
       <dl>
          <dt>Example</dt>
          <dd>
-            <pre>
-PREFIX rr: &lt;http://www.w3.org/ns/r2rml#&gt;
-PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
-DELETE{?om rr:datatype ?datatype}
-INSERT{?om rr:datatype xsd:string }
-WHERE
-{
-?sub rr:predicateObjectMap ?pom.
-?pom rr:predicate foaf:name.
-?pom rr:objectMap ?om.
-?om rr:datatype ?datatype.
-}</pre>
+            <pre>@prefix :     &lt;http://example.com/&gt;.;
+@prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
+
+:refinement1 a mqv:Refinement;
+	mqv:hasRefinementQuery '''
+		PREFIX rr: &lt;http://www.w3.org/ns/r2rml#&gt;
+		PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+		PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+		DELETE{?om rr:datatype ?datatype}
+		INSERT{?om rr:datatype xsd:string }
+		WHERE
+		{
+		?sub rr:predicateObjectMap ?pom.
+		?pom rr:predicate foaf:name.
+		?pom rr:objectMap ?om.
+		?om rr:datatype ?datatype.
+		}'''
+</pre>
          </dd>
       </dl>
       <div class="description">
@@ -956,7 +897,7 @@ WHERE
                <a href="#RefinementQuery" title="http://ontology.example.org/mqv#RefinementQuery">mqv:RefinementQuery</a>
                <sup class="type-c" title="class">c</sup> 
                <span class="logic">or</span> 
-               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#XMLSchema:string"><a href="http://www.w3.org/2001/XMLSchema#string">XMLSchema:string</a></span>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#XMLSchema:string"><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></span>
             </dd>
          </dl>
       </div>
@@ -1164,7 +1105,7 @@ WHERE
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://ontology.example.org/mqv#Agent"><a href="http://ontology.example.org/mqv#Agent">mqv:Agent</a></span>
+               <a href="#Agent" title="http://ontology.example.org/mqv#Agent">mqv:Agent</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -1270,7 +1211,7 @@ WHERE
 @prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
 
 :qualityMeasurement
-	a mqv:QualityMeasurement;
+	a dqv:QualityMeasurement;
 	mqv:wasDerivedFrom :mappingAssessment;
 .
 
@@ -1283,8 +1224,7 @@ WHERE
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#QualityMeasurement"
-                  title="http://ontology.example.org/mqv#QualityMeasurement">mqv:QualityMeasurement</a>
+               <span class="dotted" title="http://www.w3.org/ns/dqv#QualityMeasurement"><a href="http://www.w3.org/ns/dqv#QualityMeasurement">dqv:QualityMeasurement</a></span>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -1345,9 +1285,50 @@ WHERE
    <h3 id="dataproperties-headline" class="list">Data Properties</h3>
    <ul class="hlist">
       <li>
+         <a href="#hasConfidenceScore"
+            title="http://ontology.example.org/mqv#hasConfidenceScore">mqv:hasConfidenceScore</a>
+      </li>
+      <li>
          <a href="#mappingPurpose" title="http://ontology.example.org/mqv#mappingPurpose">mqv:mappingPurpose</a>
       </li>
    </ul>
+   <div class="entity" id="hasConfidenceScore">
+      <h3>mqv:hasConfidenceScore<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://ontology.example.org/mqv#hasConfidenceScore</p>
+      <div class="comment">
+         <span class="markdown">The confidence score of a mapping refinement.</span>
+      </div>
+      <dl>
+         <dt>Example</dt>
+         <dd>
+            <pre>@prefix :     &lt;http://example.com/&gt;.;
+@prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
+
+:mappingRefinement
+	a mqv:MappingRefinement;
+	mqv:hasConfidenceScore "0.8"^^xsd:double;
+.</pre>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#MappingRefinement"
+                  title="http://ontology.example.org/mqv#MappingRefinement">mqv:MappingRefinement</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#XMLSchema:decimal"><a href="http://www.w3.org/2001/XMLSchema#decimal">xsd:decimal</a></span>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="mappingPurpose">
       <h3>mqv:mappingPurpose<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
@@ -1399,3 +1380,4 @@ WHERE
 <sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals
 </div>
 </div>
+
