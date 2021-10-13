@@ -3,9 +3,39 @@
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2002/07/owl#unionOf" : [ {
     "@list" : [ {
+      "@id" : "http://ontology.example.org/mqv#Agent"
+    }, {
+      "@id" : "http://ontology.example.org/mqv#MappingRefinement"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid12",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
       "@id" : "http://ontology.example.org/mqv#MappingRefinement"
     }, {
-      "@id" : "http://www.w3.org/ns/prov#Agent"
+      "@id" : "http://ontology.example.org/mqv#RefinementQuery"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid15",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://ontology.example.org/mqv#RefinementQuery"
+    }, {
+      "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid18",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "http://ontology.example.org/mqv#MappingRefinement"
+    }, {
+      "@id" : "http://ontology.example.org/mqv#RefinementQuery"
     } ]
   } ]
 }, {
@@ -54,20 +84,37 @@
     "@value" : "http://ontology.example.org/mqv#"
   } ]
 }, {
+  "@id" : "http://ontology.example.org/mqv#Agent",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "An agent  involved in the creation, assessment or refinement of a mapping document."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "mqv:Agent"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Entity"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingEngineer\n\ta mqv:Agent ;\n.\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:createdBy :mappingEngineer\n. "
+  } ]
+}, {
+  "@id" : "http://ontology.example.org/mqv#Confidence",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
   "@id" : "http://ontology.example.org/mqv#MappingAssessment",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "An activity in which the quality of a mapping document is assessed, generating information on quality issues within the mapping."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "MappingAssessment"
+    "@value" : "mqv:MappingAssessment"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#Activity"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingQualityAssessement\n\ta mqv:MappingAssessment ;\n\tmqv:perfomedBy :mappingEngineer;\n.\n\n:mappingEngineer\n    a  prov:Agent;\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingQualityAssessement\n\ta mqv:MappingAssessment ;\n\tmqv:perfomedBy :mappingEngineer;\n.\n\n:mappingEngineer\n    a  mqv:Agent;\n"
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#MappingDocument",
@@ -76,14 +123,13 @@
     "@value" : "A mapping document is a document which contains information on how non-RDF data will be transformed to RDF."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "MappingDocument"
+    "@value" : "mqv:MappingDocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#Entity"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:createdBy :mappingEngineer\n.\n\n:mappingEngineer\n\ta prov:Agent ;\n.\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:createdBy :mappingEngineer\n.\n\n:mappingEngineer\n\ta mqv:Agent ;\n.\n"
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#MappingRefinement",
@@ -92,8 +138,7 @@
     "@value" : "An activity which involves removing quality violations contained within a mapping document."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "MappingRefinement"
+    "@value" : "mqv:MappingRefinement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#Activity"
@@ -108,8 +153,7 @@
     "@value" : "A tool which is used to create or refine a mapping document."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "MappingTool"
+    "@value" : "mqv:MappingTool"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#Entity"
@@ -124,8 +168,7 @@
     "@value" : "A mapping validation report contains information about quality violations contained within a mapping document."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "MappingValidationReport"
+    "@value" : "mqv:MappingValidationReport"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#Entity"
@@ -140,8 +183,7 @@
     "@value" : "A mapping violation is a quality issue present within a mapping."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "MappingViolation"
+    "@value" : "mqv:MappingViolation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#Entity"
@@ -156,8 +198,7 @@
     "@value" : "Quality metrics may be grouped into type's, such as mapping, data and vocabulary."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "QualityMetricType"
+    "@value" : "mqv:QualityMetricType"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#Collection"
@@ -172,8 +213,7 @@
     "@value" : "A quality requirement is a requirement a mapping should satisfy."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "QualityRequirement"
+    "@value" : "mqv:QualityRequirement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/ns/prov#Entity"
@@ -185,6 +225,23 @@
   "@id" : "http://ontology.example.org/mqv#Refinement",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
+  "@id" : "http://ontology.example.org/mqv#RefinementQuery",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A query used during the mapping refinement process."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "mqv:RefinementQuery"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://ontology.example.org/mqv#MappingRefinement"
+  }, {
+    "@id" : "http://www.w3.org/ns/prov#Entity"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n\n:refinementQuery\n\ta mqv:RefinementQuery;\n.\n\n:mappingRefinement\n\ta mqv:MappingRefinement ;\n\tmqv:hasRefinementQuery :refinementQuery ;\n.\n"
+  } ]
+}, {
   "@id" : "http://ontology.example.org/mqv#assessedMapping",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -194,33 +251,13 @@
     "@id" : "http://ontology.example.org/mqv#MappingAssessment"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "assessedMapping"
+    "@value" : "mqv:assessedMapping"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://ontology.example.org/mqv#MappingDocument"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
     "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:assessedMapping :mappingDocument;\n.\n\n:mappingDocument\n\ta mqv:MappingDocument;\n."
-  } ]
-}, {
-  "@id" : "http://ontology.example.org/mqv#assessmentPerformedBy",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The agent who performed the assessment of the mapping."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ontology.example.org/mqv#MappingAssessment"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "assessmentPerformedBy"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Agent"
-  } ],
-  "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:assessmentPerformedBy :AlexRandles;\n.\n\n:AlexRandles\n\ta prov:Agent;\n."
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#createdBy",
@@ -232,14 +269,13 @@
     "@id" : "http://ontology.example.org/mqv#MappingDocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "createdBy"
+    "@value" : "mqv:createdBy"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "_:genid1"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\ta mqv:MappingAssessment ;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:createdBy :mappingEngineer;\n.\n\n:mappingEngineer\n\ta prov:Agent;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\ta mqv:MappingAssessment ;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:createdBy :mappingEngineer;\n.\n\n:mappingEngineer\n\ta mqv:Agent;\n."
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#executes",
@@ -251,8 +287,7 @@
     "@id" : "http://ontology.example.org/mqv#MappingAssessment"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "executes"
+    "@value" : "mqv:executes"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/ns/dqv#Metric"
@@ -270,33 +305,13 @@
     "@id" : "http://ontology.example.org/mqv#MappingRefinement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "hasConfidenceScore"
+    "@value" : "mqv:hasConfidenceScore"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
     "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingRefinement\n\ta mqv:MappingRefinement;\n\tmqv:hasConfidenceScore \"0.8\"^^xsd:double;\n."
-  } ]
-}, {
-  "@id" : "http://ontology.example.org/mqv#hasLocation",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The location of a violation within the mapping."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ontology.example.org/mqv#MappingViolation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "hasLocation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ],
-  "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:violation-0\n\ta mqv:MappingViolation;\n\tmqv:hasLocation \"Predicate Object Map\"^^xsd:string.\n"
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#hasMetricType",
@@ -308,8 +323,7 @@
     "@id" : "http://www.w3.org/ns/dqv#Metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "hasMetricType"
+    "@value" : "mqv:hasMetricType"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://ontology.example.org/mqv#QualityMetricType"
@@ -327,8 +341,7 @@
     "@id" : "_:genid4"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "hasQualityMeasurement"
+    "@value" : "mqv:hasQualityMeasurement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "_:genid7"
@@ -346,8 +359,7 @@
     "@id" : "http://ontology.example.org/mqv#MappingAssessment"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "hasQualityRequirement"
+    "@value" : "mqv:hasQualityRequirement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://ontology.example.org/mqv#QualityRequirement"
@@ -365,18 +377,17 @@
     "@id" : "http://www.w3.org/ns/dqv#Metric"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "hasRefinement"
+    "@value" : "mqv:hasRefinement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://ontology.example.org/mqv#MappingRefinement"
+    "@id" : "_:genid12"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
     "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:qualityMetric\n\ta dqv:Metric;\n\tmqv:hasRefinement :mappingRefinement;\n.\n\n:mappingRefinement\n\ta mqv:MappingRefinement;\n."
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#hasRefinementQuery",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "A query executed during a refinement."
   } ],
@@ -384,14 +395,13 @@
     "@id" : "http://ontology.example.org/mqv#Refinement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "hasRefinementQuery"
+    "@value" : "mqv:hasRefinementQuery"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+    "@id" : "_:genid15"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:refinement1 a mqv:Refinement;\n\tmqv:hasRefinementQuery '''\n\t\tPREFIX rr: <http://www.w3.org/ns/r2rml#>\n\t\tPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\t\tPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\t\tDELETE{?om rr:datatype ?datatype}\n\t\tINSERT{?om rr:datatype xsd:string }\n\t\tWHERE\n\t\t{\n\t\t?sub rr:predicateObjectMap ?pom.\n\t\t?pom rr:predicate foaf:name.\n\t\t?pom rr:objectMap ?om.\n\t\t?om rr:datatype ?datatype.\n\t\t}'''^^xsd:string .\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:refinement1 a mqv:Refinement;\n\tmqv:hasRefinementQuery '''\n\t\tPREFIX rr: <http://www.w3.org/ns/r2rml#>\n\t\tPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\t\tPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\t\tDELETE{?om rr:datatype ?datatype}\n\t\tINSERT{?om rr:datatype xsd:string }\n\t\tWHERE\n\t\t{\n\t\t?sub rr:predicateObjectMap ?pom.\n\t\t?pom rr:predicate foaf:name.\n\t\t?pom rr:objectMap ?om.\n\t\t?om rr:datatype ?datatype.\n\t\t}'''\n"
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#hasValidationReport",
@@ -403,36 +413,13 @@
     "@id" : "http://ontology.example.org/mqv#MappingAssessment"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "hasValidationReport"
+    "@value" : "mqv:hasValidationReport"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://ontology.example.org/mqv#MappingValidationReport"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
     "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:hasValidationReport :mappingValidationReport;\n.\n\n:mappingValidationReport\n\ta mqv:MappingValidationReport;\n."
-  } ]
-}, {
-  "@id" : "http://ontology.example.org/mqv#hasValue",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The value associated with the violation."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ontology.example.org/mqv#MappingViolation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "hasValue"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#value"
-  } ],
-  "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:violation-0\n\ta mqv:MappingViolation;\n\tmqv:hasValue \"irish\".\n"
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#hasViolation",
@@ -444,8 +431,7 @@
     "@id" : "http://ontology.example.org/mqv#MappingValidationReport"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "hasViolation"
+    "@value" : "mqv:hasViolation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://ontology.example.org/mqv#MappingViolation"
@@ -454,59 +440,26 @@
     "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingValidationReport\n\ta mqv:MappingValidationReport;\n\tmqv:hasViolation :mappingViolation;\n.\n\n:mappingViolation\n\ta mqv:MappingViolation;\n."
   } ]
 }, {
-  "@id" : "http://ontology.example.org/mqv#inTripleMap",
+  "@id" : "http://ontology.example.org/mqv#isDescribedBy",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The refinement used to refine a quality violation."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ontology.example.org/mqv#MappingViolation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "inTripleMap"
-  } ],
-  "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:inTripleMap <#TripleMap1>\n.\n."
-  } ]
-}, {
-  "@id" : "http://ontology.example.org/mqv#isDescribedBy",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The location of the violation within the mapping."
-  }, {
-    "@value" : "The metric which detected the violation."
-  }, {
     "@value" : "The quality metric which detected a quality violation."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://ontology.example.org/mqv#MappingViolation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "isDescribedBy"
-  }, {
-    "@language" : "en",
-    "@value" : "isDescribedByy"
+    "@value" : "mqv:isDescribedBy"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/ns/dqv#Metric"
-  }, {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#value"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
     "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:isDescribedBy :qualityMetric;\n.\n\n:qualityMetric\n\ta dqv:Metric;\n."
-  }, {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:violation-0\n    a mqv:MappingViolation;\n    mqv:resultMessage \"Usage of undefined Property.\"\n.\n\n"
-  }, {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n@prefix mqv-metric: <http://ontology.example.org/mqv-metric#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:isDescribedBy ex:D7;\n.\n\n:D7 a mqv-metric:D7 .\n."
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#mappingPurpose",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "The rationale for the mapping document being created."
   } ],
@@ -514,8 +467,7 @@
     "@id" : "http://ontology.example.org/mqv#MappingDocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "mappingPurpose"
+    "@value" : "mqv:mappingPurpose"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
@@ -536,8 +488,7 @@
     "@id" : "http://ontology.example.org/mqv#MappingDocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "mappingSource"
+    "@value" : "mqv:mappingSource"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://ontology.example.org/mqv#MappingDocument"
@@ -555,14 +506,13 @@
     "@id" : "http://ontology.example.org/mqv#MappingAssessment"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "performedBy"
+    "@value" : "mqv:performedBy"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Agent"
+    "@id" : "http://ontology.example.org/mqv#Agent"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:performedBy :mappingEngineer;\n.\n\n:mappingEngineer\n\ta prov:Agent;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:performedBy :mappingEngineer;\n.\n\n:mappingEngineer\n\ta mqv:Agent;\n."
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#performedOn",
@@ -574,99 +524,13 @@
     "@id" : "http://ontology.example.org/mqv#MappingAssessment"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "performedOn"
+    "@value" : "mqv:performedOn"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://ontology.example.org/mqv#MappingDocument"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
     "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:performedOn :mappingDocument;\n.\n\n:mappingDocument\n\ta mqv:MappingDocument;\n."
-  } ]
-}, {
-  "@id" : "http://ontology.example.org/mqv#refinedViolation",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The violation refined by the refinement."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ontology.example.org/mqv#MappingRefinement"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "refinedViolation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://ontology.example.org/mqv#MappingViolation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#generated"
-  } ],
-  "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:refinement-0\n\ta mqv:MappingRefinement;\n\tmqv:refinedViolation :violation-0.\n\n:violation-0\n    a mqv:MappingViolation .\n\n"
-  } ]
-}, {
-  "@id" : "http://ontology.example.org/mqv#refinementName",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Textual description of a refinement."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ontology.example.org/mqv#MappingRefinement"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "refinementName"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#value"
-  } ],
-  "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:refinement-0\n\ta mqv:MappingRefinement;\n\tmqv:refinementName \"Remove Language Tag\"^^xsd:string.\n"
-  } ]
-}, {
-  "@id" : "http://ontology.example.org/mqv#refinementPerformedBy",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The agent who performed the refinement of the mapping."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ontology.example.org/mqv#MappingAssessment"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "refinementPerformedBy"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/ns/prov#Agent"
-  } ],
-  "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:refinementPerformedBy :AlexRandles;\n.\n\n:AlexRandles\n\ta prov:Agent;\n."
-  } ]
-}, {
-  "@id" : "http://ontology.example.org/mqv#resultMessage",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A textual description of the violation."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://ontology.example.org/mqv#MappingViolation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "resultMessage"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://www.w3.org/ns/prov#value"
-  } ],
-  "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:violation-0\n    a mqv:MappingViolation;\n    mqv:resultMessage \"Usage of undefined Property.\"\n.\n\n"
   } ]
 }, {
   "@id" : "http://ontology.example.org/mqv#toolsUsed",
@@ -678,8 +542,7 @@
     "@id" : "http://ontology.example.org/mqv#MappingDocument"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "toolsUsed"
+    "@value" : "mqv:toolsUsed"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://ontology.example.org/mqv#MappingTool"
@@ -697,7 +560,7 @@
     "@id" : "http://www.w3.org/ns/dqv#QualityMeasurement"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "wasDerivedFrom"
+    "@value" : "mqv:wasDerivedFrom"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://ontology.example.org/mqv#MappingAssessment"
@@ -715,11 +578,10 @@
     "@id" : "http://ontology.example.org/mqv#MappingViolation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "wasRefinedBy"
+    "@value" : "mqv:wasRefinedBy"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://ontology.example.org/mqv#MappingRefinement"
+    "@id" : "_:genid18"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
     "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:wasRefinedBy :mappingRefinement;\n.\n\n:mappingRefinement\n\ta mqv:MappingRefinement;\n."
@@ -743,6 +605,9 @@
   "@id" : "http://purl.org/vocab/vann/preferredNamespaceUri",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
+  "@id" : "http://www.w3.org/2001/XMLSchema#string",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
   "@id" : "http://www.w3.org/2004/02/skos/core#example",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
@@ -761,18 +626,12 @@
   "@id" : "http://www.w3.org/ns/prov#Activity",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
-  "@id" : "http://www.w3.org/ns/prov#Agent",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
-}, {
   "@id" : "http://www.w3.org/ns/prov#Collection",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
   "@id" : "http://www.w3.org/ns/prov#Entity",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
 }, {
-  "@id" : "http://www.w3.org/ns/prov#generated",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
-}, {
   "@id" : "http://www.w3.org/ns/prov#value",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ]
 } ]

@@ -1,40 +1,85 @@
 <h2 id="crossreference" class="list">Cross reference for Mapping Quality Vocabulary classes, properties and dataproperties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 This section provides details for each class and property defined by Mapping Quality Vocabulary.
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+<div id="classes">
    <h3 id="classes-headline" class="list">Classes</h3>
    <ul class="hlist">
       <li>
-         <a href="#MappingAssessment"
-            title="http://ontology.example.org/mqv#MappingAssessment">MappingAssessment</a>
+         <a href="#Agent" title="http://ontology.example.org/mqv#Agent">mqv:Agent</a>
       </li>
       <li>
-         <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">MappingDocument</a>
+         <a href="#MappingAssessment"
+            title="http://ontology.example.org/mqv#MappingAssessment">mqv:MappingAssessment</a>
+      </li>
+      <li>
+         <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">mqv:MappingDocument</a>
       </li>
       <li>
          <a href="#MappingRefinement"
-            title="http://ontology.example.org/mqv#MappingRefinement">MappingRefinement</a>
+            title="http://ontology.example.org/mqv#MappingRefinement">mqv:MappingRefinement</a>
       </li>
       <li>
-         <a href="#MappingTool" title="http://ontology.example.org/mqv#MappingTool">MappingTool</a>
+         <a href="#MappingTool" title="http://ontology.example.org/mqv#MappingTool">mqv:MappingTool</a>
       </li>
       <li>
          <a href="#MappingValidationReport"
-            title="http://ontology.example.org/mqv#MappingValidationReport">MappingValidationReport</a>
+            title="http://ontology.example.org/mqv#MappingValidationReport">mqv:MappingValidationReport</a>
       </li>
       <li>
-         <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">MappingViolation</a>
+         <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">mqv:MappingViolation</a>
       </li>
       <li>
          <a href="#QualityMetricType"
-            title="http://ontology.example.org/mqv#QualityMetricType">QualityMetricType</a>
+            title="http://ontology.example.org/mqv#QualityMetricType">mqv:QualityMetricType</a>
       </li>
       <li>
          <a href="#QualityRequirement"
-            title="http://ontology.example.org/mqv#QualityRequirement">QualityRequirement</a>
+            title="http://ontology.example.org/mqv#QualityRequirement">mqv:QualityRequirement</a>
+      </li>
+      <li>
+         <a href="#RefinementQuery" title="http://ontology.example.org/mqv#RefinementQuery">mqv:RefinementQuery</a>
       </li>
    </ul>
+   <div class="entity" id="Agent">
+      <h3>mqv:Agent<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://ontology.example.org/mqv#Agent</p>
+      <div class="comment">
+         <span class="markdown">An agent  involved in the creation, assessment or refinement of a mapping document.</span>
+      </div>
+      <dl>
+         <dt>Example</dt>
+         <dd>
+            <pre>@prefix :     &lt;http://example.com/&gt;.;
+@prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
+
+:mappingEngineer
+	a mqv:Agent ;
+.
+
+:mappingDocument
+	a mqv:MappingDocument;
+	mqv:createdBy :mappingEngineer
+. </pre>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted" title="http://www.w3.org/ns/prov#Agent"><a href="http://www.w3.org/ns/prov#Agent">prov:Agent</a></span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#performedBy" title="http://ontology.example.org/mqv#performedBy">mqv:performedBy</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="MappingAssessment">
-      <h3>MappingAssessment<sup class="type-c" title="class">c</sup>
+      <h3>mqv:MappingAssessment<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
@@ -55,43 +100,37 @@ This section provides details for each class and property defined by Mapping Qua
 .
 
 :mappingEngineer
-    a  prov:Agent;
+    a  mqv:Agent;
 </pre>
          </dd>
       </dl>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="http://www.w3.org/ns/prov#Activity"
-               target="_blank"
-               title="http://www.w3.org/ns/prov#Activity">activity</a>
+            <span class="dotted" title="http://www.w3.org/ns/prov#Activity"><a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a></span>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#assessedMapping" title="http://ontology.example.org/mqv#assessedMapping">assessedMapping</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#assessmentPerformedBy"
-               title="http://ontology.example.org/mqv#assessmentPerformedBy">assessmentPerformedBy</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#executes" title="http://ontology.example.org/mqv#executes">executes</a>
+            <a href="#assessedMapping" title="http://ontology.example.org/mqv#assessedMapping">mqv:assessedMapping</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#executes" title="http://ontology.example.org/mqv#executes">mqv:executes</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#hasQualityRequirement"
-               title="http://ontology.example.org/mqv#hasQualityRequirement">hasQualityRequirement</a>
+               title="http://ontology.example.org/mqv#hasQualityRequirement">mqv:hasQualityRequirement</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#hasValidationReport"
-               title="http://ontology.example.org/mqv#hasValidationReport">hasValidationReport</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#performedBy" title="http://ontology.example.org/mqv#performedBy">performedBy</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#performedOn" title="http://ontology.example.org/mqv#performedOn">performedOn</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#refinementPerformedBy"
-               title="http://ontology.example.org/mqv#refinementPerformedBy">refinementPerformedBy</a>
+               title="http://ontology.example.org/mqv#hasValidationReport">mqv:hasValidationReport</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#performedBy" title="http://ontology.example.org/mqv#performedBy">mqv:performedBy</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#performedOn" title="http://ontology.example.org/mqv#performedOn">mqv:performedOn</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#wasDerivedFrom" title="http://ontology.example.org/mqv#wasDerivedFrom">wasDerivedFrom</a>
+            <a href="#wasDerivedFrom" title="http://ontology.example.org/mqv#wasDerivedFrom">mqv:wasDerivedFrom</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
    </div>
    <div class="entity" id="MappingDocument">
-      <h3>MappingDocument<sup class="type-c" title="class">c</sup>
+      <h3>mqv:MappingDocument<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
@@ -113,7 +152,7 @@ This section provides details for each class and property defined by Mapping Qua
 .
 
 :mappingEngineer
-	a prov:Agent ;
+	a mqv:Agent ;
 .
 </pre>
          </dd>
@@ -121,30 +160,28 @@ This section provides details for each class and property defined by Mapping Qua
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="http://www.w3.org/ns/prov#Entity"
-               target="_blank"
-               title="http://www.w3.org/ns/prov#Entity">entity</a>
+            <span class="dotted" title="http://www.w3.org/ns/prov#Entity"><a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a></span>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#createdBy" title="http://ontology.example.org/mqv#createdBy">createdBy</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#mappingPurpose" title="http://ontology.example.org/mqv#mappingPurpose">mappingPurpose</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#mappingSource" title="http://ontology.example.org/mqv#mappingSource">mappingSource</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#toolsUsed" title="http://ontology.example.org/mqv#toolsUsed">toolsUsed</a>
+            <a href="#createdBy" title="http://ontology.example.org/mqv#createdBy">mqv:createdBy</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#mappingPurpose" title="http://ontology.example.org/mqv#mappingPurpose">mqv:mappingPurpose</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#mappingSource" title="http://ontology.example.org/mqv#mappingSource">mqv:mappingSource</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#toolsUsed" title="http://ontology.example.org/mqv#toolsUsed">mqv:toolsUsed</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#assessedMapping" title="http://ontology.example.org/mqv#assessedMapping">assessedMapping</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#mappingSource" title="http://ontology.example.org/mqv#mappingSource">mappingSource</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#performedOn" title="http://ontology.example.org/mqv#performedOn">performedOn</a>
+            <a href="#assessedMapping" title="http://ontology.example.org/mqv#assessedMapping">mqv:assessedMapping</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#mappingSource" title="http://ontology.example.org/mqv#mappingSource">mqv:mappingSource</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#performedOn" title="http://ontology.example.org/mqv#performedOn">mqv:performedOn</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
    </div>
    <div class="entity" id="MappingRefinement">
-      <h3>MappingRefinement<sup class="type-c" title="class">c</sup>
+      <h3>mqv:MappingRefinement<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
@@ -174,29 +211,24 @@ This section provides details for each class and property defined by Mapping Qua
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="http://www.w3.org/ns/prov#Activity"
-               target="_blank"
-               title="http://www.w3.org/ns/prov#Activity">activity</a>
+            <span class="dotted" title="http://www.w3.org/ns/prov#Activity"><a href="http://www.w3.org/ns/prov#Activity">prov:Activity</a></span>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#RefinementQuery" title="http://ontology.example.org/mqv#RefinementQuery">mqv:RefinementQuery</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
          <dd>
             <a href="#hasConfidenceScore"
-               title="http://ontology.example.org/mqv#hasConfidenceScore">hasConfidenceScore</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#refinedViolation" title="http://ontology.example.org/mqv#refinedViolation">refinedViolation</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#refinementName" title="http://ontology.example.org/mqv#refinementName">refinementName</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#hasRefinement" title="http://ontology.example.org/mqv#hasRefinement">hasRefinement</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#wasRefinedBy" title="http://ontology.example.org/mqv#wasRefinedBy">wasRefinedBy</a>
-            <sup class="type-op" title="object property">op</sup>
+               title="http://ontology.example.org/mqv#hasConfidenceScore">mqv:hasConfidenceScore</a>
+            <sup class="type-dp" title="data property">dp</sup>
          </dd>
       </dl>
    </div>
    <div class="entity" id="MappingTool">
-      <h3>MappingTool<sup class="type-c" title="class">c</sup>
+      <h3>mqv:MappingTool<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
@@ -225,20 +257,18 @@ This section provides details for each class and property defined by Mapping Qua
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="http://www.w3.org/ns/prov#Entity"
-               target="_blank"
-               title="http://www.w3.org/ns/prov#Entity">entity</a>
+            <span class="dotted" title="http://www.w3.org/ns/prov#Entity"><a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a></span>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#toolsUsed" title="http://ontology.example.org/mqv#toolsUsed">toolsUsed</a>
+            <a href="#toolsUsed" title="http://ontology.example.org/mqv#toolsUsed">mqv:toolsUsed</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
    </div>
    <div class="entity" id="MappingValidationReport">
-      <h3>MappingValidationReport<sup class="type-c" title="class">c</sup>
+      <h3>mqv:MappingValidationReport<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
@@ -268,26 +298,24 @@ This section provides details for each class and property defined by Mapping Qua
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="http://www.w3.org/ns/prov#Entity"
-               target="_blank"
-               title="http://www.w3.org/ns/prov#Entity">entity</a>
+            <span class="dotted" title="http://www.w3.org/ns/prov#Entity"><a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a></span>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#hasViolation" title="http://ontology.example.org/mqv#hasViolation">hasViolation</a>
+            <a href="#hasViolation" title="http://ontology.example.org/mqv#hasViolation">mqv:hasViolation</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
             <a href="#hasValidationReport"
-               title="http://ontology.example.org/mqv#hasValidationReport">hasValidationReport</a>
+               title="http://ontology.example.org/mqv#hasValidationReport">mqv:hasValidationReport</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
    </div>
    <div class="entity" id="MappingViolation">
-      <h3>MappingViolation<sup class="type-c" title="class">c</sup>
+      <h3>mqv:MappingViolation<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
@@ -316,31 +344,24 @@ This section provides details for each class and property defined by Mapping Qua
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="http://www.w3.org/ns/prov#Entity"
-               target="_blank"
-               title="http://www.w3.org/ns/prov#Entity">entity</a>
+            <span class="dotted" title="http://www.w3.org/ns/prov#Entity"><a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a></span>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#hasLocation" title="http://ontology.example.org/mqv#hasLocation">hasLocation</a>
-            <sup class="type-dp" title="data property">dp</sup>, <a href="#hasValue" title="http://ontology.example.org/mqv#hasValue">hasValue</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#inTripleMap" title="http://ontology.example.org/mqv#inTripleMap">inTripleMap</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#isDescribedBy" title="http://ontology.example.org/mqv#isDescribedBy">isDescribedBy</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#resultMessage" title="http://ontology.example.org/mqv#resultMessage">resultMessage</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#wasRefinedBy" title="http://ontology.example.org/mqv#wasRefinedBy">wasRefinedBy</a>
+            <a href="#isDescribedBy" title="http://ontology.example.org/mqv#isDescribedBy">mqv:isDescribedBy</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#wasRefinedBy" title="http://ontology.example.org/mqv#wasRefinedBy">mqv:wasRefinedBy</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#hasViolation" title="http://ontology.example.org/mqv#hasViolation">hasViolation</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#refinedViolation" title="http://ontology.example.org/mqv#refinedViolation">refinedViolation</a>
+            <a href="#hasViolation" title="http://ontology.example.org/mqv#hasViolation">mqv:hasViolation</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
    </div>
    <div class="entity" id="QualityMetricType">
-      <h3>QualityMetricType<sup class="type-c" title="class">c</sup>
+      <h3>mqv:QualityMetricType<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
@@ -370,20 +391,18 @@ This section provides details for each class and property defined by Mapping Qua
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="http://www.w3.org/ns/prov#Collection"
-               target="_blank"
-               title="http://www.w3.org/ns/prov#Collection">collection</a>
+            <span class="dotted" title="http://www.w3.org/ns/prov#Collection"><a href="http://www.w3.org/ns/prov#Collection">prov:Collection</a></span>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#hasMetricType" title="http://ontology.example.org/mqv#hasMetricType">hasMetricType</a>
+            <a href="#hasMetricType" title="http://ontology.example.org/mqv#hasMetricType">mqv:hasMetricType</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
    </div>
    <div class="entity" id="QualityRequirement">
-      <h3>QualityRequirement<sup class="type-c" title="class">c</sup>
+      <h3>mqv:QualityRequirement<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
@@ -412,120 +431,116 @@ This section provides details for each class and property defined by Mapping Qua
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="http://www.w3.org/ns/prov#Entity"
-               target="_blank"
-               title="http://www.w3.org/ns/prov#Entity">entity</a>
+            <span class="dotted" title="http://www.w3.org/ns/prov#Entity"><a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a></span>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
             <a href="#hasQualityRequirement"
-               title="http://ontology.example.org/mqv#hasQualityRequirement">hasQualityRequirement</a>
+               title="http://ontology.example.org/mqv#hasQualityRequirement">mqv:hasQualityRequirement</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
    </div>
-</div><div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+   <div class="entity" id="RefinementQuery">
+      <h3>mqv:RefinementQuery<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://ontology.example.org/mqv#RefinementQuery</p>
+      <div class="comment">
+         <span class="markdown">A query used during the mapping refinement process.</span>
+      </div>
+      <dl>
+         <dt>Example</dt>
+         <dd>
+            <pre>@prefix :     &lt;http://example.com/&gt;.;
+@prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
+
+
+:refinementQuery
+	a mqv:RefinementQuery;
+.
+
+:mappingRefinement
+	a mqv:MappingRefinement ;
+	mqv:hasRefinementQuery :refinementQuery ;
+.
+</pre>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <span class="dotted" title="http://www.w3.org/ns/prov#Entity"><a href="http://www.w3.org/ns/prov#Entity">prov:Entity</a></span>
+            <sup class="type-c" title="class">c</sup>, <a href="#MappingRefinement"
+               title="http://ontology.example.org/mqv#MappingRefinement">mqv:MappingRefinement</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+</div><div id="objectproperties">
    <h3 id="properties" class="list">Object Properties</h3>
    <ul class="hlist">
       <li>
-         <a href="#assessedMapping" title="http://ontology.example.org/mqv#assessedMapping">assessedMapping</a>
+         <a href="#assessedMapping" title="http://ontology.example.org/mqv#assessedMapping">mqv:assessedMapping</a>
       </li>
       <li>
-         <a href="#assessmentPerformedBy"
-            title="http://ontology.example.org/mqv#assessmentPerformedBy">assessmentPerformedBy</a>
+         <a href="#createdBy" title="http://ontology.example.org/mqv#createdBy">mqv:createdBy</a>
       </li>
       <li>
-         <a href="#createdBy" title="http://ontology.example.org/mqv#createdBy">createdBy</a>
+         <a href="#executes" title="http://ontology.example.org/mqv#executes">mqv:executes</a>
       </li>
       <li>
-         <a href="#executes" title="http://ontology.example.org/mqv#executes">executes</a>
-      </li>
-      <li>
-         <a href="#hasMetricType" title="http://ontology.example.org/mqv#hasMetricType">hasMetricType</a>
+         <a href="#hasMetricType" title="http://ontology.example.org/mqv#hasMetricType">mqv:hasMetricType</a>
       </li>
       <li>
          <a href="#hasQualityMeasurement"
-            title="http://ontology.example.org/mqv#hasQualityMeasurement">hasQualityMeasurement</a>
+            title="http://ontology.example.org/mqv#hasQualityMeasurement">mqv:hasQualityMeasurement</a>
       </li>
       <li>
          <a href="#hasQualityRequirement"
-            title="http://ontology.example.org/mqv#hasQualityRequirement">hasQualityRequirement</a>
+            title="http://ontology.example.org/mqv#hasQualityRequirement">mqv:hasQualityRequirement</a>
       </li>
       <li>
-         <a href="#hasRefinement" title="http://ontology.example.org/mqv#hasRefinement">hasRefinement</a>
+         <a href="#hasRefinement" title="http://ontology.example.org/mqv#hasRefinement">mqv:hasRefinement</a>
       </li>
       <li>
          <a href="#hasRefinementQuery"
-            title="http://ontology.example.org/mqv#hasRefinementQuery">
-            <span>hasRefinementQuery</span>
-         </a>
+            title="http://ontology.example.org/mqv#hasRefinementQuery">mqv:hasRefinementQuery</a>
       </li>
       <li>
          <a href="#hasValidationReport"
-            title="http://ontology.example.org/mqv#hasValidationReport">hasValidationReport</a>
+            title="http://ontology.example.org/mqv#hasValidationReport">mqv:hasValidationReport</a>
       </li>
       <li>
-         <a href="#hasValue" title="http://ontology.example.org/mqv#hasValue">
-            <span>hasValue</span>
-         </a>
+         <a href="#hasViolation" title="http://ontology.example.org/mqv#hasViolation">mqv:hasViolation</a>
       </li>
       <li>
-         <a href="#hasViolation" title="http://ontology.example.org/mqv#hasViolation">hasViolation</a>
+         <a href="#isDescribedBy" title="http://ontology.example.org/mqv#isDescribedBy">mqv:isDescribedBy</a>
       </li>
       <li>
-         <a href="#inTripleMap" title="http://ontology.example.org/mqv#inTripleMap">inTripleMap</a>
+         <a href="#mappingSource" title="http://ontology.example.org/mqv#mappingSource">mqv:mappingSource</a>
       </li>
       <li>
-         <a href="#isDescribedBy" title="http://ontology.example.org/mqv#isDescribedBy">
-            <span>isDescribedBy</span>
-         </a>
+         <a href="#performedBy" title="http://ontology.example.org/mqv#performedBy">mqv:performedBy</a>
       </li>
       <li>
-         <a href="#mappingPurpose" title="http://ontology.example.org/mqv#mappingPurpose">
-            <span>mappingPurpose</span>
-         </a>
+         <a href="#performedOn" title="http://ontology.example.org/mqv#performedOn">mqv:performedOn</a>
       </li>
       <li>
-         <a href="#mappingSource" title="http://ontology.example.org/mqv#mappingSource">mappingSource</a>
+         <a href="#toolsUsed" title="http://ontology.example.org/mqv#toolsUsed">mqv:toolsUsed</a>
       </li>
       <li>
-         <a href="#performedBy" title="http://ontology.example.org/mqv#performedBy">performedBy</a>
+         <a href="#wasDerivedFrom" title="http://ontology.example.org/mqv#wasDerivedFrom">mqv:wasDerivedFrom</a>
       </li>
       <li>
-         <a href="#performedOn" title="http://ontology.example.org/mqv#performedOn">performedOn</a>
-      </li>
-      <li>
-         <a href="#refinedViolation" title="http://ontology.example.org/mqv#refinedViolation">
-            <span>refinedViolation</span>
-         </a>
-      </li>
-      <li>
-         <a href="#refinementName" title="http://ontology.example.org/mqv#refinementName">
-            <span>refinementName</span>
-         </a>
-      </li>
-      <li>
-         <a href="#refinementPerformedBy"
-            title="http://ontology.example.org/mqv#refinementPerformedBy">refinementPerformedBy</a>
-      </li>
-      <li>
-         <a href="#resultMessage" title="http://ontology.example.org/mqv#resultMessage">
-            <span>resultMessage</span>
-         </a>
-      </li>
-      <li>
-         <a href="#toolsUsed" title="http://ontology.example.org/mqv#toolsUsed">toolsUsed</a>
-      </li>
-      <li>
-         <a href="#wasDerivedFrom" title="http://ontology.example.org/mqv#wasDerivedFrom">wasDerivedFrom</a>
-      </li>
-      <li>
-         <a href="#wasRefinedBy" title="http://ontology.example.org/mqv#wasRefinedBy">wasRefinedBy</a>
+         <a href="#wasRefinedBy" title="http://ontology.example.org/mqv#wasRefinedBy">mqv:wasRefinedBy</a>
       </li>
    </ul>
    <div class="entity" id="assessedMapping">
-      <h3>assessedMapping<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:assessedMapping<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -555,63 +570,19 @@ This section provides details for each class and property defined by Mapping Qua
             <dt>has domain</dt>
             <dd>
                <a href="#MappingAssessment"
-                  title="http://ontology.example.org/mqv#MappingAssessment">MappingAssessment</a>
+                  title="http://ontology.example.org/mqv#MappingAssessment">mqv:MappingAssessment</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">MappingDocument</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="assessmentPerformedBy">
-      <h3>assessmentPerformedBy<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#assessmentPerformedBy</p>
-      <div class="comment">
-         <span class="markdown">The agent who performed the assessment of the mapping.</span>
-      </div>
-      <dl>
-         <dt>Example</dt>
-         <dd>
-            <pre>@prefix :     &lt;http://example.com/&gt;.;
-@prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
-
-:mappingAssessment
-	a mqv:MappingAssessment;
-	mqv:assessmentPerformedBy :AlexRandles;
-.
-
-:AlexRandles
-	a prov:Agent;
-.</pre>
-         </dd>
-      </dl>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#MappingAssessment"
-                  title="http://ontology.example.org/mqv#MappingAssessment">MappingAssessment</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="http://www.w3.org/ns/prov#Agent"
-                  target="_blank"
-                  title="http://www.w3.org/ns/prov#Agent">agent</a>
+               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">mqv:MappingDocument</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="createdBy">
-      <h3>createdBy<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:createdBy<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -632,7 +603,7 @@ This section provides details for each class and property defined by Mapping Qua
 .
 
 :mappingEngineer
-	a prov:Agent;
+	a mqv:Agent;
 .</pre>
          </dd>
       </dl>
@@ -640,25 +611,23 @@ This section provides details for each class and property defined by Mapping Qua
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">MappingDocument</a>
+               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">mqv:MappingDocument</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#MappingRefinement"
-                  title="http://ontology.example.org/mqv#MappingRefinement">MappingRefinement</a>
+               <a href="#Agent" title="http://ontology.example.org/mqv#Agent">mqv:Agent</a>
                <sup class="type-c" title="class">c</sup> 
                <span class="logic">or</span> 
-               <a href="http://www.w3.org/ns/prov#Agent"
-                  target="_blank"
-                  title="http://www.w3.org/ns/prov#Agent">agent</a>
+               <a href="#MappingRefinement"
+                  title="http://ontology.example.org/mqv#MappingRefinement">mqv:MappingRefinement</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="executes">
-      <h3>executes<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:executes<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -688,21 +657,19 @@ This section provides details for each class and property defined by Mapping Qua
             <dt>has domain</dt>
             <dd>
                <a href="#MappingAssessment"
-                  title="http://ontology.example.org/mqv#MappingAssessment">MappingAssessment</a>
+                  title="http://ontology.example.org/mqv#MappingAssessment">mqv:MappingAssessment</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="http://www.w3.org/ns/dqv#Metric"
-                  target="_blank"
-                  title="http://www.w3.org/ns/dqv#Metric">metric</a>
+               <span class="dotted" title="http://www.w3.org/ns/dqv#Metric"><a href="http://www.w3.org/ns/dqv#Metric">dqv:Metric</a></span>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="hasMetricType">
-      <h3>hasMetricType<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:hasMetricType<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -731,22 +698,20 @@ This section provides details for each class and property defined by Mapping Qua
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="http://www.w3.org/ns/dqv#Metric"
-                  target="_blank"
-                  title="http://www.w3.org/ns/dqv#Metric">metric</a>
+               <span class="dotted" title="http://www.w3.org/ns/dqv#Metric"><a href="http://www.w3.org/ns/dqv#Metric">dqv:Metric</a></span>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
                <a href="#QualityMetricType"
-                  title="http://ontology.example.org/mqv#QualityMetricType">QualityMetricType</a>
+                  title="http://ontology.example.org/mqv#QualityMetricType">mqv:QualityMetricType</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="hasQualityMeasurement">
-      <h3>hasQualityMeasurement<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:hasQualityMeasurement<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -775,40 +740,32 @@ This section provides details for each class and property defined by Mapping Qua
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">MappingDocument</a>
+               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">mqv:MappingDocument</a>
                <sup class="type-c" title="class">c</sup> 
                <span class="logic">or</span> 
                <a href="#QualityRequirement"
-                  title="http://ontology.example.org/mqv#QualityRequirement">QualityRequirement</a>
+                  title="http://ontology.example.org/mqv#QualityRequirement">mqv:QualityRequirement</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="http://www.w3.org/ns/dqv#Category"
-                  target="_blank"
-                  title="http://www.w3.org/ns/dqv#Category">category</a>
+               <span class="dotted" title="http://www.w3.org/ns/dqv#Category"><a href="http://www.w3.org/ns/dqv#Category">dqv:Category</a></span>
                <sup class="type-c" title="class">c</sup> 
                <span class="logic">or</span> 
-               <a href="http://www.w3.org/ns/dqv#Dimension"
-                  target="_blank"
-                  title="http://www.w3.org/ns/dqv#Dimension">dimension</a>
+               <span class="dotted" title="http://www.w3.org/ns/dqv#Dimension"><a href="http://www.w3.org/ns/dqv#Dimension">dqv:Dimension</a></span>
                <sup class="type-c" title="class">c</sup> 
                <span class="logic">or</span> 
-               <a href="http://www.w3.org/ns/dqv#Metric"
-                  target="_blank"
-                  title="http://www.w3.org/ns/dqv#Metric">metric</a>
+               <span class="dotted" title="http://www.w3.org/ns/dqv#Metric"><a href="http://www.w3.org/ns/dqv#Metric">dqv:Metric</a></span>
                <sup class="type-c" title="class">c</sup> 
                <span class="logic">or</span> 
-               <a href="http://www.w3.org/ns/dqv#QualityMeasurement"
-                  target="_blank"
-                  title="http://www.w3.org/ns/dqv#QualityMeasurement">quality measurement</a>
+               <span class="dotted" title="http://www.w3.org/ns/dqv#QualityMeasurement"><a href="http://www.w3.org/ns/dqv#QualityMeasurement">dqv:QualityMeasurement</a></span>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="hasQualityRequirement">
-      <h3>hasQualityRequirement<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:hasQualityRequirement<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -838,20 +795,20 @@ This section provides details for each class and property defined by Mapping Qua
             <dt>has domain</dt>
             <dd>
                <a href="#MappingAssessment"
-                  title="http://ontology.example.org/mqv#MappingAssessment">MappingAssessment</a>
+                  title="http://ontology.example.org/mqv#MappingAssessment">mqv:MappingAssessment</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
                <a href="#QualityRequirement"
-                  title="http://ontology.example.org/mqv#QualityRequirement">QualityRequirement</a>
+                  title="http://ontology.example.org/mqv#QualityRequirement">mqv:QualityRequirement</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="hasRefinement">
-      <h3>hasRefinement<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:hasRefinement<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -880,45 +837,73 @@ This section provides details for each class and property defined by Mapping Qua
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="http://www.w3.org/ns/dqv#Metric"
-                  target="_blank"
-                  title="http://www.w3.org/ns/dqv#Metric">metric</a>
+               <span class="dotted" title="http://www.w3.org/ns/dqv#Metric"><a href="http://www.w3.org/ns/dqv#Metric">dqv:Metric</a></span>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
                <a href="#MappingRefinement"
-                  title="http://ontology.example.org/mqv#MappingRefinement">MappingRefinement</a>
+                  title="http://ontology.example.org/mqv#MappingRefinement">mqv:MappingRefinement</a>
+               <sup class="type-c" title="class">c</sup> 
+               <span class="logic">or</span> 
+               <a href="#RefinementQuery" title="http://ontology.example.org/mqv#RefinementQuery">mqv:RefinementQuery</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="hasRefinementQuery">
-      <h3>hasRefinementQuery<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:hasRefinementQuery<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
       <p>
          <strong>IRI:</strong> http://ontology.example.org/mqv#hasRefinementQuery</p>
+      <div class="comment">
+         <span class="markdown">A query executed during a refinement.</span>
+      </div>
+      <dl>
+         <dt>Example</dt>
+         <dd>
+            <pre>@prefix :     &lt;http://example.com/&gt;.;
+@prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
+
+:refinement1 a mqv:Refinement;
+	mqv:hasRefinementQuery '''
+		PREFIX rr: &lt;http://www.w3.org/ns/r2rml#&gt;
+		PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+		PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+		DELETE{?om rr:datatype ?datatype}
+		INSERT{?om rr:datatype xsd:string }
+		WHERE
+		{
+		?sub rr:predicateObjectMap ?pom.
+		?pom rr:predicate foaf:name.
+		?pom rr:objectMap ?om.
+		?om rr:datatype ?datatype.
+		}'''
+</pre>
+         </dd>
+      </dl>
       <div class="description">
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="http://ontology.example.org/mqv#Refinement"
-                  target="_blank"
-                  title="http://ontology.example.org/mqv#Refinement">refinement</a>
+               <span class="dotted" title="http://ontology.example.org/mqv#Refinement"><a href="http://ontology.example.org/mqv#Refinement">mqv:Refinement</a></span>
                <sup class="type-c" title="class">c</sup>
             </dd>
-            <dt>is also defined as</dt>
+            <dt>has range</dt>
             <dd>
-               <a href="#hasRefinementQuery">data property</a>
+               <a href="#RefinementQuery" title="http://ontology.example.org/mqv#RefinementQuery">mqv:RefinementQuery</a>
+               <sup class="type-c" title="class">c</sup> 
+               <span class="logic">or</span> 
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#XMLSchema:string"><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></span>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="hasValidationReport">
-      <h3>hasValidationReport<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:hasValidationReport<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -948,48 +933,20 @@ This section provides details for each class and property defined by Mapping Qua
             <dt>has domain</dt>
             <dd>
                <a href="#MappingAssessment"
-                  title="http://ontology.example.org/mqv#MappingAssessment">MappingAssessment</a>
+                  title="http://ontology.example.org/mqv#MappingAssessment">mqv:MappingAssessment</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
                <a href="#MappingValidationReport"
-                  title="http://ontology.example.org/mqv#MappingValidationReport">MappingValidationReport</a>
+                  title="http://ontology.example.org/mqv#MappingValidationReport">mqv:MappingValidationReport</a>
                <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="hasValue">
-      <h3>hasValue<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#hasValue</p>
-      <div class="description">
-         <dl>
-            <dt>has super-properties</dt>
-            <dd>
-               <a href="http://www.w3.org/ns/prov#value"
-                  target="_blank"
-                  title="http://www.w3.org/ns/prov#value">value</a>
-               <sup class="type-op" title="object property">op</sup>
-            </dd>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">MappingViolation</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>is also defined as</dt>
-            <dd>
-               <a href="#hasValue">data property</a>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="hasViolation">
-      <h3>hasViolation<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:hasViolation<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -1019,26 +976,26 @@ This section provides details for each class and property defined by Mapping Qua
             <dt>has domain</dt>
             <dd>
                <a href="#MappingValidationReport"
-                  title="http://ontology.example.org/mqv#MappingValidationReport">MappingValidationReport</a>
+                  title="http://ontology.example.org/mqv#MappingValidationReport">mqv:MappingValidationReport</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">MappingViolation</a>
+               <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">mqv:MappingViolation</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
-   <div class="entity" id="inTripleMap">
-      <h3>inTripleMap<sup class="type-op" title="object property">op</sup>
+   <div class="entity" id="isDescribedBy">
+      <h3>mqv:isDescribedBy<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#inTripleMap</p>
+         <strong>IRI:</strong> http://ontology.example.org/mqv#isDescribedBy</p>
       <div class="comment">
-         <span class="markdown">The refinement used to refine a quality violation.</span>
+         <span class="markdown">The quality metric which detected a quality violation.</span>
       </div>
       <dl>
          <dt>Example</dt>
@@ -1048,8 +1005,11 @@ This section provides details for each class and property defined by Mapping Qua
 
 :mappingViolation
 	a mqv:MappingViolation;
-	mqv:inTripleMap &lt;#TripleMap1&gt;
+	mqv:isDescribedBy :qualityMetric;
 .
+
+:qualityMetric
+	a dqv:Metric;
 .</pre>
          </dd>
       </dl>
@@ -1057,77 +1017,19 @@ This section provides details for each class and property defined by Mapping Qua
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">MappingViolation</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="isDescribedBy">
-      <h3>isDescribedBy<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#isDescribedBy</p>
-      <div class="description">
-         <dl>
-            <dt>has super-properties</dt>
-            <dd>
-               <a href="http://www.w3.org/ns/prov#value"
-                  target="_blank"
-                  title="http://www.w3.org/ns/prov#value">value</a>
-               <sup class="type-op" title="object property">op</sup>
-            </dd>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">MappingViolation</a>
+               <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">mqv:MappingViolation</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="http://www.w3.org/ns/dqv#Metric"
-                  target="_blank"
-                  title="http://www.w3.org/ns/dqv#Metric">metric</a>
+               <span class="dotted" title="http://www.w3.org/ns/dqv#Metric"><a href="http://www.w3.org/ns/dqv#Metric">dqv:Metric</a></span>
                <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>is also defined as</dt>
-            <dd>
-               <a href="#isDescribedBy">data property</a>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="mappingPurpose">
-      <h3>mappingPurpose<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#mappingPurpose</p>
-      <div class="description">
-         <dl>
-            <dt>has super-properties</dt>
-            <dd>
-               <a href="http://www.w3.org/ns/prov#value"
-                  target="_blank"
-                  title="http://www.w3.org/ns/prov#value">value</a>
-               <sup class="type-op" title="object property">op</sup>
-            </dd>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">MappingDocument</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>is also defined as</dt>
-            <dd>
-               <a href="#mappingPurpose">data property</a>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="mappingSource">
-      <h3>mappingSource<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:mappingSource<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -1156,19 +1058,19 @@ This section provides details for each class and property defined by Mapping Qua
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">MappingDocument</a>
+               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">mqv:MappingDocument</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">MappingDocument</a>
+               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">mqv:MappingDocument</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="performedBy">
-      <h3>performedBy<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:performedBy<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -1189,7 +1091,7 @@ This section provides details for each class and property defined by Mapping Qua
 .
 
 :mappingEngineer
-	a prov:Agent;
+	a mqv:Agent;
 .</pre>
          </dd>
       </dl>
@@ -1198,21 +1100,19 @@ This section provides details for each class and property defined by Mapping Qua
             <dt>has domain</dt>
             <dd>
                <a href="#MappingAssessment"
-                  title="http://ontology.example.org/mqv#MappingAssessment">MappingAssessment</a>
+                  title="http://ontology.example.org/mqv#MappingAssessment">mqv:MappingAssessment</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="http://www.w3.org/ns/prov#Agent"
-                  target="_blank"
-                  title="http://www.w3.org/ns/prov#Agent">agent</a>
+               <a href="#Agent" title="http://ontology.example.org/mqv#Agent">mqv:Agent</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="performedOn">
-      <h3>performedOn<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:performedOn<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -1242,147 +1142,19 @@ This section provides details for each class and property defined by Mapping Qua
             <dt>has domain</dt>
             <dd>
                <a href="#MappingAssessment"
-                  title="http://ontology.example.org/mqv#MappingAssessment">MappingAssessment</a>
+                  title="http://ontology.example.org/mqv#MappingAssessment">mqv:MappingAssessment</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">MappingDocument</a>
+               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">mqv:MappingDocument</a>
                <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="refinedViolation">
-      <h3>refinedViolation<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#refinedViolation</p>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#MappingRefinement"
-                  title="http://ontology.example.org/mqv#MappingRefinement">MappingRefinement</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">MappingViolation</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>is also defined as</dt>
-            <dd>
-               <a href="#refinedViolation">data property</a>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="refinementName">
-      <h3>refinementName<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#refinementName</p>
-      <div class="description">
-         <dl>
-            <dt>has super-properties</dt>
-            <dd>
-               <a href="http://www.w3.org/ns/prov#value"
-                  target="_blank"
-                  title="http://www.w3.org/ns/prov#value">value</a>
-               <sup class="type-op" title="object property">op</sup>
-            </dd>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#MappingRefinement"
-                  title="http://ontology.example.org/mqv#MappingRefinement">MappingRefinement</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>is also defined as</dt>
-            <dd>
-               <a href="#refinementName">data property</a>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="refinementPerformedBy">
-      <h3>refinementPerformedBy<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#refinementPerformedBy</p>
-      <div class="comment">
-         <span class="markdown">The agent who performed the refinement of the mapping.</span>
-      </div>
-      <dl>
-         <dt>Example</dt>
-         <dd>
-            <pre>@prefix :     &lt;http://example.com/&gt;.;
-@prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
-
-:mappingAssessment
-	a mqv:MappingAssessment;
-	mqv:refinementPerformedBy :AlexRandles;
-.
-
-:AlexRandles
-	a prov:Agent;
-.</pre>
-         </dd>
-      </dl>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#MappingAssessment"
-                  title="http://ontology.example.org/mqv#MappingAssessment">MappingAssessment</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="http://www.w3.org/ns/prov#Agent"
-                  target="_blank"
-                  title="http://www.w3.org/ns/prov#Agent">agent</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="resultMessage">
-      <h3>resultMessage<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#resultMessage</p>
-      <div class="description">
-         <dl>
-            <dt>has super-properties</dt>
-            <dd>
-               <a href="http://www.w3.org/ns/prov#value"
-                  target="_blank"
-                  title="http://www.w3.org/ns/prov#value">value</a>
-               <sup class="type-op" title="object property">op</sup>
-            </dd>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">MappingViolation</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>is also defined as</dt>
-            <dd>
-               <a href="#resultMessage">data property</a>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="toolsUsed">
-      <h3>toolsUsed<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:toolsUsed<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -1411,19 +1183,19 @@ This section provides details for each class and property defined by Mapping Qua
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">MappingDocument</a>
+               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">mqv:MappingDocument</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#MappingTool" title="http://ontology.example.org/mqv#MappingTool">MappingTool</a>
+               <a href="#MappingTool" title="http://ontology.example.org/mqv#MappingTool">mqv:MappingTool</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="wasDerivedFrom">
-      <h3>wasDerivedFrom<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:wasDerivedFrom<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -1452,22 +1224,20 @@ This section provides details for each class and property defined by Mapping Qua
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="http://www.w3.org/ns/dqv#QualityMeasurement"
-                  target="_blank"
-                  title="http://www.w3.org/ns/dqv#QualityMeasurement">quality measurement</a>
+               <span class="dotted" title="http://www.w3.org/ns/dqv#QualityMeasurement"><a href="http://www.w3.org/ns/dqv#QualityMeasurement">dqv:QualityMeasurement</a></span>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
                <a href="#MappingAssessment"
-                  title="http://ontology.example.org/mqv#MappingAssessment">MappingAssessment</a>
+                  title="http://ontology.example.org/mqv#MappingAssessment">mqv:MappingAssessment</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
    <div class="entity" id="wasRefinedBy">
-      <h3>wasRefinedBy<sup class="type-op" title="object property">op</sup>
+      <h3>mqv:wasRefinedBy<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
          </span>
       </h3>
@@ -1496,67 +1266,34 @@ This section provides details for each class and property defined by Mapping Qua
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">MappingViolation</a>
+               <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">mqv:MappingViolation</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
                <a href="#MappingRefinement"
-                  title="http://ontology.example.org/mqv#MappingRefinement">MappingRefinement</a>
+                  title="http://ontology.example.org/mqv#MappingRefinement">mqv:MappingRefinement</a>
+               <sup class="type-c" title="class">c</sup> 
+               <span class="logic">or</span> 
+               <a href="#RefinementQuery" title="http://ontology.example.org/mqv#RefinementQuery">mqv:RefinementQuery</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
    </div>
-</div><div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+</div><div id="dataproperties">
    <h3 id="dataproperties-headline" class="list">Data Properties</h3>
    <ul class="hlist">
       <li>
          <a href="#hasConfidenceScore"
-            title="http://ontology.example.org/mqv#hasConfidenceScore">hasConfidenceScore</a>
+            title="http://ontology.example.org/mqv#hasConfidenceScore">mqv:hasConfidenceScore</a>
       </li>
       <li>
-         <a href="#hasLocation" title="http://ontology.example.org/mqv#hasLocation">hasLocation</a>
-      </li>
-      <li>
-         <a href="#hasRefinementQuery"
-            title="http://ontology.example.org/mqv#hasRefinementQuery">
-            <span>hasRefinementQuery</span>
-         </a>
-      </li>
-      <li>
-         <a href="#hasValue" title="http://ontology.example.org/mqv#hasValue">
-            <span>hasValue</span>
-         </a>
-      </li>
-      <li>
-         <a href="#isDescribedBy" title="http://ontology.example.org/mqv#isDescribedBy">
-            <span>isDescribedBy</span>
-         </a>
-      </li>
-      <li>
-         <a href="#mappingPurpose" title="http://ontology.example.org/mqv#mappingPurpose">
-            <span>mappingPurpose</span>
-         </a>
-      </li>
-      <li>
-         <a href="#refinedViolation" title="http://ontology.example.org/mqv#refinedViolation">
-            <span>refinedViolation</span>
-         </a>
-      </li>
-      <li>
-         <a href="#refinementName" title="http://ontology.example.org/mqv#refinementName">
-            <span>refinementName</span>
-         </a>
-      </li>
-      <li>
-         <a href="#resultMessage" title="http://ontology.example.org/mqv#resultMessage">
-            <span>resultMessage</span>
-         </a>
+         <a href="#mappingPurpose" title="http://ontology.example.org/mqv#mappingPurpose">mqv:mappingPurpose</a>
       </li>
    </ul>
    <div class="entity" id="hasConfidenceScore">
-      <h3>hasConfidenceScore<sup class="type-dp" title="data property">dp</sup>
+      <h3>mqv:hasConfidenceScore<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
          </span>
       </h3>
@@ -1582,27 +1319,25 @@ This section provides details for each class and property defined by Mapping Qua
             <dt>has domain</dt>
             <dd>
                <a href="#MappingRefinement"
-                  title="http://ontology.example.org/mqv#MappingRefinement">MappingRefinement</a>
+                  title="http://ontology.example.org/mqv#MappingRefinement">mqv:MappingRefinement</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="http://www.w3.org/2001/XMLSchema#decimal"
-                  target="_blank"
-                  title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#XMLSchema:decimal"><a href="http://www.w3.org/2001/XMLSchema#decimal">xsd:decimal</a></span>
             </dd>
          </dl>
       </div>
    </div>
-   <div class="entity" id="hasLocation">
-      <h3>hasLocation<sup class="type-dp" title="data property">dp</sup>
+   <div class="entity" id="mappingPurpose">
+      <h3>mqv:mappingPurpose<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#hasLocation</p>
+         <strong>IRI:</strong> http://ontology.example.org/mqv#mappingPurpose</p>
       <div class="comment">
-         <span class="markdown">The location of a violation within the mapping.</span>
+         <span class="markdown">The rationale for the mapping document being created.</span>
       </div>
       <dl>
          <dt>Example</dt>
@@ -1610,179 +1345,28 @@ This section provides details for each class and property defined by Mapping Qua
             <pre>@prefix :     &lt;http://example.com/&gt;.;
 @prefix mqv: &lt;http://ontology.example.org/mqv#&gt;.;
 
-:violation-0
-	a mqv:MappingViolation;
-	mqv:hasLocation "Predicate Object Map"^^xsd:string.
-</pre>
+:mappingDocument
+	a mqv:MappingDocument;
+	mqv:mappingPurpose 'A mapping for mapping personnel information to RDF.^^xsd:string'</pre>
          </dd>
       </dl>
       <div class="description">
+         <p>
+            <strong>has characteristics:</strong> functional</p>
          <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/ns/prov#prov:value"><a href="http://www.w3.org/ns/prov#value">prov:value</a></span>
+               <sup class="type-dp" title="data property">dp</sup>
+            </dd>
             <dt>has domain</dt>
             <dd>
-               <a href="#MappingViolation" title="http://ontology.example.org/mqv#MappingViolation">MappingViolation</a>
+               <a href="#MappingDocument" title="http://ontology.example.org/mqv#MappingDocument">mqv:MappingDocument</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="http://www.w3.org/2001/XMLSchema#string"
-                  target="_blank"
-                  title="http://www.w3.org/2001/XMLSchema#string">string</a>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="hasRefinementQuery">
-      <h3>hasRefinementQuery<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#hasRefinementQuery</p>
-      <div class="description">
-         <dl>
-            <dt>has range</dt>
-            <dd>
-               <a href="http://www.w3.org/2001/XMLSchema#string"
-                  target="_blank"
-                  title="http://www.w3.org/2001/XMLSchema#string">string</a>
-            </dd>
-            <dt>is also defined as</dt>
-            <dd>
-               <a href="#hasRefinementQuery">object property</a>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="hasValue">
-      <h3>hasValue<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#hasValue</p>
-      <div class="description">
-         <dl>
-            <dt>has range</dt>
-            <dd>
-               <a href="http://www.w3.org/2001/XMLSchema#string"
-                  target="_blank"
-                  title="http://www.w3.org/2001/XMLSchema#string">string</a>
-            </dd>
-            <dt>is also defined as</dt>
-            <dd>
-               <a href="#hasValue">object property</a>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="isDescribedBy">
-      <h3>isDescribedBy<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#isDescribedBy</p>
-      <div class="description">
-         <dl>
-            <dt>has range</dt>
-            <dd>
-               <a href="http://www.w3.org/2001/XMLSchema#string"
-                  target="_blank"
-                  title="http://www.w3.org/2001/XMLSchema#string">string</a>
-            </dd>
-            <dt>is also defined as</dt>
-            <dd>
-               <a href="#isDescribedBy">object property</a>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="mappingPurpose">
-      <h3>mappingPurpose<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#mappingPurpose</p>
-      <div class="description">
-         <dl>
-            <dt>has range</dt>
-            <dd>
-               <a href="http://www.w3.org/2001/XMLSchema#string"
-                  target="_blank"
-                  title="http://www.w3.org/2001/XMLSchema#string">string</a>
-            </dd>
-            <dt>is also defined as</dt>
-            <dd>
-               <a href="#mappingPurpose">object property</a>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="refinedViolation">
-      <h3>refinedViolation<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#refinedViolation</p>
-      <div class="description">
-         <dl>
-            <dt>has super-properties</dt>
-            <dd>
-               <a href="http://www.w3.org/ns/prov#generated"
-                  target="_blank"
-                  title="http://www.w3.org/ns/prov#generated">generated</a>
-               <sup class="type-dp" title="data property">dp</sup>
-            </dd>
-            <dt>is also defined as</dt>
-            <dd>
-               <a href="#refinedViolation">object property</a>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="refinementName">
-      <h3>refinementName<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#refinementName</p>
-      <div class="description">
-         <dl>
-            <dt>has range</dt>
-            <dd>
-               <a href="http://www.w3.org/2001/XMLSchema#string"
-                  target="_blank"
-                  title="http://www.w3.org/2001/XMLSchema#string">string</a>
-            </dd>
-            <dt>is also defined as</dt>
-            <dd>
-               <a href="#refinementName">object property</a>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="resultMessage">
-      <h3>resultMessage<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://ontology.example.org/mqv#resultMessage</p>
-      <div class="description">
-         <dl>
-            <dt>has range</dt>
-            <dd>
-               <a href="http://www.w3.org/2001/XMLSchema#string"
-                  target="_blank"
-                  title="http://www.w3.org/2001/XMLSchema#string">string</a>
-            </dd>
-            <dt>is also defined as</dt>
-            <dd>
-               <a href="#resultMessage">object property</a>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#XMLSchema:string"><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></span>
             </dd>
          </dl>
       </div>
@@ -1796,3 +1380,4 @@ This section provides details for each class and property defined by Mapping Qua
 <sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals
 </div>
 </div>
+
