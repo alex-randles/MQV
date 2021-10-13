@@ -20,16 +20,16 @@
         "value" : "mqv",
         "type" : "label"
       } ],
-      "abstract" : [ {
-        "identifier" : "abstract",
-        "language" : "undefined",
-        "value" : "The Mapping Quality Vocabulary (MQV) provides a set of classes, properties, and restrictions that can be used to represent and interchange provenance and metadata information relating to the quality assessment, quality refinement and quality validation of mapping definitions used to generate Linked data datasets. It can also be specialized to create new classes and properties to model provenance and metadata information for domain specific mapping languages",
-        "type" : "label"
-      } ],
       "preferredNamespaceUri" : [ {
         "identifier" : "preferredNamespaceUri",
         "language" : "undefined",
         "value" : "http://ontology.example.org/mqv#",
+        "type" : "label"
+      } ],
+      "abstract" : [ {
+        "identifier" : "abstract",
+        "language" : "undefined",
+        "value" : "The Mapping Quality Vocabulary (MQV) provides a set of classes, properties, and restrictions that can be used to represent and interchange provenance and metadata information relating to the quality assessment, quality refinement and quality validation of mapping definitions used to generate Linked data datasets. It can also be specialized to create new classes and properties to model provenance and metadata information for domain specific mapping languages",
         "type" : "label"
       } ],
       "title" : [ {
@@ -57,10 +57,10 @@
     "id" : "12",
     "type" : "owl:Class"
   }, {
-    "id" : "16",
+    "id" : "15",
     "type" : "owl:Class"
   }, {
-    "id" : "17",
+    "id" : "16",
     "type" : "owl:Class"
   }, {
     "id" : "21",
@@ -147,10 +147,10 @@
     "id" : "4",
     "type" : "owl:Class"
   }, {
-    "id" : "53",
+    "id" : "3",
     "type" : "owl:Class"
   }, {
-    "id" : "3",
+    "id" : "53",
     "type" : "owl:Class"
   }, {
     "id" : "1",
@@ -201,13 +201,13 @@
     },
     "label" : {
       "IRI-based" : "QualityRequirement",
-      "en" : "Quality Requirement"
+      "en" : "QualityRequirement"
     },
     "comment" : {
       "undefined" : "A quality requirement is a requirement a mapping should satisfy."
     },
-    "id" : "16",
-    "superClasses" : [ "17" ]
+    "id" : "15",
+    "superClasses" : [ "16" ]
   }, {
     "iri" : "http://www.w3.org/ns/prov#Entity",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -215,9 +215,9 @@
     "label" : {
       "IRI-based" : "Entity"
     },
-    "subClasses" : [ "16", "7", "1", "6", "20" ],
+    "subClasses" : [ "15", "7", "1", "6", "20" ],
     "attributes" : [ "external" ],
-    "id" : "17"
+    "id" : "16"
   }, {
     "iri" : "http://ontology.example.org/mqv#QualityMetricType",
     "baseIri" : "http://ontology.example.org/mqv",
@@ -232,7 +232,7 @@
     },
     "label" : {
       "IRI-based" : "QualityMetricType",
-      "en" : "Quality Metric Type"
+      "en" : "QualityMetricType"
     },
     "comment" : {
       "undefined" : "Quality metrics may be grouped into type's, such as mapping, data and vocabulary."
@@ -253,13 +253,13 @@
     },
     "label" : {
       "IRI-based" : "MappingTool",
-      "en" : "Mapping Tool"
+      "en" : "MappingTool"
     },
     "comment" : {
       "undefined" : "A tool which is used to create or refine a mapping document."
     },
     "id" : "20",
-    "superClasses" : [ "17" ]
+    "superClasses" : [ "16" ]
   }, {
     "iri" : "http://www.w3.org/ns/dqv#Dimension",
     "baseIri" : "http://www.w3.org/ns/dqv",
@@ -351,7 +351,7 @@
   }, {
     "instances" : 0,
     "union" : [ "53", "33", "12", "9" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "36"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
@@ -416,22 +416,22 @@
     },
     "label" : {
       "IRI-based" : "MappingViolation",
-      "en" : "Mapping Violation"
+      "en" : "MappingViolation"
     },
     "comment" : {
       "undefined" : "A mapping violation is a quality issue present within a mapping."
     },
     "id" : "7",
-    "superClasses" : [ "17" ]
+    "superClasses" : [ "16" ]
   }, {
     "instances" : 0,
     "union" : [ "4", "47" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "60"
   }, {
     "instances" : 0,
-    "union" : [ "16", "1" ],
-    "attributes" : [ "anonymous", "union" ],
+    "union" : [ "15", "1" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "35"
   }, {
     "iri" : "http://ontology.example.org/mqv#MappingValidationReport",
@@ -447,13 +447,13 @@
     },
     "label" : {
       "IRI-based" : "MappingValidationReport",
-      "en" : "Mapping Validation Report"
+      "en" : "MappingValidationReport"
     },
     "comment" : {
       "undefined" : "A mapping validation report contains information about quality violations contained within a mapping document."
     },
     "id" : "6",
-    "superClasses" : [ "17" ]
+    "superClasses" : [ "16" ]
   }, {
     "iri" : "http://www.w3.org/ns/prov#Collection",
     "baseIri" : "http://www.w3.org/ns/prov",
@@ -478,22 +478,13 @@
     },
     "label" : {
       "IRI-based" : "MappingRefinement",
-      "en" : "Mapping Refinement"
+      "en" : "MappingRefinement"
     },
     "comment" : {
       "undefined" : "An activity which involves removing quality violations contained within a mapping document."
     },
     "id" : "4",
     "superClasses" : [ "2" ]
-  }, {
-    "iri" : "http://www.w3.org/ns/dqv#QualityMeasurement",
-    "baseIri" : "http://www.w3.org/ns/dqv",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "QualityMeasurement"
-    },
-    "attributes" : [ "external" ],
-    "id" : "53"
   }, {
     "iri" : "http://ontology.example.org/mqv#MappingAssessment",
     "baseIri" : "http://ontology.example.org/mqv",
@@ -508,13 +499,22 @@
     },
     "label" : {
       "IRI-based" : "MappingAssessment",
-      "en" : "Mapping Assessment"
+      "en" : "MappingAssessment"
     },
     "comment" : {
       "undefined" : "An activity in which the quality of a mapping document is assessed, generating information on quality issues within the mapping."
     },
     "id" : "3",
     "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://www.w3.org/ns/dqv#QualityMeasurement",
+    "baseIri" : "http://www.w3.org/ns/dqv",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "QualityMeasurement"
+    },
+    "attributes" : [ "external" ],
+    "id" : "53"
   }, {
     "iri" : "http://ontology.example.org/mqv#MappingDocument",
     "baseIri" : "http://ontology.example.org/mqv",
@@ -529,13 +529,13 @@
     },
     "label" : {
       "IRI-based" : "MappingDocument",
-      "en" : "Mapping Document"
+      "en" : "MappingDocument"
     },
     "comment" : {
       "undefined" : "A mapping document is a document which contains information on how non-RDF data will be transformed to RDF."
     },
     "id" : "1",
-    "superClasses" : [ "17" ]
+    "superClasses" : [ "16" ]
   }, {
     "iri" : "http://ontology.example.org/mqv#Refinement",
     "baseIri" : "http://ontology.example.org/mqv",
@@ -555,13 +555,13 @@
     "id" : "8",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "11",
+    "id" : "10",
     "type" : "owl:objectProperty"
   }, {
     "id" : "13",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "15",
+    "id" : "17",
     "type" : "owl:objectProperty"
   }, {
     "id" : "18",
@@ -615,7 +615,7 @@
     "id" : "51",
     "type" : "owl:objectProperty"
   }, {
-    "id" : "10",
+    "id" : "11",
     "type" : "owl:objectProperty"
   }, {
     "id" : "61",
@@ -671,7 +671,7 @@
     },
     "label" : {
       "IRI-based" : "mappingSource",
-      "en" : "mapping source"
+      "en" : "mappingSource"
     },
     "domain" : "1",
     "comment" : {
@@ -693,7 +693,7 @@
     },
     "label" : {
       "IRI-based" : "hasViolation",
-      "en" : "has violation"
+      "en" : "hasViolation"
     },
     "domain" : "6",
     "comment" : {
@@ -701,6 +701,28 @@
     },
     "attributes" : [ "object" ],
     "id" : "5"
+  }, {
+    "iri" : "http://ontology.example.org/mqv#executes",
+    "baseIri" : "http://ontology.example.org/mqv",
+    "range" : "9",
+    "annotations" : {
+      "example" : [ {
+        "identifier" : "example",
+        "language" : "undefined",
+        "value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:executes :qualityMetric;\n.\n\n:qualityMetric\n\ta mqv:QualityMetric;\n.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "executes",
+      "en" : "executes"
+    },
+    "domain" : "3",
+    "comment" : {
+      "undefined" : "The quality metric being executed by the mapping quality assessment process."
+    },
+    "attributes" : [ "object" ],
+    "id" : "8"
   }, {
     "iri" : "http://ontology.example.org/mqv#isDescribedBy",
     "baseIri" : "http://ontology.example.org/mqv",
@@ -725,37 +747,15 @@
     },
     "label" : {
       "IRI-based" : "isDescribedBy",
-      "en" : "is described by"
+      "en" : "isDescribedBy"
     },
-    "superproperty" : [ "10" ],
+    "superproperty" : [ "11" ],
     "domain" : "7",
     "comment" : {
-      "undefined" : "The quality metric which detected a quality violation."
+      "undefined" : "The location of the violation within the mapping."
     },
     "attributes" : [ "object" ],
-    "id" : "8"
-  }, {
-    "iri" : "http://ontology.example.org/mqv#executes",
-    "baseIri" : "http://ontology.example.org/mqv",
-    "range" : "9",
-    "annotations" : {
-      "example" : [ {
-        "identifier" : "example",
-        "language" : "undefined",
-        "value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:executes :qualityMetric;\n.\n\n:qualityMetric\n\ta mqv:QualityMetric;\n.",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "executes",
-      "en" : "executes"
-    },
-    "domain" : "3",
-    "comment" : {
-      "undefined" : "The quality metric being executed by the mapping quality assessment process."
-    },
-    "attributes" : [ "object" ],
-    "id" : "11"
+    "id" : "10"
   }, {
     "iri" : "http://ontology.example.org/mqv#resultMessage",
     "baseIri" : "http://ontology.example.org/mqv",
@@ -770,9 +770,9 @@
     },
     "label" : {
       "IRI-based" : "resultMessage",
-      "en" : "result message"
+      "en" : "resultMessage"
     },
-    "superproperty" : [ "10" ],
+    "superproperty" : [ "11" ],
     "domain" : "7",
     "comment" : {
       "undefined" : "A textual description of the violation."
@@ -793,14 +793,14 @@
     },
     "label" : {
       "IRI-based" : "hasValidationReport",
-      "en" : "has validation report"
+      "en" : "hasValidationReport"
     },
     "domain" : "3",
     "comment" : {
       "undefined" : "The mapping quality validation report generated by the quality assessment process."
     },
     "attributes" : [ "object" ],
-    "id" : "15"
+    "id" : "17"
   }, {
     "iri" : "http://ontology.example.org/mqv#mappingPurpose",
     "baseIri" : "http://ontology.example.org/mqv",
@@ -815,9 +815,9 @@
     },
     "label" : {
       "IRI-based" : "mappingPurpose",
-      "en" : "mapping purpose"
+      "en" : "mappingPurpose"
     },
-    "superproperty" : [ "10" ],
+    "superproperty" : [ "11" ],
     "domain" : "1",
     "comment" : {
       "undefined" : "The rationale for the mapping document being created."
@@ -825,29 +825,29 @@
     "attributes" : [ "object" ],
     "id" : "18"
   }, {
-    "range" : "17",
+    "range" : "16",
     "domain" : "6",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "23"
   }, {
-    "range" : "17",
+    "range" : "16",
     "domain" : "1",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "24"
   }, {
     "range" : "22",
     "domain" : "21",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "25"
   }, {
-    "range" : "17",
+    "range" : "16",
     "domain" : "20",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "26"
   }, {
     "range" : "2",
     "domain" : "4",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "27"
   }, {
     "iri" : "http://ontology.example.org/mqv#refinedViolation",
@@ -863,7 +863,7 @@
     },
     "label" : {
       "IRI-based" : "refinedViolation",
-      "en" : "refined violation"
+      "en" : "refinedViolation"
     },
     "domain" : "4",
     "comment" : {
@@ -874,17 +874,17 @@
   }, {
     "range" : "2",
     "domain" : "3",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "29"
   }, {
-    "range" : "17",
+    "range" : "16",
     "domain" : "7",
-    "attributes" : [ "anonymous", "object" ],
+    "attributes" : [ "object", "anonymous" ],
     "id" : "30"
   }, {
-    "range" : "17",
-    "domain" : "16",
-    "attributes" : [ "anonymous", "object" ],
+    "range" : "16",
+    "domain" : "15",
+    "attributes" : [ "object", "anonymous" ],
     "id" : "31"
   }, {
     "iri" : "http://ontology.example.org/mqv#inTripleMap",
@@ -900,7 +900,7 @@
     },
     "label" : {
       "IRI-based" : "inTripleMap",
-      "en" : "in triple map"
+      "en" : "inTripleMap"
     },
     "domain" : "7",
     "comment" : {
@@ -922,7 +922,7 @@
     },
     "label" : {
       "IRI-based" : "hasQualityMeasurement",
-      "en" : "has quality measurement"
+      "en" : "hasQualityMeasurement"
     },
     "domain" : "35",
     "comment" : {
@@ -944,7 +944,7 @@
     },
     "label" : {
       "IRI-based" : "hasConfidenceScore",
-      "en" : "has confidence score"
+      "en" : "hasConfidenceScore"
     },
     "domain" : "4",
     "comment" : {
@@ -966,7 +966,7 @@
     },
     "label" : {
       "IRI-based" : "assessedMapping",
-      "en" : "assessed mapping"
+      "en" : "assessedMapping"
     },
     "domain" : "3",
     "comment" : {
@@ -998,9 +998,9 @@
     },
     "label" : {
       "IRI-based" : "hasValue",
-      "en" : "has value"
+      "en" : "hasValue"
     },
-    "superproperty" : [ "10" ],
+    "superproperty" : [ "11" ],
     "domain" : "7",
     "comment" : {
       "undefined" : "The value associated with the violation."
@@ -1021,7 +1021,7 @@
     },
     "label" : {
       "IRI-based" : "hasMetricType",
-      "en" : "has metric type"
+      "en" : "hasMetricType"
     },
     "domain" : "9",
     "comment" : {
@@ -1037,9 +1037,9 @@
       "IRI-based" : "value"
     },
     "domain" : "50",
-    "subproperty" : [ "13", "18", "45", "52", "8" ],
-    "attributes" : [ "object", "external" ],
-    "id" : "10"
+    "subproperty" : [ "13", "18", "45", "52", "10" ],
+    "attributes" : [ "external", "object" ],
+    "id" : "11"
   }, {
     "iri" : "http://ontology.example.org/mqv#hasRefinement",
     "baseIri" : "http://ontology.example.org/mqv",
@@ -1054,7 +1054,7 @@
     },
     "label" : {
       "IRI-based" : "hasRefinement",
-      "en" : "has refinement"
+      "en" : "hasRefinement"
     },
     "domain" : "9",
     "comment" : {
@@ -1076,7 +1076,7 @@
     },
     "label" : {
       "IRI-based" : "wasDerivedFrom",
-      "undefined" : "was derived from"
+      "undefined" : "wasDerivedFrom"
     },
     "domain" : "53",
     "comment" : {
@@ -1098,7 +1098,7 @@
     },
     "label" : {
       "IRI-based" : "performedBy",
-      "en" : "performed by"
+      "en" : "performedBy"
     },
     "domain" : "3",
     "comment" : {
@@ -1120,7 +1120,7 @@
     },
     "label" : {
       "IRI-based" : "toolsUsed",
-      "en" : "tools used"
+      "en" : "toolsUsed"
     },
     "domain" : "1",
     "comment" : {
@@ -1142,7 +1142,7 @@
     },
     "label" : {
       "IRI-based" : "createdBy",
-      "en" : "created by"
+      "en" : "createdBy"
     },
     "domain" : "1",
     "comment" : {
@@ -1164,7 +1164,7 @@
     },
     "label" : {
       "IRI-based" : "performedOn",
-      "en" : "performed on"
+      "en" : "performedOn"
     },
     "domain" : "3",
     "comment" : {
@@ -1186,9 +1186,9 @@
     },
     "label" : {
       "IRI-based" : "refinementName",
-      "en" : "refinement name"
+      "en" : "refinementName"
     },
-    "superproperty" : [ "10" ],
+    "superproperty" : [ "11" ],
     "domain" : "4",
     "comment" : {
       "undefined" : "Textual description of a refinement."
@@ -1198,7 +1198,7 @@
   }, {
     "iri" : "http://ontology.example.org/mqv#hasQualityRequirement",
     "baseIri" : "http://ontology.example.org/mqv",
-    "range" : "16",
+    "range" : "15",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
@@ -1209,7 +1209,7 @@
     },
     "label" : {
       "IRI-based" : "hasQualityRequirement",
-      "en" : "has quality requirement"
+      "en" : "hasQualityRequirement"
     },
     "domain" : "3",
     "comment" : {
@@ -1231,7 +1231,7 @@
     },
     "label" : {
       "IRI-based" : "wasRefinedBy",
-      "en" : "was refined by"
+      "en" : "wasRefinedBy"
     },
     "domain" : "7",
     "comment" : {
@@ -1253,7 +1253,7 @@
     },
     "label" : {
       "IRI-based" : "hasRefinementQuery",
-      "en" : "has refinement query"
+      "en" : "hasRefinementQuery"
     },
     "domain" : "70",
     "comment" : {
@@ -1275,7 +1275,7 @@
     },
     "label" : {
       "IRI-based" : "refinementPerformedBy",
-      "en" : "refinement performed by"
+      "en" : "refinementPerformedBy"
     },
     "domain" : "3",
     "comment" : {
@@ -1297,7 +1297,7 @@
     },
     "label" : {
       "IRI-based" : "assessmentPerformedBy",
-      "en" : "assessment performed by"
+      "en" : "assessmentPerformedBy"
     },
     "domain" : "3",
     "comment" : {
@@ -1319,7 +1319,7 @@
     },
     "label" : {
       "IRI-based" : "hasLocation",
-      "en" : "has location"
+      "en" : "hasLocation"
     },
     "domain" : "7",
     "comment" : {
