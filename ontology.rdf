@@ -94,12 +94,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#assessedMapping -->
+    <!-- http://ontology.org/mqv#assessedMapping -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#assessedMapping">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingAssessment"/>
-        <rdfs:range rdf:resource="http://ontology.example.org/mqv#MappingDocument"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#assessedMapping">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingAssessment"/>
+        <rdfs:range rdf:resource="http://ontology.org/mqv#MappingDocument"/>
         <rdfs:comment>The quality assessment of the mapping document created by the refinement process.</rdfs:comment>
         <rdfs:label xml:lang="en">assessedMapping</rdfs:label>
         <skos:example>@prefix :     &lt;http://example.com/&gt;.;
@@ -117,11 +117,11 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#assessmentPerformedBy -->
+    <!-- http://ontology.org/mqv#assessmentPerformedBy -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#assessmentPerformedBy">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingAssessment"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#assessmentPerformedBy">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingAssessment"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Agent"/>
         <rdfs:comment>The agent who performed the assessment of the mapping.</rdfs:comment>
         <rdfs:label xml:lang="en">assessmentPerformedBy</rdfs:label>
@@ -140,15 +140,15 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#createdBy -->
+    <!-- http://ontology.org/mqv#createdBy -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#createdBy">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingDocument"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#createdBy">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingDocument"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ontology.example.org/mqv#MappingRefinement"/>
+                    <rdf:Description rdf:about="http://ontology.org/mqv#MappingRefinement"/>
                     <rdf:Description rdf:about="http://www.w3.org/ns/prov#Agent"/>
                 </owl:unionOf>
             </owl:Class>
@@ -170,11 +170,11 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#executes -->
+    <!-- http://ontology.org/mqv#executes -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#executes">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingAssessment"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#executes">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingAssessment"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/dqv#Metric"/>
         <rdfs:comment>The quality metric being executed by the mapping quality assessment process.</rdfs:comment>
         <rdfs:label xml:lang="en">executes</rdfs:label>
@@ -193,12 +193,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#hasMetricType -->
+    <!-- http://ontology.org/mqv#hasMetricType -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#hasMetricType">
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#hasMetricType">
         <rdfs:domain rdf:resource="http://www.w3.org/ns/dqv#Metric"/>
-        <rdfs:range rdf:resource="http://ontology.example.org/mqv#QualityMetricType"/>
+        <rdfs:range rdf:resource="http://ontology.org/mqv#QualityMetricType"/>
         <rdfs:comment>A type assigned to a mapping quality metric. For instance, vocabulary type, for a mapping quality metric, which relates to the vocabulary being used within the mapping.</rdfs:comment>
         <rdfs:label xml:lang="en">hasMetricType</rdfs:label>
         <skos:example>@prefix :     &lt;http://example.com/&gt;.;
@@ -216,15 +216,15 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#hasQualityMeasurement -->
+    <!-- http://ontology.org/mqv#hasQualityMeasurement -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#hasQualityMeasurement">
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#hasQualityMeasurement">
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ontology.example.org/mqv#MappingDocument"/>
-                    <rdf:Description rdf:about="http://ontology.example.org/mqv#QualityRequirement"/>
+                    <rdf:Description rdf:about="http://ontology.org/mqv#MappingDocument"/>
+                    <rdf:Description rdf:about="http://ontology.org/mqv#QualityRequirement"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -255,12 +255,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#hasQualityRequirement -->
+    <!-- http://ontology.org/mqv#hasQualityRequirement -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#hasQualityRequirement">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingAssessment"/>
-        <rdfs:range rdf:resource="http://ontology.example.org/mqv#QualityRequirement"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#hasQualityRequirement">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingAssessment"/>
+        <rdfs:range rdf:resource="http://ontology.org/mqv#QualityRequirement"/>
         <rdfs:comment>The quality requirement of a quality assessment process.</rdfs:comment>
         <rdfs:label xml:lang="en">hasQualityRequirement</rdfs:label>
         <skos:example>@prefix :     &lt;http://example.com/&gt;.;
@@ -278,12 +278,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#hasRefinement -->
+    <!-- http://ontology.org/mqv#hasRefinement -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#hasRefinement">
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#hasRefinement">
         <rdfs:domain rdf:resource="http://www.w3.org/ns/dqv#Metric"/>
-        <rdfs:range rdf:resource="http://ontology.example.org/mqv#MappingRefinement"/>
+        <rdfs:range rdf:resource="http://ontology.org/mqv#MappingRefinement"/>
         <rdfs:comment>The refinement used for refining a quality violation detcted by a particular quality metric.</rdfs:comment>
         <rdfs:label xml:lang="en">hasRefinement</rdfs:label>
         <skos:example>@prefix :     &lt;http://example.com/&gt;.;
@@ -301,12 +301,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#hasValidationReport -->
+    <!-- http://ontology.org/mqv#hasValidationReport -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#hasValidationReport">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingAssessment"/>
-        <rdfs:range rdf:resource="http://ontology.example.org/mqv#MappingValidationReport"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#hasValidationReport">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingAssessment"/>
+        <rdfs:range rdf:resource="http://ontology.org/mqv#MappingValidationReport"/>
         <rdfs:comment>The mapping quality validation report generated by the quality assessment process.</rdfs:comment>
         <rdfs:label xml:lang="en">hasValidationReport</rdfs:label>
         <skos:example>@prefix :     &lt;http://example.com/&gt;.;
@@ -325,12 +325,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#hasViolation -->
+    <!-- http://ontology.org/mqv#hasViolation -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#hasViolation">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingValidationReport"/>
-        <rdfs:range rdf:resource="http://ontology.example.org/mqv#MappingViolation"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#hasViolation">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingValidationReport"/>
+        <rdfs:range rdf:resource="http://ontology.org/mqv#MappingViolation"/>
         <rdfs:comment>A mapping quality violation contained within a mapping validation report.</rdfs:comment>
         <rdfs:label xml:lang="en">hasViolation</rdfs:label>
         <skos:example>@prefix :     &lt;http://example.com/&gt;.;
@@ -348,11 +348,11 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#inTripleMap -->
+    <!-- http://ontology.org/mqv#inTripleMap -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#inTripleMap">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingViolation"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#inTripleMap">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingViolation"/>
         <rdfs:comment>The triple map which contains the violation.</rdfs:comment>
         <rdfs:label xml:lang="en">inTripleMap</rdfs:label>
         <skos:example>@prefix :     &lt;http://example.com/&gt;.;
@@ -367,11 +367,11 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#isDescribedBy -->
+    <!-- http://ontology.org/mqv#isDescribedBy -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#isDescribedBy">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingViolation"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#isDescribedBy">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingViolation"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/dqv#Metric"/>
         <rdfs:comment>The quality metric which detected a quality violation.</rdfs:comment>
         <rdfs:label xml:lang="en">isDescribedBy</rdfs:label>
@@ -390,12 +390,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#mappingSource -->
+    <!-- http://ontology.org/mqv#mappingSource -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#mappingSource">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingDocument"/>
-        <rdfs:range rdf:resource="http://ontology.example.org/mqv#MappingDocument"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#mappingSource">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingDocument"/>
+        <rdfs:range rdf:resource="http://ontology.org/mqv#MappingDocument"/>
         <rdfs:comment>The original mapping document, which the refined mapping document was created from.</rdfs:comment>
         <rdfs:label xml:lang="en">mappingSource</rdfs:label>
         <skos:example>@prefix :     &lt;http://example.com/&gt;.;
@@ -413,11 +413,11 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#performedBy -->
+    <!-- http://ontology.org/mqv#performedBy -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#performedBy">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingAssessment"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#performedBy">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingAssessment"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Agent"/>
         <rdfs:comment>The agent who executes the mapping quality assessment process.</rdfs:comment>
         <rdfs:label xml:lang="en">performedBy</rdfs:label>
@@ -436,12 +436,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#performedOn -->
+    <!-- http://ontology.org/mqv#performedOn -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#performedOn">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingAssessment"/>
-        <rdfs:range rdf:resource="http://ontology.example.org/mqv#MappingDocument"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#performedOn">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingAssessment"/>
+        <rdfs:range rdf:resource="http://ontology.org/mqv#MappingDocument"/>
         <rdfs:comment>The original mapping document which the quality assessment process was performed on.</rdfs:comment>
         <rdfs:label xml:lang="en">performedOn</rdfs:label>
         <skos:example>@prefix :     &lt;http://example.com/&gt;.;
@@ -459,13 +459,13 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#refinedViolation -->
+    <!-- http://ontology.org/mqv#refinedViolation -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#refinedViolation">
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#refinedViolation">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#generated"/>
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingRefinement"/>
-        <rdfs:range rdf:resource="http://ontology.example.org/mqv#MappingViolation"/>
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingRefinement"/>
+        <rdfs:range rdf:resource="http://ontology.org/mqv#MappingViolation"/>
         <rdfs:comment>The refinement which refined the violation.</rdfs:comment>
         <rdfs:label xml:lang="en">refinedViolation</rdfs:label>
         <skos:example>@prefix :     &lt;http://example.com/&gt;.;
@@ -483,11 +483,11 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#refinementPerformedBy -->
+    <!-- http://ontology.org/mqv#refinementPerformedBy -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#refinementPerformedBy">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingAssessment"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#refinementPerformedBy">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingAssessment"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Agent"/>
         <rdfs:comment>The agent who performed the refinement of the mapping.</rdfs:comment>
         <rdfs:label xml:lang="en">refinementPerformedBy</rdfs:label>
@@ -506,12 +506,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#toolsUsed -->
+    <!-- http://ontology.org/mqv#toolsUsed -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#toolsUsed">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingDocument"/>
-        <rdfs:range rdf:resource="http://ontology.example.org/mqv#MappingTool"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#toolsUsed">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingDocument"/>
+        <rdfs:range rdf:resource="http://ontology.org/mqv#MappingTool"/>
         <rdfs:comment>Mapping tools which have been used to create a mapping document.</rdfs:comment>
         <rdfs:label xml:lang="en">toolsUsed</rdfs:label>
         <skos:example>@prefix :     &lt;http://example.com/&gt;.;
@@ -529,12 +529,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#wasDerivedFrom -->
+    <!-- http://ontology.org/mqv#wasDerivedFrom -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#wasDerivedFrom">
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#wasDerivedFrom">
         <rdfs:domain rdf:resource="http://www.w3.org/ns/dqv#QualityMeasurement"/>
-        <rdfs:range rdf:resource="http://ontology.example.org/mqv#MappingAssessment"/>
+        <rdfs:range rdf:resource="http://ontology.org/mqv#MappingAssessment"/>
         <rdfs:comment>The quality measurement calculated by the mapping quality assessment process.</rdfs:comment>
         <rdfs:label>wasDerivedFrom</rdfs:label>
         <skos:example>@prefix :     &lt;http://example.com/&gt;.;
@@ -552,12 +552,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#wasRefinedBy -->
+    <!-- http://ontology.org/mqv#wasRefinedBy -->
 
 
-    <owl:ObjectProperty rdf:about="http://ontology.example.org/mqv#wasRefinedBy">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingViolation"/>
-        <rdfs:range rdf:resource="http://ontology.example.org/mqv#MappingRefinement"/>
+    <owl:ObjectProperty rdf:about="http://ontology.org/mqv#wasRefinedBy">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingViolation"/>
+        <rdfs:range rdf:resource="http://ontology.org/mqv#MappingRefinement"/>
         <rdfs:comment>The refinement used to refine a quality violation.</rdfs:comment>
         <rdfs:label xml:lang="en">wasRefinedBy</rdfs:label>
         <skos:example>@prefix :     &lt;http://example.com/&gt;.;
@@ -594,11 +594,11 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#hasConfidenceScore -->
+    <!-- http://ontology.org/mqv#hasConfidenceScore -->
 
 
-    <owl:DatatypeProperty rdf:about="http://ontology.example.org/mqv#hasConfidenceScore">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingRefinement"/>
+    <owl:DatatypeProperty rdf:about="http://ontology.org/mqv#hasConfidenceScore">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingRefinement"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
         <rdfs:comment>The confidence score of a mapping refinement.</rdfs:comment>
         <rdfs:label xml:lang="en">hasConfidenceScore</rdfs:label>
@@ -613,11 +613,11 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#hasLocation -->
+    <!-- http://ontology.org/mqv#hasLocation -->
 
 
-    <owl:DatatypeProperty rdf:about="http://ontology.example.org/mqv#hasLocation">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingViolation"/>
+    <owl:DatatypeProperty rdf:about="http://ontology.org/mqv#hasLocation">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingViolation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The location of a violation within the mapping.</rdfs:comment>
         <rdfs:label xml:lang="en">hasLocation</rdfs:label>
@@ -632,11 +632,11 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#hasRefinementQuery -->
+    <!-- http://ontology.org/mqv#hasRefinementQuery -->
 
 
-    <owl:DatatypeProperty rdf:about="http://ontology.example.org/mqv#hasRefinementQuery">
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingRefinement"/>
+    <owl:DatatypeProperty rdf:about="http://ontology.org/mqv#hasRefinementQuery">
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingRefinement"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>A query executed during by a refinement.</rdfs:comment>
         <rdfs:label xml:lang="en">hasRefinementQuery</rdfs:label>
@@ -662,12 +662,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#hasValue -->
+    <!-- http://ontology.org/mqv#hasValue -->
 
 
-    <owl:DatatypeProperty rdf:about="http://ontology.example.org/mqv#hasValue">
+    <owl:DatatypeProperty rdf:about="http://ontology.org/mqv#hasValue">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#value"/>
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingViolation"/>
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingViolation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The value associated with the violation.</rdfs:comment>
         <rdfs:label xml:lang="en">hasValue</rdfs:label>
@@ -682,12 +682,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#mappingPurpose -->
+    <!-- http://ontology.org/mqv#mappingPurpose -->
 
 
-    <owl:DatatypeProperty rdf:about="http://ontology.example.org/mqv#mappingPurpose">
+    <owl:DatatypeProperty rdf:about="http://ontology.org/mqv#mappingPurpose">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#value"/>
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingDocument"/>
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingDocument"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>The rationale for the mapping document being created.</rdfs:comment>
         <rdfs:label xml:lang="en">mappingPurpose</rdfs:label>
@@ -701,12 +701,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#refinementName -->
+    <!-- http://ontology.org/mqv#refinementName -->
 
 
-    <owl:DatatypeProperty rdf:about="http://ontology.example.org/mqv#refinementName">
+    <owl:DatatypeProperty rdf:about="http://ontology.org/mqv#refinementName">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#value"/>
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingRefinement"/>
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingRefinement"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>A textual description of a refinement.</rdfs:comment>
         <rdfs:label xml:lang="en">refinementName</rdfs:label>
@@ -721,12 +721,12 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#resultMessage -->
+    <!-- http://ontology.org/mqv#resultMessage -->
 
 
-    <owl:DatatypeProperty rdf:about="http://ontology.example.org/mqv#resultMessage">
+    <owl:DatatypeProperty rdf:about="http://ontology.org/mqv#resultMessage">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#value"/>
-        <rdfs:domain rdf:resource="http://ontology.example.org/mqv#MappingViolation"/>
+        <rdfs:domain rdf:resource="http://ontology.org/mqv#MappingViolation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>A textual description of the violation.</rdfs:comment>
         <rdfs:label xml:lang="en">resultMessage</rdfs:label>
@@ -762,10 +762,10 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#MappingAssessment -->
+    <!-- http://ontology.org/mqv#MappingAssessment -->
 
 
-    <owl:Class rdf:about="http://ontology.example.org/mqv#MappingAssessment">
+    <owl:Class rdf:about="http://ontology.org/mqv#MappingAssessment">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <rdfs:comment>An activity in which the quality of a mapping document is assessed, generating information on quality issues within the mapping.</rdfs:comment>
         <rdfs:label xml:lang="en">MappingAssessment</rdfs:label>
@@ -784,10 +784,10 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#MappingDocument -->
+    <!-- http://ontology.org/mqv#MappingDocument -->
 
 
-    <owl:Class rdf:about="http://ontology.example.org/mqv#MappingDocument">
+    <owl:Class rdf:about="http://ontology.org/mqv#MappingDocument">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:comment>A mapping document is a document which contains information on how non-RDF data will be transformed to RDF.</rdfs:comment>
         <rdfs:label xml:lang="en">MappingDocument</rdfs:label>
@@ -808,10 +808,10 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#MappingRefinement -->
+    <!-- http://ontology.org/mqv#MappingRefinement -->
 
 
-    <owl:Class rdf:about="http://ontology.example.org/mqv#MappingRefinement">
+    <owl:Class rdf:about="http://ontology.org/mqv#MappingRefinement">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
         <rdfs:comment>An activity which involves removing quality violations contained within a mapping document.</rdfs:comment>
         <rdfs:label xml:lang="en">MappingRefinement</rdfs:label>
@@ -832,10 +832,10 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#MappingTool -->
+    <!-- http://ontology.org/mqv#MappingTool -->
 
 
-    <owl:Class rdf:about="http://ontology.example.org/mqv#MappingTool">
+    <owl:Class rdf:about="http://ontology.org/mqv#MappingTool">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:comment>A tool which is used to create or refine a mapping document.</rdfs:comment>
         <rdfs:label xml:lang="en">MappingTool</rdfs:label>
@@ -855,10 +855,10 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#MappingValidationReport -->
+    <!-- http://ontology.org/mqv#MappingValidationReport -->
 
 
-    <owl:Class rdf:about="http://ontology.example.org/mqv#MappingValidationReport">
+    <owl:Class rdf:about="http://ontology.org/mqv#MappingValidationReport">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:comment>A mapping validation report contains information about quality violations contained within a mapping document.</rdfs:comment>
         <rdfs:label xml:lang="en">MappingValidationReport</rdfs:label>
@@ -879,10 +879,10 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#MappingViolation -->
+    <!-- http://ontology.org/mqv#MappingViolation -->
 
 
-    <owl:Class rdf:about="http://ontology.example.org/mqv#MappingViolation">
+    <owl:Class rdf:about="http://ontology.org/mqv#MappingViolation">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:comment>A mapping violation is a quality issue present within a mapping.</rdfs:comment>
         <rdfs:label xml:lang="en">MappingViolation</rdfs:label>
@@ -902,10 +902,10 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#QualityMetricType -->
+    <!-- http://ontology.org/mqv#QualityMetricType -->
 
 
-    <owl:Class rdf:about="http://ontology.example.org/mqv#QualityMetricType">
+    <owl:Class rdf:about="http://ontology.org/mqv#QualityMetricType">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Collection"/>
         <rdfs:comment>Quality metrics may be grouped into type&apos;s, such as mapping, data and vocabulary.</rdfs:comment>
         <rdfs:label xml:lang="en">QualityMetricType</rdfs:label>
@@ -926,10 +926,10 @@
     
 
 
-    <!-- http://ontology.example.org/mqv#QualityRequirement -->
+    <!-- http://ontology.org/mqv#QualityRequirement -->
 
 
-    <owl:Class rdf:about="http://ontology.example.org/mqv#QualityRequirement">
+    <owl:Class rdf:about="http://ontology.org/mqv#QualityRequirement">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
         <rdfs:comment>A quality requirement is a requirement a mapping should satisfy.</rdfs:comment>
         <rdfs:label xml:lang="en">QualityRequirement</rdfs:label>

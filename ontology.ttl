@@ -50,13 +50,13 @@
 #    Object Properties
 #################################################################
 
-###  http://ontology.example.org/mqv#assessedMapping
-:assessedMapping rdf:type owl:ObjectProperty ;
-                 rdfs:domain :MappingAssessment ;
-                 rdfs:range :MappingDocument ;
-                 rdfs:comment "The quality assessment of the mapping document created by the refinement process." ;
-                 rdfs:label "assessedMapping"@en ;
-                 <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#assessedMapping
+<http://ontology.org/mqv#assessedMapping> rdf:type owl:ObjectProperty ;
+                                          rdfs:domain <http://ontology.org/mqv#MappingAssessment> ;
+                                          rdfs:range <http://ontology.org/mqv#MappingDocument> ;
+                                          rdfs:comment "The quality assessment of the mapping document created by the refinement process." ;
+                                          rdfs:label "assessedMapping"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingAssessment
@@ -69,13 +69,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#assessmentPerformedBy
-:assessmentPerformedBy rdf:type owl:ObjectProperty ;
-                       rdfs:domain :MappingAssessment ;
-                       rdfs:range <http://www.w3.org/ns/prov#Agent> ;
-                       rdfs:comment "The agent who performed the assessment of the mapping." ;
-                       rdfs:label "assessmentPerformedBy"@en ;
-                       <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#assessmentPerformedBy
+<http://ontology.org/mqv#assessmentPerformedBy> rdf:type owl:ObjectProperty ;
+                                                rdfs:domain <http://ontology.org/mqv#MappingAssessment> ;
+                                                rdfs:range <http://www.w3.org/ns/prov#Agent> ;
+                                                rdfs:comment "The agent who performed the assessment of the mapping." ;
+                                                rdfs:label "assessmentPerformedBy"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingAssessment
@@ -88,17 +88,17 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#createdBy
-:createdBy rdf:type owl:ObjectProperty ;
-           rdfs:domain :MappingDocument ;
-           rdfs:range [ rdf:type owl:Class ;
-                        owl:unionOf ( :MappingRefinement
-                                      <http://www.w3.org/ns/prov#Agent>
-                                    )
-                      ] ;
-           rdfs:comment "The agent or mapping quality refinement process who produced the mapping document." ;
-           rdfs:label "createdBy"@en ;
-           <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;	a mqv:MappingAssessment ;
+###  http://ontology.org/mqv#createdBy
+<http://ontology.org/mqv#createdBy> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain <http://ontology.org/mqv#MappingDocument> ;
+                                    rdfs:range [ rdf:type owl:Class ;
+                                                 owl:unionOf ( <http://ontology.org/mqv#MappingRefinement>
+                                                               <http://www.w3.org/ns/prov#Agent>
+                                                             )
+                                               ] ;
+                                    rdfs:comment "The agent or mapping quality refinement process who produced the mapping document." ;
+                                    rdfs:label "createdBy"@en ;
+                                    <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;	a mqv:MappingAssessment ;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingDocument
@@ -111,13 +111,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#executes
-:executes rdf:type owl:ObjectProperty ;
-          rdfs:domain :MappingAssessment ;
-          rdfs:range <http://www.w3.org/ns/dqv#Metric> ;
-          rdfs:comment "The quality metric being executed by the mapping quality assessment process." ;
-          rdfs:label "executes"@en ;
-          <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#executes
+<http://ontology.org/mqv#executes> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <http://ontology.org/mqv#MappingAssessment> ;
+                                   rdfs:range <http://www.w3.org/ns/dqv#Metric> ;
+                                   rdfs:comment "The quality metric being executed by the mapping quality assessment process." ;
+                                   rdfs:label "executes"@en ;
+                                   <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingAssessment
@@ -130,13 +130,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#hasMetricType
-:hasMetricType rdf:type owl:ObjectProperty ;
-               rdfs:domain <http://www.w3.org/ns/dqv#Metric> ;
-               rdfs:range :QualityMetricType ;
-               rdfs:comment "A type assigned to a mapping quality metric. For instance, vocabulary type, for a mapping quality metric, which relates to the vocabulary being used within the mapping." ;
-               rdfs:label "hasMetricType"@en ;
-               <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#hasMetricType
+<http://ontology.org/mqv#hasMetricType> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <http://www.w3.org/ns/dqv#Metric> ;
+                                        rdfs:range <http://ontology.org/mqv#QualityMetricType> ;
+                                        rdfs:comment "A type assigned to a mapping quality metric. For instance, vocabulary type, for a mapping quality metric, which relates to the vocabulary being used within the mapping." ;
+                                        rdfs:label "hasMetricType"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :qualityMetric
@@ -149,23 +149,23 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#hasQualityMeasurement
-:hasQualityMeasurement rdf:type owl:ObjectProperty ;
-                       rdfs:domain [ rdf:type owl:Class ;
-                                     owl:unionOf ( :MappingDocument
-                                                   :QualityRequirement
-                                                 )
-                                   ] ;
-                       rdfs:range [ rdf:type owl:Class ;
-                                    owl:unionOf ( <http://www.w3.org/ns/dqv#Category>
-                                                  <http://www.w3.org/ns/dqv#Dimension>
-                                                  <http://www.w3.org/ns/dqv#Metric>
-                                                  <http://www.w3.org/ns/dqv#QualityMeasurement>
-                                                )
-                                  ] ;
-                       rdfs:comment "A measurement calculated  by a quality metric on a mapping document." ;
-                       rdfs:label "hasQualityMeasurement"@en ;
-                       <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#hasQualityMeasurement
+<http://ontology.org/mqv#hasQualityMeasurement> rdf:type owl:ObjectProperty ;
+                                                rdfs:domain [ rdf:type owl:Class ;
+                                                              owl:unionOf ( <http://ontology.org/mqv#MappingDocument>
+                                                                            <http://ontology.org/mqv#QualityRequirement>
+                                                                          )
+                                                            ] ;
+                                                rdfs:range [ rdf:type owl:Class ;
+                                                             owl:unionOf ( <http://www.w3.org/ns/dqv#Category>
+                                                                           <http://www.w3.org/ns/dqv#Dimension>
+                                                                           <http://www.w3.org/ns/dqv#Metric>
+                                                                           <http://www.w3.org/ns/dqv#QualityMeasurement>
+                                                                         )
+                                                           ] ;
+                                                rdfs:comment "A measurement calculated  by a quality metric on a mapping document." ;
+                                                rdfs:label "hasQualityMeasurement"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingDocument
@@ -178,13 +178,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#hasQualityRequirement
-:hasQualityRequirement rdf:type owl:ObjectProperty ;
-                       rdfs:domain :MappingAssessment ;
-                       rdfs:range :QualityRequirement ;
-                       rdfs:comment "The quality requirement of a quality assessment process." ;
-                       rdfs:label "hasQualityRequirement"@en ;
-                       <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#hasQualityRequirement
+<http://ontology.org/mqv#hasQualityRequirement> rdf:type owl:ObjectProperty ;
+                                                rdfs:domain <http://ontology.org/mqv#MappingAssessment> ;
+                                                rdfs:range <http://ontology.org/mqv#QualityRequirement> ;
+                                                rdfs:comment "The quality requirement of a quality assessment process." ;
+                                                rdfs:label "hasQualityRequirement"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingAssessment
@@ -197,13 +197,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#hasRefinement
-:hasRefinement rdf:type owl:ObjectProperty ;
-               rdfs:domain <http://www.w3.org/ns/dqv#Metric> ;
-               rdfs:range :MappingRefinement ;
-               rdfs:comment "The refinement used for refining a quality violation detcted by a particular quality metric." ;
-               rdfs:label "hasRefinement"@en ;
-               <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#hasRefinement
+<http://ontology.org/mqv#hasRefinement> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <http://www.w3.org/ns/dqv#Metric> ;
+                                        rdfs:range <http://ontology.org/mqv#MappingRefinement> ;
+                                        rdfs:comment "The refinement used for refining a quality violation detcted by a particular quality metric." ;
+                                        rdfs:label "hasRefinement"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :qualityMetric
@@ -216,13 +216,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#hasValidationReport
-:hasValidationReport rdf:type owl:ObjectProperty ;
-                     rdfs:domain :MappingAssessment ;
-                     rdfs:range :MappingValidationReport ;
-                     rdfs:comment "The mapping quality validation report generated by the quality assessment process." ;
-                     rdfs:label "hasValidationReport"@en ;
-                     <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#hasValidationReport
+<http://ontology.org/mqv#hasValidationReport> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain <http://ontology.org/mqv#MappingAssessment> ;
+                                              rdfs:range <http://ontology.org/mqv#MappingValidationReport> ;
+                                              rdfs:comment "The mapping quality validation report generated by the quality assessment process." ;
+                                              rdfs:label "hasValidationReport"@en ;
+                                              <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingAssessment
@@ -236,13 +236,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#hasViolation
-:hasViolation rdf:type owl:ObjectProperty ;
-              rdfs:domain :MappingValidationReport ;
-              rdfs:range :MappingViolation ;
-              rdfs:comment "A mapping quality violation contained within a mapping validation report." ;
-              rdfs:label "hasViolation"@en ;
-              <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#hasViolation
+<http://ontology.org/mqv#hasViolation> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <http://ontology.org/mqv#MappingValidationReport> ;
+                                       rdfs:range <http://ontology.org/mqv#MappingViolation> ;
+                                       rdfs:comment "A mapping quality violation contained within a mapping validation report." ;
+                                       rdfs:label "hasViolation"@en ;
+                                       <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingValidationReport
@@ -255,12 +255,12 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#inTripleMap
-:inTripleMap rdf:type owl:ObjectProperty ;
-             rdfs:domain :MappingViolation ;
-             rdfs:comment "The triple map which contains the violation." ;
-             rdfs:label "inTripleMap"@en ;
-             <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#inTripleMap
+<http://ontology.org/mqv#inTripleMap> rdf:type owl:ObjectProperty ;
+                                      rdfs:domain <http://ontology.org/mqv#MappingViolation> ;
+                                      rdfs:comment "The triple map which contains the violation." ;
+                                      rdfs:label "inTripleMap"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingViolation
@@ -270,13 +270,13 @@
 """ .
 
 
-###  http://ontology.example.org/mqv#isDescribedBy
-:isDescribedBy rdf:type owl:ObjectProperty ;
-               rdfs:domain :MappingViolation ;
-               rdfs:range <http://www.w3.org/ns/dqv#Metric> ;
-               rdfs:comment "The quality metric which detected a quality violation." ;
-               rdfs:label "isDescribedBy"@en ;
-               <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#isDescribedBy
+<http://ontology.org/mqv#isDescribedBy> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <http://ontology.org/mqv#MappingViolation> ;
+                                        rdfs:range <http://www.w3.org/ns/dqv#Metric> ;
+                                        rdfs:comment "The quality metric which detected a quality violation." ;
+                                        rdfs:label "isDescribedBy"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingViolation
@@ -289,13 +289,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#mappingSource
-:mappingSource rdf:type owl:ObjectProperty ;
-               rdfs:domain :MappingDocument ;
-               rdfs:range :MappingDocument ;
-               rdfs:comment "The original mapping document, which the refined mapping document was created from." ;
-               rdfs:label "mappingSource"@en ;
-               <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#mappingSource
+<http://ontology.org/mqv#mappingSource> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <http://ontology.org/mqv#MappingDocument> ;
+                                        rdfs:range <http://ontology.org/mqv#MappingDocument> ;
+                                        rdfs:comment "The original mapping document, which the refined mapping document was created from." ;
+                                        rdfs:label "mappingSource"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :refinedMappingDocument
@@ -308,13 +308,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#performedBy
-:performedBy rdf:type owl:ObjectProperty ;
-             rdfs:domain :MappingAssessment ;
-             rdfs:range <http://www.w3.org/ns/prov#Agent> ;
-             rdfs:comment "The agent who executes the mapping quality assessment process." ;
-             rdfs:label "performedBy"@en ;
-             <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#performedBy
+<http://ontology.org/mqv#performedBy> rdf:type owl:ObjectProperty ;
+                                      rdfs:domain <http://ontology.org/mqv#MappingAssessment> ;
+                                      rdfs:range <http://www.w3.org/ns/prov#Agent> ;
+                                      rdfs:comment "The agent who executes the mapping quality assessment process." ;
+                                      rdfs:label "performedBy"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingAssessment
@@ -327,13 +327,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#performedOn
-:performedOn rdf:type owl:ObjectProperty ;
-             rdfs:domain :MappingAssessment ;
-             rdfs:range :MappingDocument ;
-             rdfs:comment "The original mapping document which the quality assessment process was performed on." ;
-             rdfs:label "performedOn"@en ;
-             <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#performedOn
+<http://ontology.org/mqv#performedOn> rdf:type owl:ObjectProperty ;
+                                      rdfs:domain <http://ontology.org/mqv#MappingAssessment> ;
+                                      rdfs:range <http://ontology.org/mqv#MappingDocument> ;
+                                      rdfs:comment "The original mapping document which the quality assessment process was performed on." ;
+                                      rdfs:label "performedOn"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingAssessment
@@ -346,14 +346,14 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#refinedViolation
-:refinedViolation rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf <http://www.w3.org/ns/prov#generated> ;
-                  rdfs:domain :MappingRefinement ;
-                  rdfs:range :MappingViolation ;
-                  rdfs:comment "The refinement which refined the violation." ;
-                  rdfs:label "refinedViolation"@en ;
-                  <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#refinedViolation
+<http://ontology.org/mqv#refinedViolation> rdf:type owl:ObjectProperty ;
+                                           rdfs:subPropertyOf <http://www.w3.org/ns/prov#generated> ;
+                                           rdfs:domain <http://ontology.org/mqv#MappingRefinement> ;
+                                           rdfs:range <http://ontology.org/mqv#MappingViolation> ;
+                                           rdfs:comment "The refinement which refined the violation." ;
+                                           rdfs:label "refinedViolation"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :refinement-0
@@ -366,13 +366,13 @@
 """ .
 
 
-###  http://ontology.example.org/mqv#refinementPerformedBy
-:refinementPerformedBy rdf:type owl:ObjectProperty ;
-                       rdfs:domain :MappingAssessment ;
-                       rdfs:range <http://www.w3.org/ns/prov#Agent> ;
-                       rdfs:comment "The agent who performed the refinement of the mapping." ;
-                       rdfs:label "refinementPerformedBy"@en ;
-                       <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#refinementPerformedBy
+<http://ontology.org/mqv#refinementPerformedBy> rdf:type owl:ObjectProperty ;
+                                                rdfs:domain <http://ontology.org/mqv#MappingAssessment> ;
+                                                rdfs:range <http://www.w3.org/ns/prov#Agent> ;
+                                                rdfs:comment "The agent who performed the refinement of the mapping." ;
+                                                rdfs:label "refinementPerformedBy"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingAssessment
@@ -385,13 +385,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#toolsUsed
-:toolsUsed rdf:type owl:ObjectProperty ;
-           rdfs:domain :MappingDocument ;
-           rdfs:range :MappingTool ;
-           rdfs:comment "Mapping tools which have been used to create a mapping document." ;
-           rdfs:label "toolsUsed"@en ;
-           <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#toolsUsed
+<http://ontology.org/mqv#toolsUsed> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain <http://ontology.org/mqv#MappingDocument> ;
+                                    rdfs:range <http://ontology.org/mqv#MappingTool> ;
+                                    rdfs:comment "Mapping tools which have been used to create a mapping document." ;
+                                    rdfs:label "toolsUsed"@en ;
+                                    <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingDocument
@@ -404,13 +404,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#wasDerivedFrom
-:wasDerivedFrom rdf:type owl:ObjectProperty ;
-                rdfs:domain <http://www.w3.org/ns/dqv#QualityMeasurement> ;
-                rdfs:range :MappingAssessment ;
-                rdfs:comment "The quality measurement calculated by the mapping quality assessment process." ;
-                rdfs:label "wasDerivedFrom" ;
-                <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#wasDerivedFrom
+<http://ontology.org/mqv#wasDerivedFrom> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://www.w3.org/ns/dqv#QualityMeasurement> ;
+                                         rdfs:range <http://ontology.org/mqv#MappingAssessment> ;
+                                         rdfs:comment "The quality measurement calculated by the mapping quality assessment process." ;
+                                         rdfs:label "wasDerivedFrom" ;
+                                         <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :qualityMeasurement
@@ -423,13 +423,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#wasRefinedBy
-:wasRefinedBy rdf:type owl:ObjectProperty ;
-              rdfs:domain :MappingViolation ;
-              rdfs:range :MappingRefinement ;
-              rdfs:comment "The refinement used to refine a quality violation." ;
-              rdfs:label "wasRefinedBy"@en ;
-              <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#wasRefinedBy
+<http://ontology.org/mqv#wasRefinedBy> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <http://ontology.org/mqv#MappingViolation> ;
+                                       rdfs:range <http://ontology.org/mqv#MappingRefinement> ;
+                                       rdfs:comment "The refinement used to refine a quality violation." ;
+                                       rdfs:label "wasRefinedBy"@en ;
+                                       <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingViolation
@@ -450,13 +450,13 @@
 #    Data properties
 #################################################################
 
-###  http://ontology.example.org/mqv#hasConfidenceScore
-:hasConfidenceScore rdf:type owl:DatatypeProperty ;
-                    rdfs:domain :MappingRefinement ;
-                    rdfs:range xsd:decimal ;
-                    rdfs:comment "The confidence score of a mapping refinement." ;
-                    rdfs:label "hasConfidenceScore"@en ;
-                    <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#hasConfidenceScore
+<http://ontology.org/mqv#hasConfidenceScore> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain <http://ontology.org/mqv#MappingRefinement> ;
+                                             rdfs:range xsd:decimal ;
+                                             rdfs:comment "The confidence score of a mapping refinement." ;
+                                             rdfs:label "hasConfidenceScore"@en ;
+                                             <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingRefinement
@@ -465,13 +465,13 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#hasLocation
-:hasLocation rdf:type owl:DatatypeProperty ;
-             rdfs:domain :MappingViolation ;
-             rdfs:range xsd:string ;
-             rdfs:comment "The location of a violation within the mapping." ;
-             rdfs:label "hasLocation"@en ;
-             <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#hasLocation
+<http://ontology.org/mqv#hasLocation> rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain <http://ontology.org/mqv#MappingViolation> ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:comment "The location of a violation within the mapping." ;
+                                      rdfs:label "hasLocation"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingViolation
@@ -480,13 +480,13 @@
 """ .
 
 
-###  http://ontology.example.org/mqv#hasRefinementQuery
-:hasRefinementQuery rdf:type owl:DatatypeProperty ;
-                    rdfs:domain :MappingRefinement ;
-                    rdfs:range xsd:string ;
-                    rdfs:comment "A query executed during by a refinement." ;
-                    rdfs:label "hasRefinementQuery"@en ;
-                    <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#hasRefinementQuery
+<http://ontology.org/mqv#hasRefinementQuery> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain <http://ontology.org/mqv#MappingRefinement> ;
+                                             rdfs:range xsd:string ;
+                                             rdfs:comment "A query executed during by a refinement." ;
+                                             rdfs:label "hasRefinementQuery"@en ;
+                                             <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :refinement1 a mqv:MappingRefinement;
@@ -506,14 +506,14 @@
 """ .
 
 
-###  http://ontology.example.org/mqv#hasValue
-:hasValue rdf:type owl:DatatypeProperty ;
-          rdfs:subPropertyOf <http://www.w3.org/ns/prov#value> ;
-          rdfs:domain :MappingViolation ;
-          rdfs:range xsd:string ;
-          rdfs:comment "The value associated with the violation." ;
-          rdfs:label "hasValue"@en ;
-          <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#hasValue
+<http://ontology.org/mqv#hasValue> rdf:type owl:DatatypeProperty ;
+                                   rdfs:subPropertyOf <http://www.w3.org/ns/prov#value> ;
+                                   rdfs:domain <http://ontology.org/mqv#MappingViolation> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:comment "The value associated with the violation." ;
+                                   rdfs:label "hasValue"@en ;
+                                   <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingViolation
@@ -522,14 +522,14 @@
 """ .
 
 
-###  http://ontology.example.org/mqv#mappingPurpose
-:mappingPurpose rdf:type owl:DatatypeProperty ;
-                rdfs:subPropertyOf <http://www.w3.org/ns/prov#value> ;
-                rdfs:domain :MappingDocument ;
-                rdfs:range xsd:string ;
-                rdfs:comment "The rationale for the mapping document being created." ;
-                rdfs:label "mappingPurpose"@en ;
-                <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#mappingPurpose
+<http://ontology.org/mqv#mappingPurpose> rdf:type owl:DatatypeProperty ;
+                                         rdfs:subPropertyOf <http://www.w3.org/ns/prov#value> ;
+                                         rdfs:domain <http://ontology.org/mqv#MappingDocument> ;
+                                         rdfs:range xsd:string ;
+                                         rdfs:comment "The rationale for the mapping document being created." ;
+                                         rdfs:label "mappingPurpose"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingDocument
@@ -537,14 +537,14 @@
 	mqv:mappingPurpose 'A mapping for mapping personnel information to RDF.^^xsd:string'""" .
 
 
-###  http://ontology.example.org/mqv#refinementName
-:refinementName rdf:type owl:DatatypeProperty ;
-                rdfs:subPropertyOf <http://www.w3.org/ns/prov#value> ;
-                rdfs:domain :MappingRefinement ;
-                rdfs:range xsd:string ;
-                rdfs:comment "A textual description of a refinement." ;
-                rdfs:label "refinementName"@en ;
-                <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#refinementName
+<http://ontology.org/mqv#refinementName> rdf:type owl:DatatypeProperty ;
+                                         rdfs:subPropertyOf <http://www.w3.org/ns/prov#value> ;
+                                         rdfs:domain <http://ontology.org/mqv#MappingRefinement> ;
+                                         rdfs:range xsd:string ;
+                                         rdfs:comment "A textual description of a refinement." ;
+                                         rdfs:label "refinementName"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :refinement-0
@@ -553,14 +553,14 @@
 """ .
 
 
-###  http://ontology.example.org/mqv#resultMessage
-:resultMessage rdf:type owl:DatatypeProperty ;
-               rdfs:subPropertyOf <http://www.w3.org/ns/prov#value> ;
-               rdfs:domain :MappingViolation ;
-               rdfs:range xsd:string ;
-               rdfs:comment "A textual description of the violation." ;
-               rdfs:label "resultMessage"@en ;
-               <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#resultMessage
+<http://ontology.org/mqv#resultMessage> rdf:type owl:DatatypeProperty ;
+                                        rdfs:subPropertyOf <http://www.w3.org/ns/prov#value> ;
+                                        rdfs:domain <http://ontology.org/mqv#MappingViolation> ;
+                                        rdfs:range xsd:string ;
+                                        rdfs:comment "A textual description of the violation." ;
+                                        rdfs:label "resultMessage"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingViolation
@@ -579,12 +579,12 @@
 #    Classes
 #################################################################
 
-###  http://ontology.example.org/mqv#MappingAssessment
-:MappingAssessment rdf:type owl:Class ;
-                   rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
-                   rdfs:comment "An activity in which the quality of a mapping document is assessed, generating information on quality issues within the mapping." ;
-                   rdfs:label "MappingAssessment"@en ;
-                   <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#MappingAssessment
+<http://ontology.org/mqv#MappingAssessment> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+                                            rdfs:comment "An activity in which the quality of a mapping document is assessed, generating information on quality issues within the mapping." ;
+                                            rdfs:label "MappingAssessment"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 :mappingQualityAssessement
@@ -597,12 +597,12 @@
 """ .
 
 
-###  http://ontology.example.org/mqv#MappingDocument
-:MappingDocument rdf:type owl:Class ;
-                 rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
-                 rdfs:comment "A mapping document is a document which contains information on how non-RDF data will be transformed to RDF." ;
-                 rdfs:label "MappingDocument"@en ;
-                 <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#MappingDocument
+<http://ontology.org/mqv#MappingDocument> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                                          rdfs:comment "A mapping document is a document which contains information on how non-RDF data will be transformed to RDF." ;
+                                          rdfs:label "MappingDocument"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 
@@ -617,12 +617,12 @@
 """ .
 
 
-###  http://ontology.example.org/mqv#MappingRefinement
-:MappingRefinement rdf:type owl:Class ;
-                   rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
-                   rdfs:comment "An activity which involves removing quality violations contained within a mapping document." ;
-                   rdfs:label "MappingRefinement"@en ;
-                   <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#MappingRefinement
+<http://ontology.org/mqv#MappingRefinement> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+                                            rdfs:comment "An activity which involves removing quality violations contained within a mapping document." ;
+                                            rdfs:label "MappingRefinement"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 
@@ -637,12 +637,12 @@
 """ .
 
 
-###  http://ontology.example.org/mqv#MappingTool
-:MappingTool rdf:type owl:Class ;
-             rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
-             rdfs:comment "A tool which is used to create or refine a mapping document." ;
-             rdfs:label "MappingTool"@en ;
-             <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#MappingTool
+<http://ontology.org/mqv#MappingTool> rdf:type owl:Class ;
+                                      rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                                      rdfs:comment "A tool which is used to create or refine a mapping document." ;
+                                      rdfs:label "MappingTool"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 
@@ -656,12 +656,12 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#MappingValidationReport
-:MappingValidationReport rdf:type owl:Class ;
-                         rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
-                         rdfs:comment "A mapping validation report contains information about quality violations contained within a mapping document." ;
-                         rdfs:label "MappingValidationReport"@en ;
-                         <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#MappingValidationReport
+<http://ontology.org/mqv#MappingValidationReport> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                                                  rdfs:comment "A mapping validation report contains information about quality violations contained within a mapping document." ;
+                                                  rdfs:label "MappingValidationReport"@en ;
+                                                  <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 
@@ -676,12 +676,12 @@
 """ .
 
 
-###  http://ontology.example.org/mqv#MappingViolation
-:MappingViolation rdf:type owl:Class ;
-                  rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
-                  rdfs:comment "A mapping violation is a quality issue present within a mapping." ;
-                  rdfs:label "MappingViolation"@en ;
-                  <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#MappingViolation
+<http://ontology.org/mqv#MappingViolation> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                                           rdfs:comment "A mapping violation is a quality issue present within a mapping." ;
+                                           rdfs:label "MappingViolation"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 
@@ -695,12 +695,12 @@
 .""" .
 
 
-###  http://ontology.example.org/mqv#QualityMetricType
-:QualityMetricType rdf:type owl:Class ;
-                   rdfs:subClassOf <http://www.w3.org/ns/prov#Collection> ;
-                   rdfs:comment "Quality metrics may be grouped into type's, such as mapping, data and vocabulary." ;
-                   rdfs:label "QualityMetricType"@en ;
-                   <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#QualityMetricType
+<http://ontology.org/mqv#QualityMetricType> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.w3.org/ns/prov#Collection> ;
+                                            rdfs:comment "Quality metrics may be grouped into type's, such as mapping, data and vocabulary." ;
+                                            rdfs:label "QualityMetricType"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 
@@ -715,12 +715,12 @@
 """ .
 
 
-###  http://ontology.example.org/mqv#QualityRequirement
-:QualityRequirement rdf:type owl:Class ;
-                    rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
-                    rdfs:comment "A quality requirement is a requirement a mapping should satisfy." ;
-                    rdfs:label "QualityRequirement"@en ;
-                    <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+###  http://ontology.org/mqv#QualityRequirement
+<http://ontology.org/mqv#QualityRequirement> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                                             rdfs:comment "A quality requirement is a requirement a mapping should satisfy." ;
+                                             rdfs:label "QualityRequirement"@en ;
+                                             <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
 @prefix mqv: <http://ontology.example.org/mqv#>.;
 
 
