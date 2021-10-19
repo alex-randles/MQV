@@ -118,7 +118,7 @@
     "@id" : "http://www.w3.org/ns/prov#Activity"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingQualityAssessement\n\ta mqv:MappingAssessment ;\n\tmqv:perfomedBy :mappingEngineer;\n.\n\n:mappingEngineer\n    a  prov:Agent;\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingQualityAssessement\n\ta mqv:MappingAssessment ;\n\tmqv:perfomedBy :mappingEngineer;\n.\n\n:mappingEngineer\n    a  prov:Agent;\n"
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#MappingDocument",
@@ -134,7 +134,7 @@
     "@id" : "http://www.w3.org/ns/prov#Entity"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:createdBy :mappingEngineer\n.\n\n:mappingEngineer\n\ta prov:Agent ;\n.\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:createdBy :mappingEngineer\n.\n\n:mappingEngineer\n\ta prov:Agent ;\n.\n"
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#MappingRefinement",
@@ -150,7 +150,7 @@
     "@id" : "http://www.w3.org/ns/prov#Activity"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n\n:mappingRefinement\n\ta mqv:MapppingRefinement;\n.\n\n:mappingViolation\n\ta mqv:Violation ;\n\tmqv:wasRefinedBy :mappingRefinement ;\n.\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n\n:mappingRefinement\n\ta mqv:MapppingRefinement;\n.\n\n:mappingViolation\n\ta mqv:Violation ;\n\tmqv:wasRefinedBy :mappingRefinement ;\n.\n"
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#MappingTool",
@@ -166,7 +166,7 @@
     "@id" : "http://www.w3.org/ns/prov#Entity"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n\n:mappingTool\n\ta mqv:MappingTool;\n.\n\n:mappingDocument\n\ta mqv:MappingDocument ;\n\tmqv:toolsUsed :mappingTool ;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n\n:mappingTool\n\ta mqv:MappingTool;\n.\n\n:mappingDocument\n\ta mqv:MappingDocument ;\n\tmqv:toolsUsed :mappingTool ;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#MappingValidationReport",
@@ -182,7 +182,7 @@
     "@id" : "http://www.w3.org/ns/prov#Entity"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n\n:mappingValidationReport\n\ta mqv:MappingValidationReport;\n.\n\n:mappingAssessment\n\ta mqv:MappingAssessment ;\n\tmqv:hasValidationReport :mappingValidationReport ;\n.\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n\n:mappingValidationReport\n\ta mqv:MappingValidationReport;\n.\n\n:mappingAssessment\n\ta mqv:MappingAssessment ;\n\tmqv:hasValidationReport :mappingValidationReport ;\n.\n"
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#MappingViolation",
@@ -198,7 +198,7 @@
     "@id" : "http://www.w3.org/ns/prov#Entity"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n\n:mappingViolation\n\ta mqv:MappingViolation;\n.\n\n:mappingValidationReport\n\ta mqv:MappingValidationReport ;\n\tmqv:hasViolation :mappingViolation;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n\n:mappingViolation\n\ta mqv:MappingViolation;\n.\n\n:mappingValidationReport\n\ta mqv:MappingValidationReport ;\n\tmqv:hasViolation :mappingViolation;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#QualityMetricType",
@@ -214,7 +214,7 @@
     "@id" : "http://www.w3.org/ns/prov#Collection"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n\n:dataQualityType\n\ta mqv:QualityMetricType;\n.\n\n:mappingViolation\n\ta mqv:MappingViolation ;\n\tmqv:hasMetricType :dataQualityType ;\n.\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n\n:dataQualityType\n\ta mqv:QualityMetricType;\n.\n\n:mappingViolation\n\ta mqv:MappingViolation ;\n\tmqv:hasMetricType :dataQualityType ;\n.\n"
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#QualityRequirement",
@@ -230,7 +230,7 @@
     "@id" : "http://www.w3.org/ns/prov#Entity"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n\n:qualityRequirement\n\ta mqv:QualityRequirement;\n.\n\n:mappingAssessment\n\ta mqv:MappingAssessment ;\n\tmqv:hasQualityRequirement :qualityRequirement ;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n\n:qualityRequirement\n\ta mqv:QualityRequirement;\n.\n\n:mappingAssessment\n\ta mqv:MappingAssessment ;\n\tmqv:hasQualityRequirement :qualityRequirement ;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#assessedMapping",
@@ -249,7 +249,7 @@
     "@id" : "https://alex-randles.github.io/MQV/#MappingDocument"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:assessedMapping :mappingDocument;\n.\n\n:mappingDocument\n\ta mqv:MappingDocument;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:assessedMapping :mappingDocument;\n.\n\n:mappingDocument\n\ta mqv:MappingDocument;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#assessmentPerformedBy",
@@ -268,7 +268,7 @@
     "@id" : "http://www.w3.org/ns/prov#Agent"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:assessmentPerformedBy :AlexRandles;\n.\n\n:AlexRandles\n\ta prov:Agent;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:assessmentPerformedBy :AlexRandles;\n.\n\n:AlexRandles\n\ta prov:Agent;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#createdBy",
@@ -287,7 +287,7 @@
     "@id" : "_:genid1"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\ta mqv:MappingAssessment ;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:createdBy :mappingEngineer;\n.\n\n:mappingEngineer\n\ta prov:Agent;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\ta mqv:MappingAssessment ;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:createdBy :mappingEngineer;\n.\n\n:mappingEngineer\n\ta prov:Agent;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#executes",
@@ -306,7 +306,7 @@
     "@id" : "http://www.w3.org/ns/dqv#Metric"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:executes :qualityMetric;\n.\n\n:qualityMetric\n\ta mqv:QualityMetric;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:executes :qualityMetric;\n.\n\n:qualityMetric\n\ta mqv:QualityMetric;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#hasConfidenceScore",
@@ -325,7 +325,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingRefinement\n\ta mqv:MappingRefinement;\n\tmqv:hasConfidenceScore \"0.8\"^^xsd:double;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingRefinement\n\ta mqv:MappingRefinement;\n\tmqv:hasConfidenceScore \"0.8\"^^xsd:double;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#hasLocation",
@@ -344,7 +344,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:hasLocation \"Predicate Object Map\"^^xsd:string.\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:hasLocation \"Predicate Object Map\"^^xsd:string.\n"
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#hasMetricType",
@@ -363,7 +363,7 @@
     "@id" : "https://alex-randles.github.io/MQV/#QualityMetricType"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:qualityMetric\n\ta dqv:Metric;\n\tmqv:hasMetricType :dataQualityMetric;\n.\n\n:dataQualityMetric\n\ta mqv:QualityMetricType;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:qualityMetric\n\ta dqv:Metric;\n\tmqv:hasMetricType :dataQualityMetric;\n.\n\n:dataQualityMetric\n\ta mqv:QualityMetricType;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#hasQualityMeasurement",
@@ -382,7 +382,7 @@
     "@id" : "_:genid7"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:hasQualityMeasurement :qualityMeasurement;\n.\n\n:qualityMeasurement\n\ta dqv:QualityMeasurement;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:hasQualityMeasurement :qualityMeasurement;\n.\n\n:qualityMeasurement\n\ta dqv:QualityMeasurement;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#hasQualityRequirement",
@@ -401,7 +401,7 @@
     "@id" : "https://alex-randles.github.io/MQV/#QualityRequirement"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:hasQualityRequirement :qualityRequirement;\n.\n\n:qualityRequirement\n\ta mqv:QualityRequirement;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:hasQualityRequirement :qualityRequirement;\n.\n\n:qualityRequirement\n\ta mqv:QualityRequirement;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#hasRefinement",
@@ -420,7 +420,7 @@
     "@id" : "https://alex-randles.github.io/MQV/#MappingRefinement"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:qualityMetric\n\ta dqv:Metric;\n\tmqv:hasRefinement :mappingRefinement;\n.\n\n:mappingRefinement\n\ta mqv:MappingRefinement;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:qualityMetric\n\ta dqv:Metric;\n\tmqv:hasRefinement :mappingRefinement;\n.\n\n:mappingRefinement\n\ta mqv:MappingRefinement;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#hasRefinementQuery",
@@ -439,7 +439,7 @@
     "@id" : "http://www.w3.org/2001/XMLSchema#string"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:refinement1 a mqv:MappingRefinement;\n\tmqv:hasRefinementQuery '''\n\t\tPREFIX rr: <http://www.w3.org/ns/r2rml#>\n\t\tPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\t\tPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\t\tDELETE{?om rr:datatype ?datatype}\n\t\tINSERT{?om rr:datatype xsd:string }\n\t\tWHERE\n\t\t{\n\t\t?sub rr:predicateObjectMap ?pom.\n\t\t?pom rr:predicate foaf:name.\n\t\t?pom rr:objectMap ?om.\n\t\t?om rr:datatype ?datatype.\n\t\t}'''^^xsd:string .\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:refinement1 a mqv:MappingRefinement;\n\tmqv:hasRefinementQuery '''\n\t\tPREFIX rr: <http://www.w3.org/ns/r2rml#>\n\t\tPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\t\tPREFIX foaf: <http://xmlns.com/foaf/0.1/>\n\t\tDELETE{?om rr:datatype ?datatype}\n\t\tINSERT{?om rr:datatype xsd:string }\n\t\tWHERE\n\t\t{\n\t\t?sub rr:predicateObjectMap ?pom.\n\t\t?pom rr:predicate foaf:name.\n\t\t?pom rr:objectMap ?om.\n\t\t?om rr:datatype ?datatype.\n\t\t}'''^^xsd:string .\n"
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#hasValidationReport",
@@ -458,7 +458,7 @@
     "@id" : "https://alex-randles.github.io/MQV/#MappingValidationReport"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:hasValidationReport :mappingValidationReport;\n.\n\n:mappingValidationReport\n\ta mqv:MappingValidationReport;\n\tmqv:hasViolation :mappingViolation;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:hasValidationReport :mappingValidationReport;\n.\n\n:mappingValidationReport\n\ta mqv:MappingValidationReport;\n\tmqv:hasViolation :mappingViolation;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#hasValue",
@@ -480,7 +480,7 @@
     "@id" : "http://www.w3.org/ns/prov#value"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:hasValue \"en-GB\".\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:hasValue \"en-GB\".\n"
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#hasViolation",
@@ -499,7 +499,7 @@
     "@id" : "https://alex-randles.github.io/MQV/#MappingViolation"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingValidationReport\n\ta mqv:MappingValidationReport;\n\tmqv:hasViolation :mappingViolation;\n.\n\n:mappingViolation\n\ta mqv:MappingViolation;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingValidationReport\n\ta mqv:MappingValidationReport;\n\tmqv:hasViolation :mappingViolation;\n.\n\n:mappingViolation\n\ta mqv:MappingViolation;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#inTripleMap",
@@ -515,7 +515,7 @@
     "@value" : "inTripleMap"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:inTripleMap <#TripleMap1>;\n.\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:inTripleMap <#TripleMap1>;\n.\n"
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#isDescribedBy",
@@ -534,7 +534,7 @@
     "@id" : "http://www.w3.org/ns/dqv#Metric"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:isDescribedBy :qualityMetric;\n.\n\n:qualityMetric\n\ta dqv:Metric;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:isDescribedBy :qualityMetric;\n.\n\n:qualityMetric\n\ta dqv:Metric;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#mappingPurpose",
@@ -556,7 +556,7 @@
     "@id" : "http://www.w3.org/ns/prov#value"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:mappingPurpose 'A mapping for mapping personnel information to RDF.^^xsd:string'"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:mappingPurpose 'A mapping for mapping personnel information to RDF.^^xsd:string'"
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#mappingSource",
@@ -575,7 +575,7 @@
     "@id" : "https://alex-randles.github.io/MQV/#MappingDocument"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:refinedMappingDocument\n\ta mqv:MappingDocument;\n\tmqv:mappingSource :originalMappingDocument;\n.\n\n:originalMappingDocument\n\ta mqv:MappingDocument;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:refinedMappingDocument\n\ta mqv:MappingDocument;\n\tmqv:mappingSource :originalMappingDocument;\n.\n\n:originalMappingDocument\n\ta mqv:MappingDocument;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#performedBy",
@@ -594,7 +594,7 @@
     "@id" : "http://www.w3.org/ns/prov#Agent"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:performedBy :mappingEngineer;\n.\n\n:mappingEngineer\n\ta prov:Agent;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:performedBy :mappingEngineer;\n.\n\n:mappingEngineer\n\ta prov:Agent;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#performedOn",
@@ -613,7 +613,7 @@
     "@id" : "https://alex-randles.github.io/MQV/#MappingDocument"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:performedOn :mappingDocument;\n.\n\n:mappingDocument\n\ta mqv:MappingDocument;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:performedOn :mappingDocument;\n.\n\n:mappingDocument\n\ta mqv:MappingDocument;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#refinedViolation",
@@ -635,7 +635,7 @@
     "@id" : "http://www.w3.org/ns/prov#generated"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:refinement-0\n\ta mqv:MappingRefinement;\n\tmqv:refinedViolation :mappingViolation.\n\n:mappingViolation\n    a mqv:MappingViolation .\n\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:refinement-0\n\ta mqv:MappingRefinement;\n\tmqv:refinedViolation :mappingViolation.\n\n:mappingViolation\n    a mqv:MappingViolation .\n\n"
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#refinementName",
@@ -657,7 +657,7 @@
     "@id" : "http://www.w3.org/ns/prov#value"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:refinement-0\n\ta mqv:MappingRefinement;\n\tmqv:refinementName \"Remove Language Tag\"^^xsd:string.\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:refinement-0\n\ta mqv:MappingRefinement;\n\tmqv:refinementName \"Remove Language Tag\"^^xsd:string.\n"
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#refinementPerformedBy",
@@ -676,7 +676,7 @@
     "@id" : "http://www.w3.org/ns/prov#Agent"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:refinementPerformedBy :AlexRandles;\n.\n\n:AlexRandles\n\ta prov:Agent;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n\tmqv:refinementPerformedBy :AlexRandles;\n.\n\n:AlexRandles\n\ta prov:Agent;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#resultMessage",
@@ -698,7 +698,7 @@
     "@id" : "http://www.w3.org/ns/prov#value"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingViolation\n    a mqv:MappingViolation;\n    mqv:resultMessage \"Usage of undefined Property.\"\n.\n\n"
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingViolation\n    a mqv:MappingViolation;\n    mqv:resultMessage \"Usage of undefined Property.\"\n.\n\n"
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#toolsUsed",
@@ -717,7 +717,7 @@
     "@id" : "https://alex-randles.github.io/MQV/#MappingTool"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:toolsUsed :mappingTool;\n.\n\n:mappingTool\n\ta mqv:MappingTool;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingDocument\n\ta mqv:MappingDocument;\n\tmqv:toolsUsed :mappingTool;\n.\n\n:mappingTool\n\ta mqv:MappingTool;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#wasDerivedFrom",
@@ -735,7 +735,7 @@
     "@id" : "https://alex-randles.github.io/MQV/#MappingAssessment"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:qualityMeasurement\n\ta dqv:QualityMeasurement;\n\tmqv:wasDerivedFrom :mappingAssessment;\n.\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:qualityMeasurement\n\ta dqv:QualityMeasurement;\n\tmqv:wasDerivedFrom :mappingAssessment;\n.\n\n:mappingAssessment\n\ta mqv:MappingAssessment;\n."
   } ]
 }, {
   "@id" : "https://alex-randles.github.io/MQV/#wasRefinedBy",
@@ -754,6 +754,6 @@
     "@id" : "https://alex-randles.github.io/MQV/#MappingRefinement"
   } ],
   "http://www.w3.org/2004/02/skos/core#example" : [ {
-    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <http://ontology.example.org/mqv#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:wasRefinedBy :mappingRefinement;\n.\n\n:mappingRefinement\n\ta mqv:MappingRefinement;\n."
+    "@value" : "@prefix :     <http://example.com/>.;\n@prefix mqv: <https://alex-randles.github.io/MQV/#>.;\n\n:mappingViolation\n\ta mqv:MappingViolation;\n\tmqv:wasRefinedBy :mappingRefinement;\n.\n\n:mappingRefinement\n\ta mqv:MappingRefinement;\n."
   } ]
 } ]
