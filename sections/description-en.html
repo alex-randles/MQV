@@ -39,5 +39,20 @@ to generate a mapping validation report (mqv:MappingValidationReport). Each viol
 <strong>Mapping quality validation.</strong>Finally, our model provides quality information on the original mapping being assessed, and the mapping which has been refined in the process. As mentioned, each mapping assessment process may have quality requirements which can be validated at this stage. For instance, one may define a quality requirement for understandability related quality metrics to be of a particular value. In this stage, this can be validated by comparing the defined quality requirement and the resulted one.
 </p>
 
+<br>
+The SPARQL query shown below can be used to identify detected violations which have not be refined:
+<pre><code>PREFIX mqio: <https://w3id.org/MQIO#>
+SELECT ?violation ?refinement
+WHERE {
+  
+  ?validationReport a mqio:MappingValidationReport ;
+                    mqio:hasViolation ?violation. 
+  FILTER NOT EXISTS{ ?violation mqio:wasRefinedBy ?refinement . }
+}
+
+</code></code>
+</pre>
+
+
 
 

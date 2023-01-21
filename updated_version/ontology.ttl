@@ -1,0 +1,687 @@
+@prefix : <https://w3id.org/MARO#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/MARO#> .
+
+<https://w3id.org/MARO#> rdf:type owl:Ontology ;
+                          <http://purl.org/ontology/bibo/status> "Draft" ;
+                          <http://purl.org/dc/terms/abstract> "The Mapping Assessment & Refinement Ontology (MARO) provides a set of classes, properties, and restrictions that can be used to represent and interchange provenance and metadata information relating to the quality assessment, quality refinement and quality validation of mapping definitions used to generate Linked data datasets. It can also be specialized to create new classes and properties to model provenance and metadata information for domain specific mapping languages" ;
+                          <http://purl.org/dc/terms/created> "1 June 2020" ;
+                          <http://purl.org/dc/terms/creator> "Ademar Crotti Junior" ,
+                                                             "Alex Randles" ,
+                                                             "Declan O'Sullivan" ,
+                                                             "v0.0.0" ;
+                          <http://purl.org/dc/terms/license> "http://creativecommons.org/publicdomain/zero/1.0/" ;
+                          <http://purl.org/dc/terms/title> "Mapping Assessment & Refinement Ontology (MARO)" ;
+                          <http://purl.org/vocab/vann/preferredNamespacePrefix> "maro" ;
+                          <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/MARO#" ;
+                          owl:versionInfo "v1.0.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/ontology/bibo/status
+<http://purl.org/ontology/bibo/status> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/abstract
+<http://purl.org/dc/terms/abstract> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+<http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/MARO#assessedMapping
+:assessedMapping rdf:type owl:ObjectProperty ;
+                 rdfs:domain :MappingAssessment ;
+                 rdfs:range :MappingDocument ;
+                 rdfs:comment "The mapping which is targetted by the assessment process" ;
+                 rdfs:label "assessedMapping"@en ;
+                 <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingAssessment
+	a maro:MappingAssessment;
+	maro:assessedMapping :mappingDocument;
+.
+
+:mappingDocument
+	a maro:MappingDocument;
+.""" .
+
+
+###  https://w3id.org/MARO#executes
+:executes rdf:type owl:ObjectProperty ;
+          rdfs:domain :MappingAssessment ;
+          rdfs:range <http://www.w3.org/ns/dqv#Metric> ;
+          rdfs:comment "A quality metric executed by the mapping quality assessment process." ;
+          rdfs:label "executes"@en ;
+          <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingAssessment
+	a maro:MappingAssessment;
+	maro:executes :qualityMetric;
+.
+
+:qualityMetric
+	a maro:QualityMetric;
+.""" .
+
+
+###  https://w3id.org/MARO#hasQualityMeasurement
+:hasQualityMeasurement rdf:type owl:ObjectProperty ;
+                       rdfs:domain [ rdf:type owl:Class ;
+                                     owl:unionOf ( :MappingDocument
+                                                   :QualityRequirement
+                                                 )
+                                   ] ;
+                       rdfs:range [ rdf:type owl:Class ;
+                                    owl:unionOf ( <http://www.w3.org/ns/dqv#Category>
+                                                  <http://www.w3.org/ns/dqv#Dimension>
+                                                  <http://www.w3.org/ns/dqv#Metric>
+                                                  <http://www.w3.org/ns/dqv#QualityMeasurement>
+                                                )
+                                  ] ;
+                       rdfs:comment "A measurement calculated  by executing a quality metric on a mapping document." ;
+                       rdfs:label "hasQualityMeasurement"@en ;
+                       <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingDocument
+	a maro:MappingDocument;
+	maro:hasQualityMeasurement :qualityMeasurement;
+.
+
+:qualityMeasurement
+	a dqv:QualityMeasurement;
+.""" .
+
+
+###  https://w3id.org/MARO#hasQualityRequirement
+:hasQualityRequirement rdf:type owl:ObjectProperty ;
+                       rdfs:domain :MappingAssessment ;
+                       rdfs:range :QualityRequirement ;
+                       rdfs:comment "The quality requirement of a quality assessment process." ;
+                       rdfs:label "hasQualityRequirement"@en ;
+                       <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingAssessment
+	a maro:MappingAssessment;
+	maro:hasQualityRequirement :qualityRequirement;
+.
+
+:qualityRequirement
+	a maro:QualityRequirement;
+.""" .
+
+
+###  https://w3id.org/MARO#hasRefinement
+:hasRefinement rdf:type owl:ObjectProperty ;
+               rdfs:domain <http://www.w3.org/ns/dqv#Metric> ;
+               rdfs:range :MappingRefinement ;
+               rdfs:comment "The refinement associated with a particular quality metric." ;
+               rdfs:label "hasRefinement"@en ;
+               <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:qualityMetric
+	a dqv:Metric;
+	maro:hasRefinement :mappingRefinement;
+.
+
+:mappingRefinement
+	a maro:MappingRefinement;
+.""" .
+
+
+###  https://w3id.org/MARO#hasSource
+:hasSource rdf:type owl:ObjectProperty, owl:TransitiveProperty ;
+           rdfs:domain :MappingDocument ;
+           rdfs:range :MappingDocument ;
+           rdfs:comment "The original mapping document which the refined mapping was derived from." ;
+           rdfs:label "hasSource"@en ;
+           <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:refinedMappingDocument
+	a maro:MappingDocument;
+	maro:hasSource :originalMappingDocument;
+.
+
+:originalMappingDocument
+	a maro:MappingDocument;
+.""" .
+
+
+###  https://w3id.org/MARO#hasValidationReport
+:hasValidationReport rdf:type owl:ObjectProperty ;
+                     rdfs:domain :MappingAssessment ;
+                     rdfs:range :MappingValidationReport ;
+                     rdfs:comment "The report containing quality issues present within a mapping." ;
+                     rdfs:label "hasValidationReport"@en ;
+                     <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingAssessment
+	a maro:MappingAssessment;
+	maro:hasValidationReport :mappingValidationReport;
+.
+
+:mappingValidationReport
+	a maro:MappingValidationReport;
+	maro:hasViolation :mappingViolation;
+.""" .
+
+
+###  https://w3id.org/MARO#hasViolation
+:hasViolation rdf:type owl:ObjectProperty ;
+              rdfs:domain :MappingValidationReport ;
+              rdfs:range :MappingViolation ;
+              rdfs:comment "A mapping quality issue contained within a validation report." ;
+              rdfs:label "hasViolation"@en ;
+              <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingValidationReport
+	a maro:MappingValidationReport;
+	maro:hasViolation :mappingViolation;
+.
+
+:mappingViolation
+	a maro:MappingViolation;
+.""" .
+
+
+###  https://w3id.org/MARO#inTripleMap
+:inTripleMap rdf:type owl:ObjectProperty ;
+             rdfs:domain :MappingViolation ;
+             rdfs:range rdfs:Resource ;
+             rdfs:comment "The triple map which contains the violation." ;
+             rdfs:label "inTripleMap"@en ;
+             <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingViolation
+	a maro:MappingViolation;
+	maro:inTripleMap <#TripleMap1>;
+.
+""" .
+
+
+###  https://w3id.org/MARO#isDescribedBy
+:isDescribedBy rdf:type owl:ObjectProperty ;
+               rdfs:domain :MappingViolation ;
+               rdfs:range <http://www.w3.org/ns/dqv#Metric> ;
+               rdfs:comment "The quality metric which detected a quality violation." ;
+               rdfs:label "isDescribedBy"@en ;
+               <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingViolation
+	a maro:MappingViolation;
+	maro:isDescribedBy :qualityMetric;
+.
+
+:qualityMetric
+	a dqv:Metric;
+.""" .
+
+
+###  https://w3id.org/MARO#refinedViolation
+:refinedViolation rdf:type owl:ObjectProperty ;
+                  rdfs:domain :MappingRefinement ;
+                  rdfs:range :MappingViolation ;
+                  rdfs:comment "The refinement executed on a violation." ;
+                  rdfs:label "refinedViolation"@en ;
+                  owl:inverseOf :wasRefinedBy; 
+                  <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:refinement-0
+	a maro:MappingRefinement;
+	maro:refinedViolation :mappingViolation.
+
+:mappingViolation
+    a maro:MappingViolation .
+
+""" .
+
+
+###  https://w3id.org/MARO#usedTool
+:usedTool rdf:type owl:ObjectProperty ;
+          rdfs:domain :MappingDocument ;
+          rdfs:range :MappingTool ;
+          rdfs:comment "A tool which was used to create or refine a mapping." ;
+          rdfs:label "usedTool"@en ;
+          <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.;
+
+:mappingDocument
+	a maro:MappingDocument;
+	maro:usedTool :mappingTool;
+.
+
+:mappingTool
+	a maro:MappingTool;
+	rdfs:comment \"RMLEditor tool was used to define mapping\"; 
+.""" .
+
+
+###  https://w3id.org/MARO#wasCreatedBy
+:wasCreatedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :MappingDocument ;
+              rdfs:range [ rdf:type owl:Class ;
+                           owl:unionOf ( <http://www.w3.org/ns/prov#Agent>
+                                         :MappingRefinement
+                                       )
+                         ] ;
+              rdfs:comment "The agent or mapping refinement process who produced the mapping document." ;
+              rdfs:label "wasCreatedBy"@en ;
+              <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;	a maro:MappingAssessment ;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingDocument
+	a maro:MappingDocument;
+	maro:wasCreatedBy :mappingEngineer;
+.
+
+:mappingEngineer
+	a prov:Agent;
+.""" .
+
+
+###  https://w3id.org/MARO#wasDerivedFrom
+:wasDerivedFrom rdf:type owl:ObjectProperty ;
+                rdfs:domain <http://www.w3.org/ns/dqv#QualityMeasurement> ;
+                rdfs:range :MappingAssessment ;
+                rdfs:comment "The quality measurement calculated by the mapping quality assessment process." ;
+                rdfs:label "wasDerivedFrom" ;
+                <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:qualityMeasurement
+	a dqv:QualityMeasurement;
+	maro:wasDerivedFrom :mappingAssessment;
+.
+
+:mappingAssessment
+	a maro:MappingAssessment;
+.""" .
+
+
+###  https://w3id.org/MARO#wasRefinedBy
+:wasRefinedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain :MappingViolation ;
+              rdfs:range :MappingRefinement ;
+              rdfs:comment "The refinement used to refine a quality violation." ;
+              rdfs:label "wasRefinedBy"@en ;
+              owl:inverseOf :refinedViolation; 
+              <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingViolation
+	a maro:MappingViolation;
+	maro:wasRefinedBy :mappingRefinement;
+.
+
+:mappingRefinement
+	a maro:MappingRefinement;
+.""" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/MARO#hasConfidenceScore
+:hasConfidenceScore rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :MappingRefinement ;
+                    rdfs:range xsd:decimal ;
+                    rdfs:comment "The confidence score of a mapping refinement." ;
+                    rdfs:label "hasConfidenceScore"@en ;
+                    <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingRefinement
+	a maro:MappingRefinement;
+	maro:hasConfidenceScore \"0.8\"^^xsd:double;
+.""" .
+
+
+###  https://w3id.org/MARO#hasLocation
+:hasLocation rdf:type owl:DatatypeProperty ;
+             rdfs:domain :MappingViolation ;
+             rdfs:range xsd:string ;
+             rdfs:comment "The location of a violation within the mapping." ;
+             rdfs:label "hasLocation"@en ;
+             <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingViolation
+	a maro:MappingViolation;
+	maro:hasLocation \"Predicate Object Map\"^^xsd:string.
+""" .
+
+
+###  https://w3id.org/MARO#hasPurpose
+:hasPurpose rdf:type owl:DatatypeProperty ;
+            rdfs:domain :MappingDocument ;
+            rdfs:range xsd:string ;
+            rdfs:comment "The rationale for the creation of a mapping." ;
+            rdfs:label "hasPurpose"@en ;
+            <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingDocument
+	a maro:MappingDocument;
+	maro:hasPurpose 'A mapping for mapping personnel information to RDF.^^xsd:string'""" .
+
+
+###  https://w3id.org/MARO#hasRefinementName
+:hasRefinementName rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :MappingRefinement ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "A textual description of a refinement." ;
+                   rdfs:label "hasRefinementName"@en ;
+                   <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:refinement-0
+	a maro:MappingRefinement;
+	maro:hasRefinementName \"Remove Language Tag\"^^xsd:string.
+""" .
+
+
+###  https://w3id.org/MARO#hasRefinementQuery
+:hasRefinementQuery rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :MappingRefinement ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "A query executed by a refinement." ;
+                    rdfs:label "hasRefinementQuery"@en ;
+                    <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:refinement1 a maro:MappingRefinement;
+	maro:hasRefinementQuery '''
+		PREFIX rr: <http://www.w3.org/ns/r2rml#>
+		PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+		PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+		DELETE{?om rr:datatype ?datatype}
+		INSERT{?om rr:datatype xsd:string }
+		WHERE
+		{
+		?sub rr:predicateObjectMap ?pom.
+		?pom rr:predicate foaf:name.
+		?pom rr:objectMap ?om.
+		?om rr:datatype ?datatype.
+		}'''^^xsd:string .
+""" .
+
+
+###  https://w3id.org/MARO#hasResultMessage
+:hasResultMessage rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :MappingViolation ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "A textual description of the violation." ;
+                  rdfs:label "hasResultMessage"@en ;
+                  <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingViolation
+    a maro:MappingViolation;
+    maro:hasResultMessage \"Usage of undefined Property.\"
+.
+
+""" .
+
+
+###  https://w3id.org/MARO#hasValue
+:hasValue rdf:type owl:DatatypeProperty ;
+          rdfs:domain :MappingViolation ;
+          rdfs:range xsd:string ;
+          rdfs:comment "The value associated with a violation." ;
+          rdfs:label "hasValue"@en ;
+          <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingViolation
+	a maro:MappingViolation;
+	maro:hasValue \"en-GB\".
+""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#Resource
+rdfs:Resource rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/dqv#Category
+<http://www.w3.org/ns/dqv#Category> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/dqv#Dimension
+<http://www.w3.org/ns/dqv#Dimension> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/dqv#Metric
+<http://www.w3.org/ns/dqv#Metric> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/dqv#QualityMeasurement
+<http://www.w3.org/ns/dqv#QualityMeasurement> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Activity
+<http://www.w3.org/ns/prov#Activity> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Agent
+<http://www.w3.org/ns/prov#Agent> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Collection
+<http://www.w3.org/ns/prov#Collection> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> rdf:type owl:Class .
+
+
+###  https://w3id.org/MARO#MappingAssessment
+:MappingAssessment rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+                   owl:disjointWith :MappingRefinement ;
+                   rdfs:comment "An activity in which the quality of a mapping document is assessed, generating information on quality issues within the mapping." ;
+                   rdfs:label "MappingAssessment"@en ;
+                   <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+:mappingQualityAssessement
+	a maro:MappingAssessment ;
+	maro:assessedMapping <sample_mapping.ttl> ;
+.
+
+<sample_mapping.ttl> 
+    a maro:MappingDocument; 
+    maro:wasCreatedBy :mappingEngineer
+. 
+""" .
+
+
+###  https://w3id.org/MARO#MappingDocument
+:MappingDocument rdf:type owl:Class ;
+                 rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                 rdfs:comment "A mapping document is a document which contains information on how non-RDF data will be transformed to RDF." ;
+                 rdfs:label "MappingDocument"@en ;
+                 <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+
+:mappingDocument
+	a maro:MappingDocument;
+	maro:wasCreatedBy :mappingEngineer
+.
+
+:mappingEngineer
+	a prov:Agent ;
+.
+""" .
+
+
+###  https://w3id.org/MARO#MappingRefinement
+:MappingRefinement rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.w3.org/ns/prov#Activity> ;
+                   rdfs:comment "An activity which involves removing quality violations contained within a mapping document." ;
+                   rdfs:label "MappingRefinement"@en ;
+                   <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+
+:mappingRefinement
+	a maro:MapppingRefinement;
+.
+
+:mappingViolation
+	a maro:Violation ;
+	maro:wasRefinedBy :mappingRefinement ;
+.
+""" .
+
+
+###  https://w3id.org/MARO#MappingTool
+:MappingTool rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+             rdfs:comment "A mapping tool relates to any instrument used during the definition of a mapping." ;
+             rdfs:label "MappingTool"@en ;
+             <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+
+:mappingTool
+	a maro:MappingTool;
+.
+
+:mappingDocument
+	a maro:MappingDocument ;
+	maro:usedTool :mappingTool ;
+.""" .
+
+
+###  https://w3id.org/MARO#MappingValidationReport
+:MappingValidationReport rdf:type owl:Class ;
+                         rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                         rdfs:comment "A mapping validation report contains information about quality violations contained within a mapping document." ;
+                         rdfs:label "MappingValidationReport"@en ;
+                         <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+
+:mappingValidationReport
+	a maro:MappingValidationReport;
+.
+
+:mappingAssessment
+	a maro:MappingAssessment ;
+	maro:hasValidationReport :mappingValidationReport ;
+.
+""" .
+
+
+###  https://w3id.org/MARO#MappingViolation
+:MappingViolation rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                  rdfs:comment "A mapping violation is a quality issue present within a mapping." ;
+                  rdfs:label "MappingViolation"@en ;
+                  <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+
+:mappingViolation
+	a maro:MappingViolation;
+.
+
+:mappingValidationReport
+	a maro:MappingValidationReport ;
+	maro:hasViolation :mappingViolation;
+.""" .
+
+
+###  https://w3id.org/MARO#QualityMetricType
+:QualityMetricType rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.w3.org/ns/prov#Collection> ;
+                   rdfs:comment "Quality metrics may be grouped into type's, which represent quality aspects such as mapping, data and vocabulary." ;
+                   rdfs:label "QualityMetricType"@en ;
+                   <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+
+:dataQualityType
+	a maro:QualityMetricType;
+.
+
+:mappingViolation
+	a maro:MappingViolation ;
+	maro:hasMetricType :dataQualityType ;
+.
+""" .
+
+
+###  https://w3id.org/MARO#QualityRequirement
+:QualityRequirement rdf:type owl:Class ;
+                    rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                    rdfs:comment "A quality requirement defines a mapping characteristic." ;
+                    rdfs:label "QualityRequirement"@en ;
+                    <http://www.w3.org/2004/02/skos/core#example> """@prefix :     <http://example.com/>.;
+@prefix maro: <https://w3id.org/MARO#>.;
+
+
+:qualityRequirement
+	a maro:QualityRequirement;
+.
+
+:mappingAssessment
+	a maro:MappingAssessment ;
+	maro:hasQualityRequirement :qualityRequirement ;
+.""" .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
