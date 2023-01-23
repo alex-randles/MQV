@@ -1,0 +1,67 @@
+@prefix ex: <http://example.org/> .
+@prefix mqio: <https://w3id.org/MQIO> .
+@prefix mqio-metric: <http://ww.3id.org/MQIO-Metrics#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recipes: <http://ontology.foodlog.eu#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix dqv: <http://www.w3.org/ns/dqv#>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+
+ex:mappingQualityAssessment a mqio:MappingAssessment ;
+    mqio:assessedMapping <recipes-mapping.ttl> ;
+    mqio:wasExecuted  mqio:metric-D7 ;
+    mqio:usedTool "RML Editor";
+    prov:wasAssociatedWith ex:user-1; 
+    prov:endedAtTime  "2023-01-22T18:05:07+00:002023-01-22T18:07:07+00:00";
+    mqio:hasQualityRequirement ex:qualityRequirement-1; 
+    mqio:hasValidationReport ex:validationReport-1 .
+
+ex:qualityRequirement-1  a dqv:QualityMeasurement ;
+    dqv:value "true"^^xsd:boolean ;
+    dcterms:description "No qualiy issues remaining in the mapping." .
+
+ex:mappingValidationReport-1 a mqio:MappingValidationReport ;
+    prov:generatedAtTime  "2023-01-22T18:05:07+00:002023-01-22T18:07:07+00:00";
+    mqio:hasViolation ex:violation-0 . 
+    
+<recipes-mapping.ttl> a mqio:MappingDocument ;
+    mqio:wasCreatedBy ex:user-1;
+    mqio:hasPurpose "Research Project" ; 
+    prov:generatedAtTime  "2023-01-22T18:05:07+00:002023-01-22T18:07:07+00:00" . 
+    
+ex:user-1 a prov:Agent; 
+       foaf:name "Alex Randles" . 
+
+ex:refinement-0 a mqio:MappingRefinement ;
+    mqio:usedQuery """
+                PREFIX rr: <http://www.w3.org/ns/r2rml#>
+                DELETE { ?objectMap rr:datatype ?datatype }
+                INSERT { ?objectMap rr:datatype <http://www.w3.org/2001/XMLSchema#int> }
+                WHERE {
+                SELECT ?objectMap ?datatype
+                WHERE {
+                      ?objectMap rr:datatype ?datatype.
+                      FILTER(str(?objectMap) = <BLANK_ID>).
+                    }
+                }
+               """ ;
+    mqio:hasConfidence "0.75"^^xsd:double; 
+    prov:endedAtTime  "2023-01-22T18:05:07+00:002023-01-22T18:07:07+00:00";
+    prov:wasAssociatedWith ex:user-1; 
+    mqio:hasRefinementName "Add new preidcate"; 
+    mqio:refinedViolation ex:violation-0 .
+
+ex:violation-0 a mqio:MappingViolation ;
+    mqio:hasLocation "predicateObjectMap-1" ;
+    mqio:hasObjectValue recipes:stepNumber ;
+    mqio:inTripleMap <#RecipeStep> ;
+    mqio:isDescribedBy mqio:metric-D7 ;
+    mqio:hasResultMessage "Usage of incorrect datatype." ;
+    mqio:wasRefinedBy ex:refinement-0 .
+
+
