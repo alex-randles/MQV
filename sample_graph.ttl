@@ -14,18 +14,37 @@
 
 ex:mappingQualityAssessment a mqio:MappingAssessment ;
     mqio:assessedMapping <recipes-mapping.ttl> ;
-    mqio:wasExecuted  mqio:metric-D7 ;
+    mqv:wasExecuted mqio-metric:D1, 
+					mqio-metric:D2, 
+					mqio-metric:D3, 
+					mqio-metric:D4, 
+					mqio-metric:D5, 
+					mqio-metric:D6, 
+					mqio-metric:D7, 
+					mqio-metric:MP1, 
+					mqio-metric:MP2, 
+					mqio-metric:MP3, 
+					mqio-metric:MP4, 
+					mqio-metric:MP5, 
+					mqio-metric:MP6, 
+					mqio-metric:MP7, 
+					mqio-metric:MP8, 
+					mqio-metric:VOC1, 
+					mqio-metric:VOC2, 
+					mqio-metric:VOC3, 
+					mqio-metric:VOC4, 
+					mqio-metric:VOC5;
     mqio:usedTool "RML Editor";
     prov:wasAssociatedWith ex:user-1; 
     prov:endedAtTime  "2023-01-22T18:05:07+00:002023-01-22T18:07:07+00:00";
-    mqio:hasQualityRequirement ex:qualityRequirement-1; 
-    mqio:hasValidationReport ex:validationReport-1 .
+    mqio:hasQualityRequirement ex:qualityRequirement; 
+    mqio:hasValidationReport ex:validationReport .
 
-ex:qualityRequirement-1  a dqv:QualityMeasurement ;
+ex:qualityRequirement  a dqv:QualityMeasurement ;
     dqv:value "true"^^xsd:boolean ;
     dcterms:description "No qualiy issues remaining in the mapping." .
 
-ex:mappingValidationReport-1 a mqio:MappingValidationReport ;
+ex:mappingValidationReport a mqio:MappingValidationReport ;
     prov:generatedAtTime  "2023-01-22T18:05:07+00:002023-01-22T18:07:07+00:00";
     mqio:hasViolation ex:violation-0 . 
     
