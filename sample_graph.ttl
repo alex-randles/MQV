@@ -11,10 +11,11 @@
 @prefix dqv: <http://www.w3.org/ns/dqv#>.
 @prefix prov: <http://www.w3.org/ns/prov#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix geo: <http://www.opengis.net/ont/geosparql#>.
 
 ex:mappingQualityAssessment a mqio:MappingAssessment ;
     mqio:assessedMapping <recipes-mapping.ttl> ;
-    mqv:wasExecuted mqio-metric:D1, 
+    mqio:wasExecuted mqio-metric:D1, 
 					mqio-metric:D2, 
 					mqio-metric:D3, 
 					mqio-metric:D4, 
@@ -36,22 +37,32 @@ ex:mappingQualityAssessment a mqio:MappingAssessment ;
 					mqio-metric:VOC5;
     mqio:usedTool "RML Editor";
     prov:wasAssociatedWith ex:user-1; 
-    prov:endedAtTime  "2023-01-22T18:05:07+00:002023-01-22T18:07:07+00:00";
+    prov:endedAtTime  "2022-10-18T17:31:01.286820"^^xsd:dateTime;
     mqio:hasQualityRequirement ex:qualityRequirement; 
     mqio:hasValidationReport ex:validationReport .
-
-ex:qualityRequirement  a dqv:QualityMeasurement ;
+    
+ex:qualityRequirement a mqio:QualityRequirement;
+	rdfs:comment "Quality requirement associated with the mapping."; 
+	mqio:isSatisifed   "true"^^xsd:boolean ;
+	dqv:hasQualityMeasurement ex:qualityMeasurement-1, ex:qualityMeasurement-2 . 
+	
+    
+ex:qualityMeasurement-1  a dqv:QualityMeasurement ;
     dqv:value "true"^^xsd:boolean ;
-    dcterms:description "No qualiy issues remaining in the mapping." .
+    rdfs:comment "No mapping consistency issues remaining in the mapping." . 
 
+ex:qualityMeasurement-2  a dqv:QualityMeasurement ;
+    dqv:value "true"^^xsd:boolean ;
+    rdfs:comment "No data consistency issues remaining in the mapping." . 
+    
 ex:mappingValidationReport a mqio:MappingValidationReport ;
-    prov:generatedAtTime  "2023-01-22T18:05:07+00:002023-01-22T18:07:07+00:00";
+    prov:generatedAtTime  "2022-10-18T17:31:01.286820"^^xsd:dateTime;
     mqio:hasViolation ex:violation-0 . 
     
 <recipes-mapping.ttl> a mqio:MappingDocument ;
     mqio:wasCreatedBy ex:user-1;
     mqio:hasPurpose "Research Project" ; 
-    prov:generatedAtTime  "2023-01-22T18:05:07+00:002023-01-22T18:07:07+00:00" . 
+    prov:generatedAtTime  "2022-01-18T17:31:01.286820"^^xsd:dateTime . 
     
 ex:user-1 a prov:Agent; 
        foaf:name "Alex Randles" . 
@@ -59,28 +70,28 @@ ex:user-1 a prov:Agent;
 ex:refinement-0 a mqio:MappingRefinement ;
     mqio:usedQuery """
                 PREFIX rr: <http://www.w3.org/ns/r2rml#>
-                DELETE { ?objectMap rr:datatype ?datatype }
-                INSERT { ?objectMap rr:datatype <http://www.w3.org/2001/XMLSchema#int> }
+                DELETE { ?predicateObjectMap rr:predicate ?property }
+                INSERT { ?predicateObjectMap rr:predicate <http://www.opengis.net/ont/geosparql#asWKT> }
                 WHERE {
-                SELECT ?objectMap ?datatype
+                SELECT ?predicateObjectMap ?property
                 WHERE {
-                      ?objectMap rr:datatype ?datatype.
-                      FILTER(str(?objectMap) = <BLANK_ID>).
+                      ?predicateObjectMap rr:predicate ?property.
+                      FILTER(str(?predicateObjectMap) = <BLANK_ID>).
                     }
                 }
                """ ;
     mqio:hasConfidence "0.75"^^xsd:double; 
-    prov:endedAtTime  "2023-01-22T18:05:07+00:002023-01-22T18:07:07+00:00";
+    prov:endedAtTime  "2022-10-18T17:31:01.286820"^^xsd:dateTime;
     prov:wasAssociatedWith ex:user-1; 
-    mqio:hasRefinementName "Add new preidcate"; 
+    mqio:hasRefinementName "Find Similar Predicates"; 
     mqio:refinedViolation ex:violation-0 .
 
 ex:violation-0 a mqio:MappingViolation ;
     mqio:hasLocation "predicateObjectMap-1" ;
-    mqio:hasObjectValue recipes:stepNumber ;
-    mqio:inTripleMap <#RecipeStep> ;
-    mqio:isDescribedBy mqio:metric-D7 ;
-    mqio:hasResultMessage "Usage of incorrect datatype." ;
+    mqio:hasObjectValue geo:asWTK ;
+    mqio:inTripleMap <#TripleMap1> ;
+    mqio:isDescribedBy mqio:metric-D2 ;
+    mqio:hasResultMessage "Usage of undefined property." ;
     mqio:wasRefinedBy ex:refinement-0 .
 
 
